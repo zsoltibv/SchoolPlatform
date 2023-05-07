@@ -9,46 +9,54 @@
     <Grid>
         <Menu>
             <MenuItem Header="Elevi">
-                <MenuItem Header="Vezi Elevi" />
-                <MenuItem Header="Adauga Elev" />
-                <MenuItem Header="Sterge Elev" />
-                <MenuItem Header="Modifica Elev" />
+                <MenuItem Header="Vezi Elevi" Height="30"/>
+                <MenuItem Header="Adauga Elev" Height="30"/>
+                <MenuItem Header="Sterge Elev" Height="30"/>
+                <MenuItem Header="Modifica Elev" Height="30"/>
             </MenuItem>
             <MenuItem Header="Profesor">
-                <MenuItem Header="Vezi Profesori" />
-                <MenuItem Header="Adauga Profesor" />
-                <MenuItem Header="Sterge Profesor" />
-                <MenuItem Header="Modifica Profesor" />
-            </MenuItem>
-            <MenuItem Header="Materii">
-                <MenuItem Header="Vezi Materii" />
-                <MenuItem Header="Adauga Materie" />
-                <MenuItem Header="Sterge Materie" />
-                <MenuItem Header="Modifica Materie" />
-            </MenuItem>
-            <MenuItem Header="Specializari">
-                <MenuItem Header="Vezi Specializari" />
-                <MenuItem Header="Adauga Specializare" />
-                <MenuItem Header="Sterge Specializare" />
-                <MenuItem Header="Modifica Specializare" />
-            </MenuItem>
-            <MenuItem Header="Clase">
-                <MenuItem Header="Vezi Clase" />
-                <MenuItem Header="Adauga Clasa" />
-                <MenuItem Header="Sterge Clasa" />
-                <MenuItem Header="Modifica Specializara" />
-            </MenuItem>
+                <MenuItem Header="Vezi Profesori" Height="30"/>
+                <MenuItem Header="Adauga Profesor" Height="30"/>
+                <MenuItem Header="Sterge Profesor" Height="30"/>
+                <MenuItem Header="Modifica Profesor" Height="30"/>
+                </MenuItem>
+                <MenuItem Header="Materii">
+                    <MenuItem Header="Vezi Materii" Height="30"/>
+                    <MenuItem Header="Adauga Materie" Height="30"/>
+                    <MenuItem Header="Sterge Materie" Height="30"/>
+                    <MenuItem Header="Modifica Materie" Height="30"/>
+                </MenuItem>
+                <MenuItem Header="Specializari">
+                    <MenuItem Header="Vezi Specializari" Height="30"/>
+                    <MenuItem Header="Adauga Specializare" Height="30"/>
+                    <MenuItem Header="Sterge Specializare" Height="30"/>
+                    <MenuItem Header="Modifica Specializare" Height="30"/>
+                </MenuItem>
+                <MenuItem Header="Clase">
+                    <MenuItem Header="Vezi Clase" Height="30"/>
+                    <MenuItem Header="Adauga Clasa" Height="30"/>
+                    <MenuItem Header="Sterge Clasa" Height="30"/>
+                    <MenuItem Header="Modifica Specializara" Height="30"/>
+                </MenuItem>
         </Menu>
         <Label FontSize="24px" Content="Dashboard" HorizontalAlignment="Center" Margin="0,36,0,0" VerticalAlignment="Top" Height="44" Width="128"/>
         <ListView ItemsSource="{Binding Users}" Margin="10,104,10,10">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding UserName}" />
-                        <!-- Add more bindings for other user properties as needed -->
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="35"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                </Style>
+            </ListView.Resources>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Username" DisplayMemberBinding="{Binding UserName}" Width="100"/>
+                    <GridViewColumn Header="Role" DisplayMemberBinding="{Binding Role}" Width="100"/>
+                </GridView>
+            </ListView.View>
         </ListView>
     </Grid>
 </Window>

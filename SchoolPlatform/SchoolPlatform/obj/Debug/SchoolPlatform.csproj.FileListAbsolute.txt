@@ -95,8 +95,6 @@ V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj
 V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\SchoolPlatform.csproj.CopyComplete
 V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\SchoolPlatform.exe
 V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\SchoolPlatform.pdb
-V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Auth\Register.g.cs
-V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Auth\Register.baml
 Z:\SchoolPlatform\SchoolPlatform\SchoolPlatform\bin\Debug\SchoolPlatform.exe.config
 Z:\SchoolPlatform\SchoolPlatform\SchoolPlatform\bin\Debug\SchoolPlatform.exe
 Z:\SchoolPlatform\SchoolPlatform\SchoolPlatform\bin\Debug\SchoolPlatform.pdb
@@ -198,3 +196,7 @@ Z:\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Auth\LoginView.g
 Z:\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Auth\LoginView.baml
 Z:\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Admin\DashboardView.g.cs
 Z:\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Admin\DashboardView.baml
+V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Admin\DashboardView.g.cs
+V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Auth\LoginView.g.cs
+V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Admin\DashboardView.baml
+V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Auth\LoginView.baml
