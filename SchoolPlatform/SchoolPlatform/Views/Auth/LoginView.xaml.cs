@@ -11,20 +11,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SchoolPlatform
+namespace SchoolPlatform.Views.Auth
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginView : Window
     {
-        public MainWindow()
+        LoginViewModel _loginVM;
+        public LoginView()
         {
             InitializeComponent();
-            LoginViewModel users = new LoginViewModel();
+            _loginVM = new LoginViewModel();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            _loginVM.Authenticate(this, UserNameInput.Text, PasswordInput.Password);
         }
     }
 }
