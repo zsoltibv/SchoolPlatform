@@ -24,7 +24,7 @@ namespace SchoolPlatform.ViewModels
         {
             User user = UserDataAccess.GetUserByUsernameAndPassword(username, password);
             if(user != null) {
-                if (user.Role == UserRole.Administrator)
+                if (user.UserType == UserType.Administrator)
                 {
                     Views.Admin.DashboardView dashboardView = new Views.Admin.DashboardView();
                     dashboardView.Show();

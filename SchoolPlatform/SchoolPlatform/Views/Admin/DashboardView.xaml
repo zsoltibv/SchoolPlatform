@@ -39,7 +39,7 @@
                     <MenuItem Header="Modifica Specializara" Height="30"/>
                 </MenuItem>
         </Menu>
-        <Label FontSize="24px" Content="Dashboard" HorizontalAlignment="Center" Margin="0,36,0,0" VerticalAlignment="Top" Height="44" Width="128"/>
+        <Label FontSize="24px" Content="Elevi" HorizontalAlignment="Center" Margin="0,36,0,0" VerticalAlignment="Top" Height="44" Width="61"/>
         <ListView ItemsSource="{Binding Users}" Margin="10,104,10,10">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">

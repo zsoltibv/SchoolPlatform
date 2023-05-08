@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SchoolPlatform.Models
 {
-    public enum UserRole
+    public enum UserType
     {
         None,
         Administrator,

@@ -9,18 +9,18 @@ namespace SchoolPlatform.Models
 {
     public class User
     {
-        public int Id { get; set; }
+        public int UserId { get; set; }
 
         public string UserName { get; set; }
 
         public string Password { get; set; }
 
-        public UserRole Role { get; set; }
+        public UserType UserType { get; set; }
 
-        public User(string userName, string password, UserRole role) {
+        public User(string userName, string password, UserType userType) {
             UserName = userName;
             Password = password;
-            Role = role;
+            UserType = userType;
         }
     }
 }

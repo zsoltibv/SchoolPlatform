@@ -176,9 +176,9 @@
     <Compile Include="DAL\UserDataAccess.cs" />
     <Compile Include="Data\DataContextSingleton.cs" />
     <Compile Include="INotifyPropertyChanged.cs" />
-    <Compile Include="Migrations\20230507143433_InitialCreate.cs" />
-    <Compile Include="Migrations\20230507143433_InitialCreate.designer.cs">
-      <DependentUpon>20230507143433_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\20230508191808_Initial.cs" />
+    <Compile Include="Migrations\20230508191808_Initial.designer.cs">
+      <DependentUpon>20230508191808_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataContextModelSnapshot.cs" />
     <Compile Include="ViewModels\AdminDashboardViewModel.cs" />
@@ -212,7 +212,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\UserRole.cs" />
+    <Compile Include="Models\UserType.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
