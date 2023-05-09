@@ -2,10 +2,23 @@
 
 namespace SchoolPlatform.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Students",
+                columns: table => new
+                {
+                    StudentId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StudentName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Students", x => x.StudentId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
@@ -14,6 +27,7 @@ namespace SchoolPlatform.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserName = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
+                    UserTypeId = table.Column<int>(nullable: false),
                     UserType = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -24,6 +38,9 @@ namespace SchoolPlatform.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Students");
+
             migrationBuilder.DropTable(
                 name: "Users");
         }

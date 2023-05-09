@@ -11,7 +11,7 @@ namespace SchoolPlatform.ViewModels
 {
     public class AdminDashboardViewModel : INotifyPropertyChanged
     {
-        UserDataAccess UserDataAccess;
+        UserDataAccess _userDataAccess;
         private ObservableCollection<User> users;
         public ObservableCollection<User> Users
         {
@@ -25,8 +25,8 @@ namespace SchoolPlatform.ViewModels
 
         public AdminDashboardViewModel()
         {
-            UserDataAccess = new UserDataAccess();
-            Users = new ObservableCollection<User>(UserDataAccess.GetAllUsers());
+            _userDataAccess = new UserDataAccess();
+            Users = new ObservableCollection<User>(_userDataAccess.GetAllUsers());
         }
     }
 }

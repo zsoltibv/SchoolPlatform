@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SchoolPlatform.Views.Student;
 
 namespace SchoolPlatform.Views.Admin
 {
@@ -26,6 +27,12 @@ namespace SchoolPlatform.Views.Admin
             InitializeComponent();
             _adminDashboardVM = new AdminDashboardViewModel();
             DataContext = _adminDashboardVM;
+        }
+
+        private void AddStudent_Click(object sender, RoutedEventArgs e)
+        {
+            AddOrEditStudent window = new AddOrEditStudent();
+            window.ShowDialog();
         }
     }
 }

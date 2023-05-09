@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\App.xaml
-3-1125232575
+41901572329
 
-19-73017659
+24-1320612519
 55582567680
-MainWindow.xaml;Views\Admin\DashboardView.xaml;Views\Auth\LoginView.xaml;
+MainWindow.xaml;Views\Admin\DashboardView.xaml;Views\Auth\LoginView.xaml;Views\Student\AddOrEditStudent.xaml;
 
 False
 

@@ -9,9 +9,9 @@ namespace SchoolPlatform.Models
     public enum UserType
     {
         None,
-        Administrator,
-        Profesor,
-        Diriginte,
-        Elev
+        Admin,
+        Professor,
+        ClassMaster,
+        Student
     }
 }

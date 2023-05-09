@@ -5,58 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolPlatform.Views.Admin"
         mc:Ignorable="d"
-        Title="Dashboard" Height="600" Width="1000">
+        Title="Admin Dashboard" Height="600" Width="1000">
     <Grid>
-        <Menu>
-            <MenuItem Header="Elevi">
-                <MenuItem Header="Vezi Elevi" Height="30"/>
-                <MenuItem Header="Adauga Elev" Height="30"/>
-                <MenuItem Header="Sterge Elev" Height="30"/>
-                <MenuItem Header="Modifica Elev" Height="30"/>
-            </MenuItem>
-            <MenuItem Header="Profesor">
-                <MenuItem Header="Vezi Profesori" Height="30"/>
-                <MenuItem Header="Adauga Profesor" Height="30"/>
-                <MenuItem Header="Sterge Profesor" Height="30"/>
-                <MenuItem Header="Modifica Profesor" Height="30"/>
-                </MenuItem>
-                <MenuItem Header="Materii">
-                    <MenuItem Header="Vezi Materii" Height="30"/>
-                    <MenuItem Header="Adauga Materie" Height="30"/>
-                    <MenuItem Header="Sterge Materie" Height="30"/>
-                    <MenuItem Header="Modifica Materie" Height="30"/>
-                </MenuItem>
-                <MenuItem Header="Specializari">
-                    <MenuItem Header="Vezi Specializari" Height="30"/>
-                    <MenuItem Header="Adauga Specializare" Height="30"/>
-                    <MenuItem Header="Sterge Specializare" Height="30"/>
-                    <MenuItem Header="Modifica Specializare" Height="30"/>
-                </MenuItem>
-                <MenuItem Header="Clase">
-                    <MenuItem Header="Vezi Clase" Height="30"/>
-                    <MenuItem Header="Adauga Clasa" Height="30"/>
-                    <MenuItem Header="Sterge Clasa" Height="30"/>
-                    <MenuItem Header="Modifica Specializara" Height="30"/>
-                </MenuItem>
-        </Menu>
-        <Label FontSize="24px" Content="Elevi" HorizontalAlignment="Center" Margin="0,36,0,0" VerticalAlignment="Top" Height="44" Width="61"/>
-        <ListView ItemsSource="{Binding Users}" Margin="10,104,10,10">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="Height" Value="35"/>
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.Resources>
-                <Style TargetType="GridViewColumnHeader">
-                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
-                </Style>
-            </ListView.Resources>
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Username" DisplayMemberBinding="{Binding UserName}" Width="100"/>
-                    <GridViewColumn Header="Role" DisplayMemberBinding="{Binding Role}" Width="100"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <TabControl>
+            <TabItem Header="Students">
+                <Grid>
+                    <Label FontSize="24px" Content="Students" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="104"/>
+                    <ListView ItemsSource="{Binding Users}" Margin="10,69,10,80">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Height" Value="35"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.Resources>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Username" DisplayMemberBinding="{Binding UserName}" Width="100"/>
+                                <GridViewColumn Header="Role" DisplayMemberBinding="{Binding UserType}" Width="100"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,476,0,15">
+                        <Button Name="AddStudent" Content="Add Student" Width="100" Margin="5" Click="AddStudent_Click"/>
+                        <Button Name="DeleteStudent" Content="Delete Student" Width="100" Margin="5"/>
+                        <Button Name="EditStudent" Content="Edit Student" Width="100" Margin="5"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Add more TabItems for other sections... -->
+        </TabControl>
     </Grid>
 </Window>

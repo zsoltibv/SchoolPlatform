@@ -4,6 +4,7 @@ using SchoolPlatform.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +16,7 @@ namespace SchoolPlatform.DAL
         public UserDataAccess()
         {
             _dbContext = DataContextSingleton.Instance;
+            DbSeeder.SeedAdminUser(_dbContext);
         }
 
         public List<User> GetAllUsers()

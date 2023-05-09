@@ -9,8 +9,8 @@ using SchoolPlatform;
 namespace SchoolPlatform.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230508191808_Initial")]
-    partial class Initial
+    [Migration("20230509110748_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,21 @@ namespace SchoolPlatform.Migrations
                 .HasAnnotation("ProductVersion", "3.1.32")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("SchoolPlatform.Models.Student", b =>
+                {
+                    b.Property<int>("StudentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("StudentName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("StudentId");
+
+                    b.ToTable("Students");
+                });
 
             modelBuilder.Entity("SchoolPlatform.Models.User", b =>
                 {
@@ -34,6 +49,9 @@ namespace SchoolPlatform.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserType")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserTypeId")
                         .HasColumnType("int");
 
                     b.HasKey("UserId");

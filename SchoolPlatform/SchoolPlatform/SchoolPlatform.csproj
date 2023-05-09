@@ -173,21 +173,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DAL\DbSeeder.cs" />
+    <Compile Include="DAL\StudentDataAccess.cs" />
     <Compile Include="DAL\UserDataAccess.cs" />
     <Compile Include="Data\DataContextSingleton.cs" />
     <Compile Include="INotifyPropertyChanged.cs" />
-    <Compile Include="Migrations\20230508191808_Initial.cs" />
-    <Compile Include="Migrations\20230508191808_Initial.designer.cs">
-      <DependentUpon>20230508191808_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\20230509110748_InitialCreate.cs" />
+    <Compile Include="Migrations\20230509110748_InitialCreate.designer.cs">
+      <DependentUpon>20230509110748_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataContextModelSnapshot.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="ViewModels\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="Views\Admin\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Auth\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Student\AddOrEditStudent.xaml.cs">
+      <DependentUpon>AddOrEditStudent.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -207,6 +214,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Auth\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Student\AddOrEditStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -18,6 +18,21 @@ namespace SchoolPlatform.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("SchoolPlatform.Models.Student", b =>
+                {
+                    b.Property<int>("StudentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("StudentName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("StudentId");
+
+                    b.ToTable("Students");
+                });
+
             modelBuilder.Entity("SchoolPlatform.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -32,6 +47,9 @@ namespace SchoolPlatform.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserType")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserTypeId")
                         .HasColumnType("int");
 
                     b.HasKey("UserId");
