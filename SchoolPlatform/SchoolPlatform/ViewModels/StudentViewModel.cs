@@ -54,7 +54,7 @@ namespace SchoolPlatform.ViewModels
 
                 StudentsWithUser.Add(new StudentWithUser(student, user));
             }
-            else
+            else if(SelectedStudent != null)
             {
                 User user = new User(UserName, Password, UserType.Student);
                 Student student = new Student(user.UserId, FullName);
@@ -63,6 +63,10 @@ namespace SchoolPlatform.ViewModels
                 _studentDataAccess.UpdateStudent(student, SelectedStudent.Student.StudentId);
 
                 RefreshStudentList();
+            }
+            else
+            {
+                MessageBox.Show("No selected entity!");
             }
         }
 
