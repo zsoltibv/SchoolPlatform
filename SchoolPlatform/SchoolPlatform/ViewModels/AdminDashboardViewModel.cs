@@ -9,24 +9,22 @@ using System.Threading.Tasks;
 
 namespace SchoolPlatform.ViewModels
 {
-    public class AdminDashboardViewModel : INotifyPropertyChanged
+    public class AdminDashboardViewModel : BaseNotification
     {
-        UserDataAccess _userDataAccess;
-        private ObservableCollection<User> users;
-        public ObservableCollection<User> Users
+        private StudentViewModel _studentViewModel;
+        public StudentViewModel StudentViewModel
         {
-            get { return users; }
+            get { return _studentViewModel; }
             set
             {
-                users = value;
-                NotifyPropertyChanged();
+                _studentViewModel = value;
+                NotifyPropertyChanged(nameof(StudentViewModel));
             }
         }
 
         public AdminDashboardViewModel()
         {
-            _userDataAccess = new UserDataAccess();
-            Users = new ObservableCollection<User>(_userDataAccess.GetAllUsers());
+            _studentViewModel = new StudentViewModel();
         }
     }
 }

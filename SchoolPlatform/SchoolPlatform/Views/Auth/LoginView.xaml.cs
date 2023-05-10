@@ -20,16 +20,16 @@ namespace SchoolPlatform.Views.Auth
     /// </summary>
     public partial class LoginView : Window
     {
-        LoginViewModel _loginVM;
+        LoginViewModel _loginViewModel;
         public LoginView()
         {
             InitializeComponent();
-            _loginVM = new LoginViewModel();
+            _loginViewModel = new LoginViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _loginVM.Authenticate(this, UserNameInput.Text, PasswordInput.Password);
+            _loginViewModel.Authenticate(this, UserNameInput.Text, PasswordInput.Password);
         }
     }
 }

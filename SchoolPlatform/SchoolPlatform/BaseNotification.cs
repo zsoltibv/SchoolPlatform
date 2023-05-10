@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace SchoolPlatform
 {
-    public class INotifyPropertyChanged
+    public class BaseNotification : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        protected void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

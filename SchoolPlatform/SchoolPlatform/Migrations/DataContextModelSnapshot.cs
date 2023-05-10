@@ -28,7 +28,12 @@ namespace SchoolPlatform.Migrations
                     b.Property<string>("StudentName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("StudentId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Students");
                 });
@@ -49,12 +54,18 @@ namespace SchoolPlatform.Migrations
                     b.Property<int>("UserType")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserTypeId")
-                        .HasColumnType("int");
-
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("SchoolPlatform.Models.Student", b =>
+                {
+                    b.HasOne("SchoolPlatform.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

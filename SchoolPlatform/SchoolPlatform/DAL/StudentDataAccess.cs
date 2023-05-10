@@ -6,6 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SchoolPlatform.Models;
+using Microsoft.EntityFrameworkCore;
+using SchoolPlatform.ViewModels;
+using System.Runtime.Remoting.Contexts;
+using System.Collections.ObjectModel;
 
 namespace SchoolPlatform.DAL
 {
@@ -21,6 +25,19 @@ namespace SchoolPlatform.DAL
         {
             _dbContext.Students.Add(student);
             _dbContext.SaveChanges();
+        }
+
+        public ObservableCollection<StudentWithUser> GetStudentsWithUser()
+        {
+            ObservableCollection<StudentWithUser> studentsWithUsers = new ObservableCollection<StudentWithUser>();
+            var students = _dbContext.Students.Include(s => s.User).ToList();
+
+            foreach (var student in students)
+            {
+                studentsWithUsers.Add(new StudentWithUser(student, student.User));
+            }
+
+            return studentsWithUsers;
         }
     }
 }

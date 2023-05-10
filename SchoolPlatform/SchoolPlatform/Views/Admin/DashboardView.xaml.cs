@@ -21,17 +21,14 @@ namespace SchoolPlatform.Views.Admin
     /// </summary>
     public partial class DashboardView : Window
     {
-        AdminDashboardViewModel _adminDashboardVM;
         public DashboardView()
         {
             InitializeComponent();
-            _adminDashboardVM = new AdminDashboardViewModel();
-            DataContext = _adminDashboardVM;
         }
 
         private void AddStudent_Click(object sender, RoutedEventArgs e)
         {
-            AddOrEditStudent window = new AddOrEditStudent();
+            AddOrEditStudent window = new AddOrEditStudent((AdminDashboardViewModel)DataContext);
             window.ShowDialog();
         }
     }

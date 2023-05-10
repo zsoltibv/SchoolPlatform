@@ -9,7 +9,7 @@ using SchoolPlatform;
 namespace SchoolPlatform.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230509110748_InitialCreate")]
+    [Migration("20230510121905_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,7 +30,12 @@ namespace SchoolPlatform.Migrations
                     b.Property<string>("StudentName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("StudentId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Students");
                 });
@@ -51,12 +56,18 @@ namespace SchoolPlatform.Migrations
                     b.Property<int>("UserType")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserTypeId")
-                        .HasColumnType("int");
-
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("SchoolPlatform.Models.Student", b =>
+                {
+                    b.HasOne("SchoolPlatform.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

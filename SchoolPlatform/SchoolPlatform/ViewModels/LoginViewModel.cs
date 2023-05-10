@@ -10,12 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using SchoolPlatform.Views.Auth;
 using System.Windows;
+using SchoolPlatform.Views.Admin;
 
 namespace SchoolPlatform.ViewModels
 {
     public class LoginViewModel
     {
-        UserDataAccess _userDataAccess;
+        private UserDataAccess _userDataAccess;
         public LoginViewModel() {
             _userDataAccess = new UserDataAccess();
         }

@@ -9,18 +9,52 @@ using System.Threading.Tasks;
 
 namespace SchoolPlatform.Models
 {
-    public class User
+    public class User : BaseNotification
     {
         [Key]
-        public int UserId { get; set; }
+        private int _userId;
+        public int UserId
+        {
+            get { return _userId; }
+            set
+            {
+                _userId = value;
+                NotifyPropertyChanged("UserId");
+            }
+        }
 
-        public string UserName { get; set; }
+        private string _userName;
+        public string UserName
+        {
+            get { return _userName; }
+            set
+            {
+                _userName = value;
+                NotifyPropertyChanged("UserName");
+            }
+        }
 
-        public string Password { get; set; }
+        private string _password;
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                NotifyPropertyChanged("Password");
+            }
+        }
 
-        [ForeignKey("UserType")]
-        public int UserTypeId { get; set; }
-        public UserType UserType { get; set; }
+        private UserType _userType;
+        public UserType UserType
+        {
+            get { return _userType; }
+            set
+            {
+                _userType = value;
+                NotifyPropertyChanged("UserType");
+            }
+        }
 
         public User()
         {

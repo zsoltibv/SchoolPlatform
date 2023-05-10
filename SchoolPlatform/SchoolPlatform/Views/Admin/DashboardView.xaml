@@ -3,15 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SchoolPlatform.Views.Admin"
+        xmlns:local="clr-namespace:SchoolPlatform.ViewModels"
         mc:Ignorable="d"
         Title="Admin Dashboard" Height="600" Width="1000">
+    <Window.DataContext>
+        <local:AdminDashboardViewModel />
+    </Window.DataContext>
     <Grid>
         <TabControl>
-            <TabItem Header="Students">
+            <TabItem Header="Students" DataContext="{Binding StudentViewModel}">
                 <Grid>
                     <Label FontSize="24px" Content="Students" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="104"/>
-                    <ListView ItemsSource="{Binding Users}" Margin="10,69,10,80">
+                    <ListView ItemsSource="{Binding StudentsWithUser}" Margin="10,69,10,80">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="Height" Value="35"/>
@@ -24,8 +27,10 @@
                         </ListView.Resources>
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Username" DisplayMemberBinding="{Binding UserName}" Width="100"/>
-                                <GridViewColumn Header="Role" DisplayMemberBinding="{Binding UserType}" Width="100"/>
+                                <GridViewColumn Header="Username" DisplayMemberBinding="{Binding User.UserName}" Width="100"/>
+                                <GridViewColumn Header="Password" DisplayMemberBinding="{Binding User.Password}" Width="100"/>
+                                <GridViewColumn Header="Role" DisplayMemberBinding="{Binding User.UserType}" Width="100"/>
+                                <GridViewColumn Header="Full Name" DisplayMemberBinding="{Binding Student.StudentName}" Width="100"/>
                             </GridView>
                         </ListView.View>
                     </ListView>

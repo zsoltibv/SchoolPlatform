@@ -177,13 +177,15 @@
     <Compile Include="DAL\StudentDataAccess.cs" />
     <Compile Include="DAL\UserDataAccess.cs" />
     <Compile Include="Data\DataContextSingleton.cs" />
-    <Compile Include="INotifyPropertyChanged.cs" />
-    <Compile Include="Migrations\20230509110748_InitialCreate.cs" />
-    <Compile Include="Migrations\20230509110748_InitialCreate.designer.cs">
-      <DependentUpon>20230509110748_InitialCreate.cs</DependentUpon>
+    <Compile Include="BaseNotification.cs" />
+    <Compile Include="Migrations\20230510121905_InitialCreate.cs" />
+    <Compile Include="Migrations\20230510121905_InitialCreate.designer.cs">
+      <DependentUpon>20230510121905_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataContextModelSnapshot.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentWithUser.cs" />
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModels\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
