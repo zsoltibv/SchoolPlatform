@@ -28,7 +28,13 @@ namespace SchoolPlatform.Views.Admin
 
         private void AddStudent_Click(object sender, RoutedEventArgs e)
         {
-            AddOrEditStudent window = new AddOrEditStudent((AdminDashboardViewModel)DataContext);
+            AddOrEditStudent window = new AddOrEditStudent((AdminDashboardViewModel)DataContext, false);
+            window.ShowDialog();
+        }
+
+        private void EditStudent_Click(object sender, RoutedEventArgs e)
+        {
+            AddOrEditStudent window = new AddOrEditStudent((AdminDashboardViewModel)DataContext, true);
             window.ShowDialog();
         }
     }

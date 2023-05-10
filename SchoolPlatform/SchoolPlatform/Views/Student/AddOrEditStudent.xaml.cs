@@ -21,10 +21,21 @@ namespace SchoolPlatform.Views.Student
     /// </summary>
     public partial class AddOrEditStudent : Window
     {
-        public AddOrEditStudent(AdminDashboardViewModel adminDashboardViewModel)
+        StudentViewModel _studentViewModel;
+        public AddOrEditStudent(AdminDashboardViewModel adminDashboardViewModel, bool editMode)
         {
             InitializeComponent();
             DataContext = adminDashboardViewModel.StudentViewModel;
+            _studentViewModel = adminDashboardViewModel.StudentViewModel;
+            
+            _studentViewModel.EditMode = editMode;
+
+            if(editMode )
+            {
+                _studentViewModel.UserName = _studentViewModel.SelectedStudent.User.UserName;
+                _studentViewModel.Password = _studentViewModel.SelectedStudent.User.Password;
+                _studentViewModel.FullName = _studentViewModel.SelectedStudent.Student.StudentName;
+            }
         }
     }
 }

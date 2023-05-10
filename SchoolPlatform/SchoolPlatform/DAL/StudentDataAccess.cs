@@ -23,6 +23,11 @@ namespace SchoolPlatform.DAL
             _userDataAccess = new UserDataAccess();
         }
 
+        public Student GetStudentById(int id)
+        {
+            return _dbContext.Students.FirstOrDefault(u => u.StudentId == id);
+        }
+
         public void AddStudent(Student student)
         {
             _dbContext.Students.Add(student);
@@ -33,6 +38,17 @@ namespace SchoolPlatform.DAL
         {
             _dbContext.Students.Remove(student);
             _dbContext.SaveChanges();
+        }
+
+        public void UpdateStudent(Student student, int id)
+        {
+            var existingStudent = GetStudentById(id);
+
+            if (existingStudent != null)
+            {
+                existingStudent.StudentName = student.StudentName;
+                _dbContext.SaveChanges();
+            }
         }
 
         public ObservableCollection<StudentWithUser> GetStudentsWithUser()

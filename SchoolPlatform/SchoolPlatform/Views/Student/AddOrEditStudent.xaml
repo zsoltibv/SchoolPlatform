@@ -14,7 +14,7 @@
         <Label Content="Password:" HorizontalAlignment="Left" Margin="189,167,0,0" VerticalAlignment="Top"/>
         <Label Content="UserName:" HorizontalAlignment="Left" Margin="186,83,0,0" VerticalAlignment="Top"/>
         <Label FontSize="24px" Content="Add or Edit Student&#xA;" HorizontalAlignment="Left" Margin="189,34,0,0" VerticalAlignment="Top" Height="44" Width="280"/>
-        <Button Command="{Binding AddStudentCommand}" Content="Add Student" HorizontalAlignment="Left" Margin="192,332,0,0" VerticalAlignment="Top" Height="38" Width="370"/>
+        <Button Command="{Binding AddOrEditStudentCommand}" Content="Add Student" HorizontalAlignment="Left" Margin="192,332,0,0" VerticalAlignment="Top" Height="38" Width="370"/>
 
     </Grid>
 </Window>

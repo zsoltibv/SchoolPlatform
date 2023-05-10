@@ -31,6 +31,7 @@ namespace SchoolPlatform.ViewModels
         public string UserName { get; set; }
         public string Password { get; set; }
         public string FullName { get; set; }
+        public bool EditMode { get; set; }
 
         public StudentWithUser SelectedStudent { get; set; }
 
@@ -41,15 +42,28 @@ namespace SchoolPlatform.ViewModels
             StudentsWithUser = new ObservableCollection<StudentWithUser>(_studentDataAccess.GetStudentsWithUser());
         }
 
-        public void AddStudent(object param)
+        public void AddOrEditStudent(object param)
         {
-            User user = new User(UserName, Password, UserType.Student);
-            _userDataAccess.AddUser(user);
+            if (!EditMode)
+            {
+                User user = new User(UserName, Password, UserType.Student);
+                _userDataAccess.AddUser(user);
 
-            Student student = new Student(user.UserId, FullName);
-            _studentDataAccess.AddStudent(student);
+                Student student = new Student(user.UserId, FullName);
+                _studentDataAccess.AddStudent(student);
 
-            StudentsWithUser.Add(new StudentWithUser(student, user));
+                StudentsWithUser.Add(new StudentWithUser(student, user));
+            }
+            else
+            {
+                User user = new User(UserName, Password, UserType.Student);
+                Student student = new Student(user.UserId, FullName);
+
+                _userDataAccess.UpdateUser(user, SelectedStudent.User.UserId);
+                _studentDataAccess.UpdateStudent(student, SelectedStudent.Student.StudentId);
+
+                RefreshStudentList();
+            }
         }
 
         public void DeleteStudent(object param)
@@ -78,16 +92,16 @@ namespace SchoolPlatform.ViewModels
             }
         }
 
-        private ICommand _addStudentCommand;
-        public ICommand AddStudentCommand
+        private ICommand _addOrEditStudentCommand;
+        public ICommand AddOrEditStudentCommand
         {
             get
             {
-                if (_addStudentCommand == null)
+                if (_addOrEditStudentCommand == null)
                 {
-                    _addStudentCommand = new RelayCommand<object>(AddStudent);
+                    _addOrEditStudentCommand = new RelayCommand<object>(AddOrEditStudent);
                 }
-                return _addStudentCommand;
+                return _addOrEditStudentCommand;
             }
         }
 

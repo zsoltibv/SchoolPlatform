@@ -41,10 +41,16 @@ namespace SchoolPlatform.DAL
             _dbContext.SaveChanges();
         }
 
-        public void UpdateUser(User user)
+        public void UpdateUser(User user, int id)
         {
-            _dbContext.Entry(user).State = EntityState.Modified;
-            _dbContext.SaveChanges();
+            var existingUser = GetUserById(id);
+
+            if (existingUser != null)
+            {
+                existingUser.UserName = user.UserName;
+                existingUser.Password = user.Password;
+                _dbContext.SaveChanges();
+            }
         }
 
         public User GetUserByUsernameAndPassword(string username, string password)

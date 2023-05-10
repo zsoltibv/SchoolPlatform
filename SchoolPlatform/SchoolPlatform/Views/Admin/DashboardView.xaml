@@ -37,7 +37,7 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,476,0,15">
                         <Button Name="AddStudent" Content="Add Student" Width="100" Margin="5" Click="AddStudent_Click"/>
                         <Button Command="{Binding DeleteStudentCommand}" CommandParameter="{Binding SelectedStudent}" Name="DeleteStudent" Content="Delete Student" Width="100" Margin="5"/>
-                        <Button Name="EditStudent" Content="Edit Student" Width="100" Margin="5"/>
+                        <Button Name="EditStudent" Content="Edit Student" Width="100" Margin="5" Click="EditStudent_Click"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
