@@ -15,15 +15,23 @@ namespace SchoolPlatform.DAL
 {
     public class StudentDataAccess
     {
+        UserDataAccess _userDataAccess;
         private readonly DataContext _dbContext;
         public StudentDataAccess()
         {
             _dbContext = DataContextSingleton.Instance;
+            _userDataAccess = new UserDataAccess();
         }
 
         public void AddStudent(Student student)
         {
             _dbContext.Students.Add(student);
+            _dbContext.SaveChanges();
+        }
+
+        public void DeleteStudent(Student student)
+        {
+            _dbContext.Students.Remove(student);
             _dbContext.SaveChanges();
         }
 

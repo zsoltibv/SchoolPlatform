@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="AddOrEditStudent" Height="450" Width="800">
     <Grid>
-        <TextBox FontSize="24px" Name="txtUsername" HorizontalAlignment="Left" Margin="192,114,0,0" TextWrapping="Wrap" Text="student" VerticalAlignment="Top" Width="370" Height="38"/>
-        <TextBox FontSize="24px" Name="txtPassword" HorizontalAlignment="Left" Margin="192,0,0,0" TextWrapping="Wrap" Text="pass" VerticalAlignment="Center" Width="370" Height="38"/>
-        <TextBox FontSize="24px" Name="txtFullName" HorizontalAlignment="Left" Margin="192,272,0,0" TextWrapping="Wrap" Text="John Doe" VerticalAlignment="Top" Width="370" Height="38"/>
+        <TextBox FontSize="24px" Name="txtUsername" HorizontalAlignment="Left" Margin="192,114,0,0" TextWrapping="Wrap" Text="{Binding UserName}" VerticalAlignment="Top" Width="370" Height="38"/>
+        <TextBox FontSize="24px" Name="txtPassword" HorizontalAlignment="Left" Margin="192,0,0,0" TextWrapping="Wrap" Text="{Binding Password}" VerticalAlignment="Center" Width="370" Height="38"/>
+        <TextBox FontSize="24px" Name="txtFullName" HorizontalAlignment="Left" Margin="192,272,0,0" TextWrapping="Wrap" Text="{Binding FullName}" VerticalAlignment="Top" Width="370" Height="38"/>
         <Label Content="Full Name:" HorizontalAlignment="Left" Margin="186,241,0,0" VerticalAlignment="Top"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="189,167,0,0" VerticalAlignment="Top"/>
         <Label Content="UserName:" HorizontalAlignment="Left" Margin="186,83,0,0" VerticalAlignment="Top"/>
         <Label FontSize="24px" Content="Add or Edit Student&#xA;" HorizontalAlignment="Left" Margin="189,34,0,0" VerticalAlignment="Top" Height="44" Width="280"/>
-        <Button Content="Add Student" HorizontalAlignment="Left" Margin="192,332,0,0" VerticalAlignment="Top" Height="38" Width="370" Click="AddStudent_ButtonClick"/>
+        <Button Command="{Binding AddStudentCommand}" Content="Add Student" HorizontalAlignment="Left" Margin="192,332,0,0" VerticalAlignment="Top" Height="38" Width="370"/>
 
     </Grid>
 </Window>

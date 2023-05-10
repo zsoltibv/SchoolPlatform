@@ -14,7 +14,7 @@
             <TabItem Header="Students" DataContext="{Binding StudentViewModel}">
                 <Grid>
                     <Label FontSize="24px" Content="Students" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="104"/>
-                    <ListView ItemsSource="{Binding StudentsWithUser}" Margin="10,69,10,80">
+                    <ListView ItemsSource="{Binding StudentsWithUser}" SelectedItem="{Binding SelectedStudent}" Margin="10,69,10,80">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="Height" Value="35"/>
@@ -36,7 +36,7 @@
                     </ListView>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,476,0,15">
                         <Button Name="AddStudent" Content="Add Student" Width="100" Margin="5" Click="AddStudent_Click"/>
-                        <Button Name="DeleteStudent" Content="Delete Student" Width="100" Margin="5"/>
+                        <Button Command="{Binding DeleteStudentCommand}" CommandParameter="{Binding SelectedStudent}" Name="DeleteStudent" Content="Delete Student" Width="100" Margin="5"/>
                         <Button Name="EditStudent" Content="Edit Student" Width="100" Margin="5"/>
                     </StackPanel>
                 </Grid>

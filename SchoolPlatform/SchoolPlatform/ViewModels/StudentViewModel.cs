@@ -8,6 +8,7 @@ using SchoolPlatform.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Forms;
 using System.Windows.Input;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace SchoolPlatform.ViewModels
 {
@@ -27,6 +28,12 @@ namespace SchoolPlatform.ViewModels
             }
         }
 
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string FullName { get; set; }
+
+        public StudentWithUser SelectedStudent { get; set; }
+
         public StudentViewModel()
         {
             _userDataAccess = new UserDataAccess();
@@ -34,16 +41,67 @@ namespace SchoolPlatform.ViewModels
             StudentsWithUser = new ObservableCollection<StudentWithUser>(_studentDataAccess.GetStudentsWithUser());
         }
 
-        public void AddStudent(string username, string password, string fullName)
+        public void AddStudent(object param)
         {
-            User user = new User(username, password, UserType.Student);
+            User user = new User(UserName, Password, UserType.Student);
             _userDataAccess.AddUser(user);
 
-            Student student = new Student(user.UserId, fullName);
+            Student student = new Student(user.UserId, FullName);
             _studentDataAccess.AddStudent(student);
 
-            StudentWithUser studentWithUser = new StudentWithUser(student, user);
-            StudentsWithUser.Add(studentWithUser);
+            StudentsWithUser.Add(new StudentWithUser(student, user));
+        }
+
+        public void DeleteStudent(object param)
+        {
+            if(SelectedStudent != null) { 
+                int idToRemove = SelectedStudent.User.UserId;
+
+                User user = _userDataAccess.GetUserById(idToRemove);
+                _userDataAccess.DeleteUser(user);
+            }
+            else
+            {
+                MessageBox.Show("No selected entity!");
+            }
+
+            RefreshStudentList();
+        }
+
+        public void RefreshStudentList()
+        {
+            var list = _studentDataAccess.GetStudentsWithUser();
+            StudentsWithUser.Clear();
+            foreach (var item in list)
+            {
+                StudentsWithUser.Add(item);
+            }
+        }
+
+        private ICommand _addStudentCommand;
+        public ICommand AddStudentCommand
+        {
+            get
+            {
+                if (_addStudentCommand == null)
+                {
+                    _addStudentCommand = new RelayCommand<object>(AddStudent);
+                }
+                return _addStudentCommand;
+            }
+        }
+
+        private ICommand _deleteStudentCommand;
+        public ICommand DeleteStudentCommand
+        {
+            get
+            {
+                if (_deleteStudentCommand == null)
+                {
+                    _deleteStudentCommand = new RelayCommand<object>(DeleteStudent);
+                }
+                return _deleteStudentCommand;
+            }
         }
     }
 }

@@ -21,22 +21,10 @@ namespace SchoolPlatform.Views.Student
     /// </summary>
     public partial class AddOrEditStudent : Window
     {
-        private AdminDashboardViewModel _adminDashboardViewModel;
         public AddOrEditStudent(AdminDashboardViewModel adminDashboardViewModel)
         {
             InitializeComponent();
-            _adminDashboardViewModel = adminDashboardViewModel;
-        }
-
-        private void AddStudent_ButtonClick(object sender, RoutedEventArgs e)
-        {
-            _adminDashboardViewModel.StudentViewModel.AddStudent(
-                txtUsername.Text,
-                txtPassword.Text,
-                txtFullName.Text
-            );
-            MessageBox.Show("Student Added succesfully!");
-            this.Close();
+            DataContext = adminDashboardViewModel.StudentViewModel;
         }
     }
 }

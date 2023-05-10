@@ -31,6 +31,10 @@ namespace SchoolPlatform.Models
             }
         }
 
+        public StudentWithUser()
+        {
+        }
+
         public StudentWithUser(Student student, User user)
         {
             Student = student;
