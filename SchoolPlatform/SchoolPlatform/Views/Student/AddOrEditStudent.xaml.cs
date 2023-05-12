@@ -34,9 +34,9 @@ namespace SchoolPlatform.Views.Student
             {
                 _studentViewModel.UserName = _studentViewModel.SelectedStudent.User.UserName;
                 _studentViewModel.Password = _studentViewModel.SelectedStudent.User.Password;
-                _studentViewModel.FullName = _studentViewModel.SelectedStudent.Student.StudentName;
-                _studentViewModel.SelectedSpecialization = _studentViewModel.SelectedStudent.Student.Specialization;
-                _studentViewModel.SelectedYearOfStudy = _studentViewModel.SelectedStudent.Student.YearOfStudy;
+                //_studentViewModel.FullName = _studentViewModel.SelectedStudent.Student.StudentName;
+                //_studentViewModel.SelectedSpecialization = _studentViewModel.SelectedStudent.Student.Specialization;
+                //_studentViewModel.SelectedYearOfStudy = _studentViewModel.SelectedStudent.Student.YearOfStudy;
             }
         }
     }

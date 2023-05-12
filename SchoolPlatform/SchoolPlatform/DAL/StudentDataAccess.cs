@@ -23,6 +23,11 @@ namespace SchoolPlatform.DAL
             _userDataAccess = new UserDataAccess();
         }
 
+        public List<Student> GetAllStudents()
+        {
+            return _dbContext.Students.ToList();
+        }
+
         public Student GetStudentById(int id)
         {
             return _dbContext.Students.FirstOrDefault(u => u.StudentId == id);

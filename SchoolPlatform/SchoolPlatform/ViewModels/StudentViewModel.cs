@@ -19,14 +19,14 @@ namespace SchoolPlatform.ViewModels
         private SpecializationDataAccess _specializationDataAccess;
         private YearDataAccess _yearDataAccess;
 
-        private ObservableCollection<StudentWithUser> _studentsWithUser;
-        public ObservableCollection<StudentWithUser> StudentsWithUser
+        private ObservableCollection<Student> _students;
+        public ObservableCollection<Student> Students
         {
-            get { return _studentsWithUser; }
+            get { return _students; }
             set
             {
-                _studentsWithUser = value;
-                NotifyPropertyChanged("StudentsWithUser");
+                _students = value;
+                NotifyPropertyChanged("Student");
             }
         }
 
@@ -39,7 +39,8 @@ namespace SchoolPlatform.ViewModels
         public Specialization SelectedSpecialization { get; set; }
         public bool EditMode { get; set; }
 
-        public StudentWithUser SelectedStudent { get; set; }
+        public Student NewStudent { get; set; }
+        public Student SelectedStudent { get; set; }
 
         public StudentViewModel()
         {
@@ -47,7 +48,7 @@ namespace SchoolPlatform.ViewModels
             _studentDataAccess = new StudentDataAccess();
             _yearDataAccess = new YearDataAccess();
             _specializationDataAccess = new SpecializationDataAccess();
-            StudentsWithUser = new ObservableCollection<StudentWithUser>(_studentDataAccess.GetStudentsWithUser());
+            Students = new ObservableCollection<Student>(_studentDataAccess.GetAllStudents());
             YearOfStudies = new ObservableCollection<YearOfStudy>(_yearDataAccess.GetAllYearsOfStudy());
             Specializations = new ObservableCollection<Specialization>(_specializationDataAccess.GetAllSpecializations());
         }
@@ -68,7 +69,7 @@ namespace SchoolPlatform.ViewModels
                 };
                 _studentDataAccess.AddStudent(student);
 
-                StudentsWithUser.Add(new StudentWithUser(student, user));
+                Students.Add(student);
             }
             else if(SelectedStudent != null)
             {
@@ -82,7 +83,7 @@ namespace SchoolPlatform.ViewModels
                 };
 
                 _userDataAccess.UpdateUser(user, SelectedStudent.User.UserId);
-                _studentDataAccess.UpdateStudent(student, SelectedStudent.Student.StudentId);
+                _studentDataAccess.UpdateStudent(student, SelectedStudent.StudentId);
 
                 RefreshStudentList();
             }
@@ -110,11 +111,11 @@ namespace SchoolPlatform.ViewModels
 
         public void RefreshStudentList()
         {
-            var list = _studentDataAccess.GetStudentsWithUser();
-            StudentsWithUser.Clear();
+            var list = _studentDataAccess.GetAllStudents();
+            Students.Clear();
             foreach (var item in list)
             {
-                StudentsWithUser.Add(item);
+                Students.Add(item);
             }
         }
 
