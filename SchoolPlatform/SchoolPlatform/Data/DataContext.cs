@@ -15,6 +15,8 @@ namespace SchoolPlatform
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<YearOfStudy> YearOfStudy { get; set; }
+        public DbSet<Specialization> Specialization { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

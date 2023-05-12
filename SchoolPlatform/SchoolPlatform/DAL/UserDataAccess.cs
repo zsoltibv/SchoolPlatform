@@ -17,6 +17,8 @@ namespace SchoolPlatform.DAL
         {
             _dbContext = DataContextSingleton.Instance;
             DbSeeder.SeedAdminUser(_dbContext);
+            DbSeeder.SeedYearOfStudy(_dbContext);
+            DbSeeder.SeedSpecialization(_dbContext);
         }
 
         public User GetUserById(int id)

@@ -10,8 +10,8 @@ namespace SchoolPlatform.Models
     {
         None,
         Admin,
+        Student,
         Professor,
-        ClassMaster,
-        Student
+        ClassMaster
     }
 }

@@ -16,6 +16,8 @@ namespace SchoolPlatform.ViewModels
     {
         private UserDataAccess _userDataAccess; 
         private StudentDataAccess _studentDataAccess;
+        private SpecializationDataAccess _specializationDataAccess;
+        private YearDataAccess _yearDataAccess;
 
         private ObservableCollection<StudentWithUser> _studentsWithUser;
         public ObservableCollection<StudentWithUser> StudentsWithUser
@@ -31,6 +33,10 @@ namespace SchoolPlatform.ViewModels
         public string UserName { get; set; }
         public string Password { get; set; }
         public string FullName { get; set; }
+        public ObservableCollection<YearOfStudy> YearOfStudies { get; set; }
+        public YearOfStudy SelectedYearOfStudy { get; set; }
+        public ObservableCollection<Specialization> Specializations { get; set; }
+        public Specialization SelectedSpecialization { get; set; }
         public bool EditMode { get; set; }
 
         public StudentWithUser SelectedStudent { get; set; }
@@ -39,7 +45,11 @@ namespace SchoolPlatform.ViewModels
         {
             _userDataAccess = new UserDataAccess();
             _studentDataAccess = new StudentDataAccess();
+            _yearDataAccess = new YearDataAccess();
+            _specializationDataAccess = new SpecializationDataAccess();
             StudentsWithUser = new ObservableCollection<StudentWithUser>(_studentDataAccess.GetStudentsWithUser());
+            YearOfStudies = new ObservableCollection<YearOfStudy>(_yearDataAccess.GetAllYearsOfStudy());
+            Specializations = new ObservableCollection<Specialization>(_specializationDataAccess.GetAllSpecializations());
         }
 
         public void AddOrEditStudent(object param)
@@ -49,7 +59,13 @@ namespace SchoolPlatform.ViewModels
                 User user = new User(UserName, Password, UserType.Student);
                 _userDataAccess.AddUser(user);
 
-                Student student = new Student(user.UserId, FullName);
+                Student student = new Student
+                {
+                    UserId = user.UserId,
+                    StudentName = FullName,
+                    YearOfStudyId = SelectedYearOfStudy.YearOfStudyId,
+                    SpecializationId = SelectedSpecialization.SpecializationId,
+                };
                 _studentDataAccess.AddStudent(student);
 
                 StudentsWithUser.Add(new StudentWithUser(student, user));
@@ -57,7 +73,13 @@ namespace SchoolPlatform.ViewModels
             else if(SelectedStudent != null)
             {
                 User user = new User(UserName, Password, UserType.Student);
-                Student student = new Student(user.UserId, FullName);
+                Student student = new Student
+                {
+                    UserId = user.UserId,
+                    StudentName = FullName,
+                    YearOfStudyId = SelectedYearOfStudy.YearOfStudyId,
+                    SpecializationId = SelectedSpecialization.SpecializationId
+                };
 
                 _userDataAccess.UpdateUser(user, SelectedStudent.User.UserId);
                 _studentDataAccess.UpdateStudent(student, SelectedStudent.Student.StudentId);

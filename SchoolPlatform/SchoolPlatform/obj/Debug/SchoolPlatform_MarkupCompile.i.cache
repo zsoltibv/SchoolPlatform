@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\
+C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\
 SchoolPlatform
 none
 false
 DEBUG;TRACE
-V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\App.xaml
+C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\App.xaml
 41901572329
 
-261860801484
-55582567680
+271025378364
+551946320329
 MainWindow.xaml;Views\Admin\DashboardView.xaml;Views\Auth\LoginView.xaml;Views\Student\AddOrEditStudent.xaml;
 
 True
