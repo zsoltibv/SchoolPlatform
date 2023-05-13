@@ -61,7 +61,16 @@ namespace SchoolPlatform.Models
         }
 
         [ForeignKey("YearOfStudyId")]
-        public YearOfStudy YearOfStudy { get; set; }
+        private YearOfStudy _yearOfStudy;
+        public YearOfStudy YearOfStudy
+        {
+            get { return _yearOfStudy; }
+            set
+            {
+                _yearOfStudy = value;
+                NotifyPropertyChanged("YearOfStudy");
+            }
+        }
 
         private int _specializationId;
         public int SpecializationId
@@ -75,7 +84,16 @@ namespace SchoolPlatform.Models
         }
 
         [ForeignKey("SpecializationId")]
-        public Specialization Specialization { get; set; }
+        private Specialization _specialization;
+        public Specialization Specialization
+        {
+            get { return _specialization; }
+            set
+            {
+                _specialization = value;
+                NotifyPropertyChanged("Specialization");
+            }
+        }
 
         public Student()
         {

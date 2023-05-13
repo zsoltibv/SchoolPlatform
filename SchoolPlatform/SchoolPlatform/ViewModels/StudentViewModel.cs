@@ -8,7 +8,6 @@ using SchoolPlatform.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Forms;
 using System.Windows.Input;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace SchoolPlatform.ViewModels
 {
