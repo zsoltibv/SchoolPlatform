@@ -31,6 +31,8 @@
                                 <GridViewColumn Header="Password" DisplayMemberBinding="{Binding User.Password}" Width="100"/>
                                 <GridViewColumn Header="Role" DisplayMemberBinding="{Binding User.UserType}" Width="100"/>
                                 <GridViewColumn Header="Full Name" DisplayMemberBinding="{Binding StudentName}" Width="100"/>
+                                <GridViewColumn Header="Specialization" DisplayMemberBinding="{Binding Specialization.SpecializationName}" Width="100"/>
+                                <GridViewColumn Header="Year of Study" DisplayMemberBinding="{Binding YearOfStudy.Year}" Width="100"/>
                             </GridView>
                         </ListView.View>
                     </ListView>

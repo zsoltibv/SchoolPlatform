@@ -30,20 +30,16 @@ namespace SchoolPlatform.ViewModels
             }
         }
 
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public string FullName { get; set; }
-        public ObservableCollection<YearOfStudy> YearOfStudies { get; set; }
-        public YearOfStudy SelectedYearOfStudy { get; set; }
-        public ObservableCollection<Specialization> Specializations { get; set; }
-        public Specialization SelectedSpecialization { get; set; }
         public bool EditMode { get; set; }
-
+        public User NewUser { get; set; }
         public Student NewStudent { get; set; }
         public Student SelectedStudent { get; set; }
+        public ObservableCollection<YearOfStudy> YearOfStudies { get; set; }
+        public ObservableCollection<Specialization> Specializations { get; set; }
 
         public StudentViewModel()
         {
+            ResetData();
             _userDataAccess = new UserDataAccess();
             _studentDataAccess = new StudentDataAccess();
             _yearDataAccess = new YearDataAccess();
@@ -57,47 +53,38 @@ namespace SchoolPlatform.ViewModels
         {
             if (!EditMode)
             {
-                User user = new User(UserName, Password, UserType.Student);
-                _userDataAccess.AddUser(user);
-
-                Student student = new Student
-                {
-                    UserId = user.UserId,
-                    StudentName = FullName,
-                    YearOfStudyId = SelectedYearOfStudy.YearOfStudyId,
-                    SpecializationId = SelectedSpecialization.SpecializationId,
-                };
-                _studentDataAccess.AddStudent(student);
-
-                Students.Add(student);
+                //add user
+                _userDataAccess.AddUser(NewUser);
+                //add student
+                NewStudent.UserId = NewUser.UserId;
+                NewStudent.User = NewUser;
+                NewStudent.SpecializationId = NewStudent.Specialization.SpecializationId;
+                NewStudent.Specialization = NewStudent.Specialization;
+                NewStudent.YearOfStudyId = NewStudent.YearOfStudy.YearOfStudyId;
+                NewStudent.YearOfStudy = NewStudent.YearOfStudy;
+                _studentDataAccess.AddStudent(NewStudent);
+                //add to ui
+                Students.Add(NewStudent);
             }
             else if(SelectedStudent != null)
             {
-                User user = new User(UserName, Password, UserType.Student);
-                Student student = new Student
-                {
-                    UserId = user.UserId,
-                    StudentName = FullName,
-                    YearOfStudyId = SelectedYearOfStudy.YearOfStudyId,
-                    SpecializationId = SelectedSpecialization.SpecializationId
-                };
-
-                _userDataAccess.UpdateUser(user, SelectedStudent.User.UserId);
-                _studentDataAccess.UpdateStudent(student, SelectedStudent.StudentId);
-
-                RefreshStudentList();
+                _userDataAccess.UpdateUser(NewUser, SelectedStudent.User.UserId);
+                _studentDataAccess.UpdateStudent(NewStudent, SelectedStudent.StudentId);
             }
             else
             {
                 MessageBox.Show("No selected entity!");
             }
+            ResetData();
         }
 
         public void DeleteStudent(object param)
         {
-            if(SelectedStudent != null) { 
+            if(SelectedStudent != null) {
+                //delete student
+                _studentDataAccess.DeleteStudent(SelectedStudent);
+                //delete user
                 int idToRemove = SelectedStudent.User.UserId;
-
                 User user = _userDataAccess.GetUserById(idToRemove);
                 _userDataAccess.DeleteUser(user);
             }
@@ -107,6 +94,26 @@ namespace SchoolPlatform.ViewModels
             }
 
             RefreshStudentList();
+        }
+
+        public void FillInData()
+        {
+            NewUser.UserName = SelectedStudent.User.UserName;
+            NewUser.Password = SelectedStudent.User.Password;   
+            NewStudent.StudentName = SelectedStudent.StudentName;
+            NewStudent.Specialization = SelectedStudent.Specialization;
+            NewStudent.SpecializationId = SelectedStudent.Specialization.SpecializationId;
+            NewStudent.YearOfStudy = SelectedStudent.YearOfStudy;
+            NewStudent.YearOfStudyId = SelectedStudent.YearOfStudy.YearOfStudyId;
+        }
+
+        public void ResetData()
+        {
+            NewUser = new User
+            {
+                UserType = UserType.Student,
+            };
+            NewStudent = new Student();
         }
 
         public void RefreshStudentList()
@@ -119,30 +126,8 @@ namespace SchoolPlatform.ViewModels
             }
         }
 
-        private ICommand _addOrEditStudentCommand;
-        public ICommand AddOrEditStudentCommand
-        {
-            get
-            {
-                if (_addOrEditStudentCommand == null)
-                {
-                    _addOrEditStudentCommand = new RelayCommand<object>(AddOrEditStudent);
-                }
-                return _addOrEditStudentCommand;
-            }
-        }
+        public ICommand AddOrEditStudentCommand => new RelayCommand<object>(AddOrEditStudent);
 
-        private ICommand _deleteStudentCommand;
-        public ICommand DeleteStudentCommand
-        {
-            get
-            {
-                if (_deleteStudentCommand == null)
-                {
-                    _deleteStudentCommand = new RelayCommand<object>(DeleteStudent);
-                }
-                return _deleteStudentCommand;
-            }
-        }
+        public ICommand DeleteStudentCommand => new RelayCommand<object>(DeleteStudent);
     }
 }

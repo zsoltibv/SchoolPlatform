@@ -27,17 +27,17 @@ namespace SchoolPlatform.Views.Student
             InitializeComponent();
             DataContext = adminDashboardViewModel.StudentViewModel;
             _studentViewModel = adminDashboardViewModel.StudentViewModel;
-            
             _studentViewModel.EditMode = editMode;
 
-            if(editMode )
+            if(editMode)
             {
-                _studentViewModel.UserName = _studentViewModel.SelectedStudent.User.UserName;
-                _studentViewModel.Password = _studentViewModel.SelectedStudent.User.Password;
-                //_studentViewModel.FullName = _studentViewModel.SelectedStudent.Student.StudentName;
-                //_studentViewModel.SelectedSpecialization = _studentViewModel.SelectedStudent.Student.Specialization;
-                //_studentViewModel.SelectedYearOfStudy = _studentViewModel.SelectedStudent.Student.YearOfStudy;
+                _studentViewModel.FillInData();
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

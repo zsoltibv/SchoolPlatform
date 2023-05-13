@@ -27,9 +27,13 @@ namespace SchoolPlatform.ViewModels
             if(user != null) {
                 if (user.UserType == UserType.Admin)
                 {
-                    Views.Admin.DashboardView dashboardView = new Views.Admin.DashboardView();
+                    DashboardView dashboardView = new DashboardView();
                     dashboardView.Show();
                     login.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong Password!");
                 }
             }
             else

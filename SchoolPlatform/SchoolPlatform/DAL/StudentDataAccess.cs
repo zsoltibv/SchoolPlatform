@@ -53,7 +53,9 @@ namespace SchoolPlatform.DAL
             {
                 existingStudent.StudentName = student.StudentName;
                 existingStudent.SpecializationId = student.SpecializationId;
-                existingStudent.YearOfStudyId = student.YearOfStudyId;  
+                existingStudent.Specialization = student.Specialization;
+                existingStudent.YearOfStudyId = student.YearOfStudyId;
+                existingStudent.YearOfStudy = student.YearOfStudy;
                 _dbContext.SaveChanges();
             }
         }

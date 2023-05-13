@@ -2,7 +2,7 @@
 
 namespace SchoolPlatform.Migrations
 {
-    public partial class InitialCrete : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

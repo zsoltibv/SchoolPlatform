@@ -7,18 +7,18 @@
         mc:Ignorable="d"
         Title="AddOrEditStudent" Height="450" Width="800">
     <Grid>
-        <TextBox FontSize="24px" x:Name="txtUsername1" HorizontalAlignment="Left" Margin="192,114,0,0" TextWrapping="Wrap" Text="{Binding UserName}" VerticalAlignment="Top" Width="185" Height="38"/>
-        <TextBox FontSize="24px" x:Name="txtPassword1" HorizontalAlignment="Left" Margin="192,0,0,0" TextWrapping="Wrap" Text="{Binding Password}" VerticalAlignment="Center" Width="185" Height="38"/>
-        <TextBox FontSize="24px" x:Name="txtFullName1" HorizontalAlignment="Left" Margin="192,272,0,0" TextWrapping="Wrap" Text="{Binding FullName}" VerticalAlignment="Top" Width="185" Height="38"/>
+        <TextBox FontSize="24px" x:Name="txtUsername1" HorizontalAlignment="Left" Margin="192,114,0,0" TextWrapping="Wrap" Text="{Binding NewUser.UserName}" VerticalAlignment="Top" Width="185" Height="38"/>
+        <TextBox FontSize="24px" x:Name="txtPassword1" HorizontalAlignment="Left" Margin="192,0,0,0" TextWrapping="Wrap" Text="{Binding NewUser.Password}" VerticalAlignment="Center" Width="185" Height="38"/>
+        <TextBox FontSize="24px" x:Name="txtFullName1" HorizontalAlignment="Left" Margin="192,272,0,0" TextWrapping="Wrap" Text="{Binding NewStudent.StudentName}" VerticalAlignment="Top" Width="185" Height="38"/>
         <Label Content="Full Name:" HorizontalAlignment="Left" Margin="186,241,0,0" VerticalAlignment="Top"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="189,167,0,0" VerticalAlignment="Top"/>
         <Label Content="UserName:" HorizontalAlignment="Left" Margin="186,83,0,0" VerticalAlignment="Top"/>
         <Label FontSize="24px" Content="Add or Edit Student&#xA;" HorizontalAlignment="Left" Margin="189,34,0,0" VerticalAlignment="Top" Height="44" Width="280"/>
-        <Button Command="{Binding AddOrEditStudentCommand}" Content="Add Student" HorizontalAlignment="Left" Margin="192,332,0,0" VerticalAlignment="Top" Height="38" Width="370"/>
+        <Button Command="{Binding AddOrEditStudentCommand}" Click="Button_Click" Content="Add Student" HorizontalAlignment="Left" Margin="192,332,0,0" VerticalAlignment="Top" Height="38" Width="370"/>
         <ComboBox ItemsSource="{Binding YearOfStudies}"
-          DisplayMemberPath="Year" SelectedItem="{Binding SelectedYearOfStudy}" HorizontalAlignment="Left" Margin="400,114,0,0" VerticalAlignment="Top" Width="162" Height="38"/>
+          DisplayMemberPath="Year" SelectedItem="{Binding NewStudent.YearOfStudy}" HorizontalAlignment="Left" Margin="400,114,0,0" VerticalAlignment="Top" Width="162" Height="38"/>
         <ComboBox ItemsSource="{Binding Specializations}"
-          DisplayMemberPath="SpecializationName" SelectedItem="{Binding SelectedSpecialization}" HorizontalAlignment="Left" Margin="400,0,0,0" VerticalAlignment="Center" Width="162" Height="38"/>
+          DisplayMemberPath="SpecializationName" SelectedItem="{Binding NewStudent.Specialization}" HorizontalAlignment="Left" Margin="400,0,0,0" VerticalAlignment="Center" Width="162" Height="38"/>
         <Label Content="Year of study:" HorizontalAlignment="Left" Margin="400,83,0,0" VerticalAlignment="Top"/>
         <Label Content="Specialization:" HorizontalAlignment="Left" Margin="400,167,0,0" VerticalAlignment="Top"/>
 
