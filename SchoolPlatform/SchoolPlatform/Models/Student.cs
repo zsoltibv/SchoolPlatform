@@ -49,60 +49,31 @@ namespace SchoolPlatform.Models
         [ForeignKey("UserId")]
         public User User { get; set; }
 
-        private int _yearOfStudyId;
-        public int YearOfStudyId
+        private int _classId;
+        public int ClassId
         {
-            get { return _yearOfStudyId; }
+            get { return _classId; }
             set
             {
-                _yearOfStudyId = value;
-                NotifyPropertyChanged("YearOfStudyId");
+                _classId = value;
+                NotifyPropertyChanged("ClassId");
             }
         }
 
-        [ForeignKey("YearOfStudyId")]
-        private YearOfStudy _yearOfStudy;
-        public YearOfStudy YearOfStudy
+        [ForeignKey("ClassId")]
+        private Class _class;
+        public Class Class
         {
-            get { return _yearOfStudy; }
+            get { return _class; }
             set
             {
-                _yearOfStudy = value;
-                NotifyPropertyChanged("YearOfStudy");
-            }
-        }
-
-        private int _specializationId;
-        public int SpecializationId
-        {
-            get { return _specializationId; }
-            set
-            {
-                _specializationId = value;
-                NotifyPropertyChanged("SpecializationId");
-            }
-        }
-
-        [ForeignKey("SpecializationId")]
-        private Specialization _specialization;
-        public Specialization Specialization
-        {
-            get { return _specialization; }
-            set
-            {
-                _specialization = value;
-                NotifyPropertyChanged("Specialization");
+                _class = value;
+                NotifyPropertyChanged("Class");
             }
         }
 
         public Student()
         {
-        }
-
-        public Student(int userId, string studentName)
-        {
-            UserId = userId;
-            StudentName = studentName;
         }
     }
 }

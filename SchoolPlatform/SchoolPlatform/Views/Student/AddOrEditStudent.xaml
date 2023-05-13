@@ -15,12 +15,20 @@
         <Label Content="UserName:" HorizontalAlignment="Left" Margin="186,83,0,0" VerticalAlignment="Top"/>
         <Label FontSize="24px" Content="Add or Edit Student&#xA;" HorizontalAlignment="Left" Margin="189,34,0,0" VerticalAlignment="Top" Height="44" Width="280"/>
         <Button Command="{Binding AddOrEditStudentCommand}" Click="Button_Click" Content="Add Student" HorizontalAlignment="Left" Margin="192,332,0,0" VerticalAlignment="Top" Height="38" Width="370"/>
-        <ComboBox ItemsSource="{Binding YearOfStudies}"
-          DisplayMemberPath="Year" SelectedItem="{Binding NewStudent.YearOfStudy}" HorizontalAlignment="Left" Margin="400,114,0,0" VerticalAlignment="Top" Width="162" Height="38"/>
-        <ComboBox ItemsSource="{Binding Specializations}"
-          DisplayMemberPath="SpecializationName" SelectedItem="{Binding NewStudent.Specialization}" HorizontalAlignment="Left" Margin="400,0,0,0" VerticalAlignment="Center" Width="162" Height="38"/>
-        <Label Content="Year of study:" HorizontalAlignment="Left" Margin="400,83,0,0" VerticalAlignment="Top"/>
-        <Label Content="Specialization:" HorizontalAlignment="Left" Margin="400,167,0,0" VerticalAlignment="Top"/>
-
+        <ComboBox ItemsSource="{Binding Classes}" SelectedItem="{Binding NewStudent.Class}" Margin="420,114,195,254">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path="YearOfStudy.Year" />
+                                <Binding Path="Specialization.SpecializationName" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label Content="Class:" HorizontalAlignment="Left" Margin="420,83,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

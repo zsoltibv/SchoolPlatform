@@ -84,7 +84,7 @@ namespace SchoolPlatform.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("SpecializationId")
+                    b.Property<int>("ClassId")
                         .HasColumnType("int");
 
                     b.Property<string>("StudentName")
@@ -93,16 +93,11 @@ namespace SchoolPlatform.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<int>("YearOfStudyId")
-                        .HasColumnType("int");
-
                     b.HasKey("StudentId");
 
-                    b.HasIndex("SpecializationId");
+                    b.HasIndex("ClassId");
 
                     b.HasIndex("UserId");
-
-                    b.HasIndex("YearOfStudyId");
 
                     b.ToTable("Students");
                 });
@@ -190,21 +185,15 @@ namespace SchoolPlatform.Migrations
 
             modelBuilder.Entity("SchoolPlatform.Models.Student", b =>
                 {
-                    b.HasOne("SchoolPlatform.Models.Specialization", "Specialization")
+                    b.HasOne("SchoolPlatform.Models.Class", "Class")
                         .WithMany()
-                        .HasForeignKey("SpecializationId")
+                        .HasForeignKey("ClassId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SchoolPlatform.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SchoolPlatform.Models.YearOfStudy", "YearOfStudy")
-                        .WithMany()
-                        .HasForeignKey("YearOfStudyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

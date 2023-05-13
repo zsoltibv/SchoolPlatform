@@ -52,10 +52,8 @@ namespace SchoolPlatform.DAL
             if (existingStudent != null)
             {
                 existingStudent.StudentName = student.StudentName;
-                existingStudent.SpecializationId = student.SpecializationId;
-                existingStudent.Specialization = student.Specialization;
-                existingStudent.YearOfStudyId = student.YearOfStudyId;
-                existingStudent.YearOfStudy = student.YearOfStudy;
+                existingStudent.Class = student.Class;
+                existingStudent.ClassId = student.ClassId;
                 _dbContext.SaveChanges();
             }
         }

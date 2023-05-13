@@ -16,7 +16,11 @@ namespace SchoolPlatform.DAL
         {
             if (!context.Users.Any(u => u.UserName == "admin"))
             {
-                var adminUser = new User("admin", "pass", UserType.Admin);
+                var adminUser = new User {
+                    UserName = "admin",
+                    Password = "pass",
+                    UserType = UserType.Admin,
+                };
                 context.Users.Add(adminUser);
                 context.SaveChanges();
             }

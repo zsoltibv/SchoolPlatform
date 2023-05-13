@@ -87,40 +87,6 @@ namespace SchoolPlatform.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Students",
-                columns: table => new
-                {
-                    StudentId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    StudentName = table.Column<string>(nullable: true),
-                    UserId = table.Column<int>(nullable: false),
-                    YearOfStudyId = table.Column<int>(nullable: false),
-                    SpecializationId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Students", x => x.StudentId);
-                    table.ForeignKey(
-                        name: "FK_Students_Specializations_SpecializationId",
-                        column: x => x.SpecializationId,
-                        principalTable: "Specializations",
-                        principalColumn: "SpecializationId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Students_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Students_YearOfStudies_YearOfStudyId",
-                        column: x => x.YearOfStudyId,
-                        principalTable: "YearOfStudies",
-                        principalColumn: "YearOfStudyId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ClassSubjects",
                 columns: table => new
                 {
@@ -146,6 +112,33 @@ namespace SchoolPlatform.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Students",
+                columns: table => new
+                {
+                    StudentId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StudentName = table.Column<string>(nullable: true),
+                    UserId = table.Column<int>(nullable: false),
+                    ClassId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Students", x => x.StudentId);
+                    table.ForeignKey(
+                        name: "FK_Students_Classes_ClassId",
+                        column: x => x.ClassId,
+                        principalTable: "Classes",
+                        principalColumn: "ClassId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Students_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Classes_SpecializationId",
                 table: "Classes",
@@ -167,19 +160,14 @@ namespace SchoolPlatform.Migrations
                 column: "SubjectId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Students_SpecializationId",
+                name: "IX_Students_ClassId",
                 table: "Students",
-                column: "SpecializationId");
+                column: "ClassId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Students_UserId",
                 table: "Students",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Students_YearOfStudyId",
-                table: "Students",
-                column: "YearOfStudyId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -191,10 +179,10 @@ namespace SchoolPlatform.Migrations
                 name: "Students");
 
             migrationBuilder.DropTable(
-                name: "Classes");
+                name: "Subjects");
 
             migrationBuilder.DropTable(
-                name: "Subjects");
+                name: "Classes");
 
             migrationBuilder.DropTable(
                 name: "Users");

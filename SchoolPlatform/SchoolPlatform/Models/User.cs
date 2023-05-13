@@ -59,11 +59,5 @@ namespace SchoolPlatform.Models
         public User()
         {
         }
-
-        public User(string userName, string password, UserType userType) {
-            UserName = userName;
-            Password = password;
-            UserType = userType;
-        }
     }
 }

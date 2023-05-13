@@ -21,10 +21,26 @@ namespace SchoolPlatform.ViewModels
                 NotifyPropertyChanged(nameof(StudentViewModel));
             }
         }
+        private ClassViewModel _classViewModel;
+        public ClassViewModel ClassViewModel
+        {
+            get { return _classViewModel; }
+            set
+            {
+                _classViewModel = value;
+                NotifyPropertyChanged(nameof(ClassViewModel));
+            }
+        }
 
         public AdminDashboardViewModel()
         {
             _studentViewModel = new StudentViewModel();
+            _classViewModel = new ClassViewModel();
+        }
+
+        public void Refresh()
+        {
+            _studentViewModel.RefreshClassList();
         }
     }
 }

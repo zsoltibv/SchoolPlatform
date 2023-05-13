@@ -15,8 +15,7 @@ namespace SchoolPlatform.ViewModels
     {
         private UserDataAccess _userDataAccess; 
         private StudentDataAccess _studentDataAccess;
-        private SpecializationDataAccess _specializationDataAccess;
-        private YearDataAccess _yearDataAccess;
+        private ClassDataAccess _classDataAccess;
 
         private ObservableCollection<Student> _students;
         public ObservableCollection<Student> Students
@@ -33,19 +32,16 @@ namespace SchoolPlatform.ViewModels
         public User NewUser { get; set; }
         public Student NewStudent { get; set; }
         public Student SelectedStudent { get; set; }
-        public ObservableCollection<YearOfStudy> YearOfStudies { get; set; }
-        public ObservableCollection<Specialization> Specializations { get; set; }
+        public ObservableCollection<Class> Classes { get; set; }
 
         public StudentViewModel()
         {
             ResetData();
             _userDataAccess = new UserDataAccess();
             _studentDataAccess = new StudentDataAccess();
-            _yearDataAccess = new YearDataAccess();
-            _specializationDataAccess = new SpecializationDataAccess();
+            _classDataAccess = new ClassDataAccess();
             Students = new ObservableCollection<Student>(_studentDataAccess.GetAllStudents());
-            YearOfStudies = new ObservableCollection<YearOfStudy>(_yearDataAccess.GetAllYearsOfStudy());
-            Specializations = new ObservableCollection<Specialization>(_specializationDataAccess.GetAllSpecializations());
+            Classes = new ObservableCollection<Class>(_classDataAccess.GetAllClasses());
         }
 
         public void AddOrEditStudent(object param)
@@ -57,10 +53,8 @@ namespace SchoolPlatform.ViewModels
                 //add student
                 NewStudent.UserId = NewUser.UserId;
                 NewStudent.User = NewUser;
-                NewStudent.SpecializationId = NewStudent.Specialization.SpecializationId;
-                NewStudent.Specialization = NewStudent.Specialization;
-                NewStudent.YearOfStudyId = NewStudent.YearOfStudy.YearOfStudyId;
-                NewStudent.YearOfStudy = NewStudent.YearOfStudy;
+                NewStudent.Class = NewStudent.Class;
+                NewStudent.ClassId = NewStudent.Class.ClassId;
                 _studentDataAccess.AddStudent(NewStudent);
                 //add to ui
                 Students.Add(NewStudent);
@@ -100,10 +94,8 @@ namespace SchoolPlatform.ViewModels
             NewUser.UserName = SelectedStudent.User.UserName;
             NewUser.Password = SelectedStudent.User.Password;   
             NewStudent.StudentName = SelectedStudent.StudentName;
-            NewStudent.Specialization = SelectedStudent.Specialization;
-            NewStudent.SpecializationId = SelectedStudent.Specialization.SpecializationId;
-            NewStudent.YearOfStudy = SelectedStudent.YearOfStudy;
-            NewStudent.YearOfStudyId = SelectedStudent.YearOfStudy.YearOfStudyId;
+            NewStudent.Class = SelectedStudent.Class;   
+            NewStudent.ClassId = SelectedStudent.ClassId;
         }
 
         public void ResetData()
@@ -123,6 +115,11 @@ namespace SchoolPlatform.ViewModels
             {
                 Students.Add(item);
             }
+        }
+
+        public void RefreshClassList()
+        {
+            Classes = new ObservableCollection<Class>(_classDataAccess.GetAllClasses());
         }
 
         public ICommand AddOrEditStudentCommand => new RelayCommand<object>(AddOrEditStudent);

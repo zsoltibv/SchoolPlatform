@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SchoolPlatform.Views.Student;
+using System.ComponentModel;
 
 namespace SchoolPlatform.Views.Admin
 {
@@ -21,9 +22,12 @@ namespace SchoolPlatform.Views.Admin
     /// </summary>
     public partial class DashboardView : Window
     {
+        AdminDashboardViewModel _adminDashboardViewModel;
         public DashboardView()
         {
             InitializeComponent();
+            _adminDashboardViewModel = new AdminDashboardViewModel();
+            DataContext = _adminDashboardViewModel;
         }
 
         private void AddStudent_Click(object sender, RoutedEventArgs e)
@@ -36,6 +40,11 @@ namespace SchoolPlatform.Views.Admin
         {
             AddOrEditStudent window = new AddOrEditStudent((AdminDashboardViewModel)DataContext, true);
             window.ShowDialog();
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _adminDashboardViewModel.Refresh();
         }
     }
 }

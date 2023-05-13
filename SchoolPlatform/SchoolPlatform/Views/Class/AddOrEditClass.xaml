@@ -1,0 +1,20 @@
+﻿<Window x:Class="SchoolPlatform.Views.Class.AddOrEditClass"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SchoolPlatform.Views.Class"
+        mc:Ignorable="d"
+        Title="AddOrEditClass" Height="450" Width="800">
+    <Grid>
+        <ComboBox ItemsSource="{Binding YearOfStudies}"
+            DisplayMemberPath="Year" SelectedItem="{Binding NewClass.YearOfStudy}" HorizontalAlignment="Left" Margin="315,164,0,0" VerticalAlignment="Top" Width="162" Height="38"/>
+        <ComboBox ItemsSource="{Binding Specializations}"
+            DisplayMemberPath="SpecializationName" SelectedItem="{Binding NewClass.Specialization}" HorizontalAlignment="Left" Margin="315,248,0,0" VerticalAlignment="Top" Width="162" Height="38"/>
+        <Label Content="Year of study:" HorizontalAlignment="Left" Margin="315,133,0,0" VerticalAlignment="Top"/>
+        <Label Content="Specialization:" HorizontalAlignment="Left" Margin="315,217,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding AddOrEditClassCommand}" Click="Button_Click" Content="Add or edit class" HorizontalAlignment="Left" Margin="315,311,0,0" VerticalAlignment="Top" Height="39" Width="161"/>
+        <Label FontSize="24px" Content="Add or edit class&#xA;" HorizontalAlignment="Left" Margin="315,62,0,0" VerticalAlignment="Top" Height="44" Width="280"/>
+
+    </Grid>
+</Window>
