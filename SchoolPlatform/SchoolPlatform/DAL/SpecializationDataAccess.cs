@@ -18,13 +18,13 @@ namespace SchoolPlatform.DAL
 
         public void AddSpecialization(Specialization specialization)
         {
-            _dbContext.Specialization.Add(specialization);
+            _dbContext.Specializations.Add(specialization);
             _dbContext.SaveChanges();
         }
 
         public List<Specialization> GetAllSpecializations()
         {
-            return _dbContext.Specialization.ToList();
+            return _dbContext.Specializations.ToList();
         }
     }
 }

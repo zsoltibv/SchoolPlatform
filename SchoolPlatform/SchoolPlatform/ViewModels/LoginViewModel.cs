@@ -19,6 +19,7 @@ namespace SchoolPlatform.ViewModels
         private UserDataAccess _userDataAccess;
         public LoginViewModel() {
             _userDataAccess = new UserDataAccess();
+            DataContextSingleton.SeedData();
         }
 
         public void Authenticate(LoginView login, string username, string password)

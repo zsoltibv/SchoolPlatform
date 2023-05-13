@@ -19,13 +19,13 @@ namespace SchoolPlatform.DAL
 
         public void AddYearOfStudy(YearOfStudy year)
         {
-            _dbContext.YearOfStudy.Add(year);
+            _dbContext.YearOfStudies.Add(year);
             _dbContext.SaveChanges();
         }
 
         public List<YearOfStudy> GetAllYearsOfStudy()
         {
-            return _dbContext.YearOfStudy.ToList();
+            return _dbContext.YearOfStudies.ToList();
         }
     }
 }

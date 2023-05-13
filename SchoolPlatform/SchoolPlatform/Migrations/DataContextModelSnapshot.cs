@@ -18,6 +18,50 @@ namespace SchoolPlatform.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("SchoolPlatform.Models.Class", b =>
+                {
+                    b.Property<int>("ClassId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("SpecializationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("YearOfStudyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ClassId");
+
+                    b.HasIndex("SpecializationId");
+
+                    b.HasIndex("YearOfStudyId");
+
+                    b.ToTable("Classes");
+                });
+
+            modelBuilder.Entity("SchoolPlatform.Models.ClassSubject", b =>
+                {
+                    b.Property<int>("ClassSubjectId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ClassId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ClassSubjectId");
+
+                    b.HasIndex("ClassId");
+
+                    b.HasIndex("SubjectId");
+
+                    b.ToTable("ClassSubjects");
+                });
+
             modelBuilder.Entity("SchoolPlatform.Models.Specialization", b =>
                 {
                     b.Property<int>("SpecializationId")
@@ -30,7 +74,7 @@ namespace SchoolPlatform.Migrations
 
                     b.HasKey("SpecializationId");
 
-                    b.ToTable("Specialization");
+                    b.ToTable("Specializations");
                 });
 
             modelBuilder.Entity("SchoolPlatform.Models.Student", b =>
@@ -61,6 +105,21 @@ namespace SchoolPlatform.Migrations
                     b.HasIndex("YearOfStudyId");
 
                     b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("SchoolPlatform.Models.Subject", b =>
+                {
+                    b.Property<int>("SubjectId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("SubjectName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SubjectId");
+
+                    b.ToTable("Subjects");
                 });
 
             modelBuilder.Entity("SchoolPlatform.Models.User", b =>
@@ -96,7 +155,37 @@ namespace SchoolPlatform.Migrations
 
                     b.HasKey("YearOfStudyId");
 
-                    b.ToTable("YearOfStudy");
+                    b.ToTable("YearOfStudies");
+                });
+
+            modelBuilder.Entity("SchoolPlatform.Models.Class", b =>
+                {
+                    b.HasOne("SchoolPlatform.Models.Specialization", "Specialization")
+                        .WithMany()
+                        .HasForeignKey("SpecializationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolPlatform.Models.YearOfStudy", "YearOfStudy")
+                        .WithMany()
+                        .HasForeignKey("YearOfStudyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SchoolPlatform.Models.ClassSubject", b =>
+                {
+                    b.HasOne("SchoolPlatform.Models.Class", "Class")
+                        .WithMany()
+                        .HasForeignKey("ClassId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolPlatform.Models.Subject", "Subject")
+                        .WithMany()
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SchoolPlatform.Models.Student", b =>

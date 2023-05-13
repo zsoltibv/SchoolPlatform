@@ -24,15 +24,15 @@ namespace SchoolPlatform.DAL
 
         public static void SeedYearOfStudy(DataContext context)
         {
-            for (int i = 1; i < 12; i++)
+            for (int i = 9; i <= 12; i++)
             {
-                if (!context.YearOfStudy.Any(u => u.Year == i))
+                if (!context.YearOfStudies.Any(u => u.Year == i))
                 {
                     YearOfStudy yearOfStudy = new YearOfStudy
                     {
                         Year = i,
                     };
-                    context.YearOfStudy.Add(yearOfStudy);
+                    context.YearOfStudies.Add(yearOfStudy);
                     context.SaveChanges();
                 }
             }
@@ -40,25 +40,49 @@ namespace SchoolPlatform.DAL
 
         public static void SeedSpecialization(DataContext context)
         {
-            if (!context.Specialization.Any(u => u.SpecializationName == "Mate-Info"))
+            List<String> list = new List<String>
             {
-                Specialization specialization = new Specialization
+                "Mate-Info",
+                "Științe ale naturii",
+                "Uman",
+            }; 
+            foreach(var item in list)
+            {
+                if (!context.Specializations.Any(u => u.SpecializationName == item))
                 {
-                    SpecializationName = "Mate-Info"
-                };
+                    Specialization specialization = new Specialization
+                    {
+                        SpecializationName = item
+                    };
 
-                context.Specialization.Add(specialization);
-                context.SaveChanges();
+                    context.Specializations.Add(specialization);
+                    context.SaveChanges();
+                }
             }
-            if (!context.Specialization.Any(u => u.SpecializationName == "Uman"))
-            {
-                Specialization specialization = new Specialization
-                {
-                    SpecializationName = "Uman"
-                };
+        }
 
-                context.Specialization.Add(specialization);
-                context.SaveChanges();
+        public static void SeedSubjects(DataContext context)
+        {
+            List<String> list = new List<String>
+            {
+                "Romana",
+                "Matematica",
+                "Biologie",
+                "Fizica",
+                "Chimie"
+            };
+            foreach (var item in list)
+            {
+                if (!context.Subjects.Any(u => u.SubjectName == item))
+                {
+                    Subject subject = new Subject
+                    {
+                        SubjectName = item
+                    };
+
+                    context.Subjects.Add(subject);
+                    context.SaveChanges();
+                }
             }
         }
     }

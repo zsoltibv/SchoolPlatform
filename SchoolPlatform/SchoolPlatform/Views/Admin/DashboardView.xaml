@@ -37,9 +37,41 @@
                         </ListView.View>
                     </ListView>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,476,0,15">
-                        <Button Name="AddStudent" Content="Add Student" Width="100" Margin="5" Click="AddStudent_Click"/>
+                        <Button Content="Add Student" Width="100" Margin="5" Click="AddStudent_Click"/>
                         <Button Command="{Binding DeleteStudentCommand}" CommandParameter="{Binding SelectedStudent}" Name="DeleteStudent" Content="Delete Student" Width="100" Margin="5"/>
-                        <Button Name="EditStudent" Content="Edit Student" Width="100" Margin="5" Click="EditStudent_Click"/>
+                        <Button Content="Edit Student" Width="100" Margin="5" Click="EditStudent_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Classes" DataContext="{Binding ClassViewModel}">
+                <Grid>
+                    <Label FontSize="24px" Content="Students" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="104"/>
+                    <ListView ItemsSource="{Binding }"  Margin="10,69,10,80">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Height" Value="35"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.Resources>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Username" DisplayMemberBinding="{Binding }" Width="100"/>
+                                <GridViewColumn Header="Password" DisplayMemberBinding="{Binding }" Width="100"/>
+                                <GridViewColumn Header="Role" DisplayMemberBinding="{Binding }" Width="100"/>
+                                <GridViewColumn Header="Full Name" DisplayMemberBinding="{Binding }" Width="100"/>
+                                <GridViewColumn Header="Specialization" DisplayMemberBinding="{Binding }" Width="100"/>
+                                <GridViewColumn Header="Year of Study" DisplayMemberBinding="{Binding }" Width="100"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,476,0,15">
+                        <Button Content="Add Student" Width="100" Margin="5"/>
+                        <Button Command="{Binding }" CommandParameter="{Binding }" Content="Delete Student" Width="100" Margin="5"/>
+                        <Button Content="Edit Student" Width="100" Margin="5"/>
                     </StackPanel>
                 </Grid>
             </TabItem>

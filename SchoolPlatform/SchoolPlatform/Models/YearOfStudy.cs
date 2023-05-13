@@ -17,7 +17,7 @@ namespace SchoolPlatform.Models
             set
             {
                 _yearOfStudyId = value;
-                NotifyPropertyChanged("YearOfStudy");
+                NotifyPropertyChanged("YearOfStudyId");
             }
         }
         private int _year;

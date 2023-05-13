@@ -59,18 +59,5 @@ namespace SchoolPlatform.DAL
                 _dbContext.SaveChanges();
             }
         }
-
-        public ObservableCollection<StudentWithUser> GetStudentsWithUser()
-        {
-            ObservableCollection<StudentWithUser> studentsWithUsers = new ObservableCollection<StudentWithUser>();
-            var students = _dbContext.Students.Include(s => s.User).ToList();
-
-            foreach (var student in students)
-            {
-                studentsWithUsers.Add(new StudentWithUser(student, student.User));
-            }
-
-            return studentsWithUsers;
-        }
     }
 }

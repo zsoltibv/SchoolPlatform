@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolPlatform.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,8 @@ namespace SchoolPlatform.Data
     {
         private static DataContext _instance;
 
-        private DataContextSingleton() { }
+        private DataContextSingleton() {
+        }
 
         public static DataContext Instance
         {
@@ -22,6 +24,14 @@ namespace SchoolPlatform.Data
                 }
                 return _instance;
             }
+        }
+
+        public static void SeedData()
+        {
+            DbSeeder.SeedAdminUser(_instance);
+            DbSeeder.SeedYearOfStudy(_instance);
+            DbSeeder.SeedSpecialization(_instance);
+            DbSeeder.SeedSubjects(_instance);
         }
     }
 }
