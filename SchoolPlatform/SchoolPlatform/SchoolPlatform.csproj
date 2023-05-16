@@ -181,9 +181,9 @@
     <Compile Include="DAL\YearDataAccess.cs" />
     <Compile Include="Data\DataContextSingleton.cs" />
     <Compile Include="BaseNotification.cs" />
-    <Compile Include="Migrations\20230513213702_InitialCreate.cs" />
-    <Compile Include="Migrations\20230513213702_InitialCreate.designer.cs">
-      <DependentUpon>20230513213702_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\20230516071507_InitialCreate.cs" />
+    <Compile Include="Migrations\20230516071507_InitialCreate.designer.cs">
+      <DependentUpon>20230516071507_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataContextModelSnapshot.cs" />
     <Compile Include="Models\ClassSubject.cs" />

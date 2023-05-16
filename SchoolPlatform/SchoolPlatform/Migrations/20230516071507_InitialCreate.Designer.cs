@@ -9,7 +9,7 @@ using SchoolPlatform;
 namespace SchoolPlatform.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230513213702_InitialCreate")]
+    [Migration("20230516071507_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

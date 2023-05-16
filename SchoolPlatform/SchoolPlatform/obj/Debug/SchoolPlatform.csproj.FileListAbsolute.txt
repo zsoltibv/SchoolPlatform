@@ -184,15 +184,12 @@ C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolP
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\SchoolPlatform.csproj.AssemblyReference.cache
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\SchoolPlatform.csproj.SuggestedBindingRedirects.cache
-C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\MainWindow.g.cs
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Admin\DashboardView.g.cs
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Auth\LoginView.g.cs
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Student\AddOrEditStudent.g.cs
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\App.g.cs
-C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\SchoolPlatform_MarkupCompile.cache
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\SchoolPlatform_MarkupCompile.lref
-C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\MainWindow.baml
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Admin\DashboardView.baml
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Auth\LoginView.baml
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Student\AddOrEditStudent.baml
@@ -307,3 +304,5 @@ V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj
 V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\SchoolPlatform.csproj.CopyComplete
 V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\SchoolPlatform.exe
 V:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\SchoolPlatform.pdb
+C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Class\AddOrEditClass.g.cs
+C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\Class\AddOrEditClass.baml

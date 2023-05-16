@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="AddOrEditClass" Height="450" Width="800">
     <Grid>
-        <ComboBox ItemsSource="{Binding YearOfStudies}"
+        <ComboBox FontSize="24px" ItemsSource="{Binding YearOfStudies}"
             DisplayMemberPath="Year" SelectedItem="{Binding NewClass.YearOfStudy}" HorizontalAlignment="Left" Margin="315,164,0,0" VerticalAlignment="Top" Width="162" Height="38"/>
-        <ComboBox ItemsSource="{Binding Specializations}"
+        <ComboBox FontSize="24px" ItemsSource="{Binding Specializations}"
             DisplayMemberPath="SpecializationName" SelectedItem="{Binding NewClass.Specialization}" HorizontalAlignment="Left" Margin="315,248,0,0" VerticalAlignment="Top" Width="162" Height="38"/>
         <Label Content="Year of study:" HorizontalAlignment="Left" Margin="315,133,0,0" VerticalAlignment="Top"/>
         <Label Content="Specialization:" HorizontalAlignment="Left" Margin="315,217,0,0" VerticalAlignment="Top"/>
