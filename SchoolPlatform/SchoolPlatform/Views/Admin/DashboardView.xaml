@@ -69,6 +69,36 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
+            <TabItem Header="Professors" DataContext="{Binding ProfessorViewModel}" Height="22" Margin="-2,-2,-2,0" VerticalAlignment="Top">
+                <Grid>
+                    <Label FontSize="24px" Content="Professors" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="120"/>
+                    <ListView ItemsSource="{Binding Professors}" SelectedItem="{Binding SelectedProfessor}" Margin="10,69,10,80">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Height" Value="35"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.Resources>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Username" DisplayMemberBinding="{Binding User.UserName}" Width="100"/>
+                                <GridViewColumn Header="Password" DisplayMemberBinding="{Binding User.Password}" Width="100"/>
+                                <GridViewColumn Header="Role" DisplayMemberBinding="{Binding User.UserType}" Width="100"/>
+                                <GridViewColumn Header="Full Name" DisplayMemberBinding="{Binding ProfessorName}" Width="100"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,476,0,15">
+                        <Button Command="{Binding OpenAddOrEditProfessorCommand}" CommandParameter="0" Content="Add Professor" Width="100" Margin="5"/>
+                        <Button Command="{Binding DeleteProfessorCommand}" Content="Delete Professor" Width="100" Margin="5"/>
+                        <Button Command="{Binding OpenAddOrEditProfessorCommand}" CommandParameter="1" Content="Update Professor" Width="100" Margin="5"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
 
             <!-- Add more TabItems for other sections... -->
         </TabControl>

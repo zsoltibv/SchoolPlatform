@@ -49,6 +49,7 @@ namespace SchoolPlatform.DAL
             {
                 existingUser.UserName = user.UserName;
                 existingUser.Password = user.Password;
+                existingUser.UserType = user.UserType;
                 _dbContext.SaveChanges();
             }
         }

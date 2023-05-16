@@ -8,6 +8,7 @@
         Title="ManageSubjectsClass" Height="450" Width="800">
     <Grid>
         <Label FontSize="24px" Content="Subjects" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="104"/>
+
         <ListView ItemsSource="{Binding ClassSubjects}" SelectedItem="{Binding SelectedClassSubject}"  Margin="10,69,10,80">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">

@@ -20,6 +20,7 @@ namespace SchoolPlatform
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Class> Classes { get; set; }
         public DbSet<ClassSubject> ClassSubjects { get; set; }
+        public DbSet<Professor> Professors { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -8,10 +8,10 @@ namespace SchoolPlatform.Models
 {
     public enum UserType
     {
-        None,
-        Admin,
-        Student,
-        Professor,
-        ClassMaster
+        None = 0,
+        Admin = 1,
+        Student = 2,
+        Professor = 3,
+        ClassMaster = 4
     }
 }

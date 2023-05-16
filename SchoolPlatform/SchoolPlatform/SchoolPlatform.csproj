@@ -176,6 +176,7 @@
     <Compile Include="DAL\ClassDataAccess.cs" />
     <Compile Include="DAL\ClassSubjectDataAccess.cs" />
     <Compile Include="DAL\DbSeeder.cs" />
+    <Compile Include="DAL\ProfessorDataAccess.cs" />
     <Compile Include="DAL\SpecializationDataAccess.cs" />
     <Compile Include="DAL\StudentDataAccess.cs" />
     <Compile Include="DAL\SubjectDataAccess.cs" />
@@ -187,8 +188,13 @@
     <Compile Include="Migrations\20230516071507_InitialCreate.designer.cs">
       <DependentUpon>20230516071507_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20230516184322_IntitialCreate.cs" />
+    <Compile Include="Migrations\20230516184322_IntitialCreate.designer.cs">
+      <DependentUpon>20230516184322_IntitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\DataContextModelSnapshot.cs" />
     <Compile Include="Models\ClassSubject.cs" />
+    <Compile Include="Models\Professor.cs" />
     <Compile Include="Models\Specialization.cs" />
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\Student.cs" />
@@ -198,6 +204,7 @@
     <Compile Include="ViewModels\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModels\ClassViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\ProfessorViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="ViewModels\SubjectsClassViewModel.cs" />
     <Compile Include="Views\Admin\DashboardView.xaml.cs">
@@ -208,6 +215,9 @@
     </Compile>
     <Compile Include="Views\Class\AddOrEditClass.xaml.cs">
       <DependentUpon>AddOrEditClass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Professor\AddOrEditProfessor.xaml.cs">
+      <DependentUpon>AddOrEditProfessor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Student\AddOrEditStudent.xaml.cs">
       <DependentUpon>AddOrEditStudent.xaml</DependentUpon>
@@ -229,6 +239,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Class\AddOrEditClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Professor\AddOrEditProfessor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

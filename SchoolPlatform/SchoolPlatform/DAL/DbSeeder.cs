@@ -91,22 +91,5 @@ namespace SchoolPlatform.DAL
                 }
             }
         }
-
-        public static void SeedClassSubject(DataContext context)
-        {
-            if (!context.ClassSubjects.Any(u => u.ClassId == 1))
-            {
-                ClassSubject classSubject = new ClassSubject
-                {
-                    ClassId = 1,
-                    Class = context.Classes.FirstOrDefault(u => u.ClassId == 1),
-                    SubjectId = 1,
-                    Subject = context.Subjects.FirstOrDefault(u => u.SubjectId == 1)
-                };
-
-                context.ClassSubjects.Add(classSubject);
-                context.SaveChanges();
-            }
-        }
     }
 }

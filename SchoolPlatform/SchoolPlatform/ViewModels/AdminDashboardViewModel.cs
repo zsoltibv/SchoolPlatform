@@ -32,10 +32,22 @@ namespace SchoolPlatform.ViewModels
             }
         }
 
+        private ProfessorViewModel _professorViewModel;
+        public ProfessorViewModel ProfessorViewModel
+        {
+            get { return _professorViewModel; }
+            set
+            {
+                _professorViewModel = value;
+                NotifyPropertyChanged(nameof(ProfessorViewModel));
+            }
+        }
+
         public AdminDashboardViewModel()
         {
             _studentViewModel = new StudentViewModel();
             _classViewModel = new ClassViewModel();
+            _professorViewModel = new ProfessorViewModel();
         }
 
         public void Refresh()
