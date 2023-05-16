@@ -8,7 +8,7 @@
         Title="ManageSubjectsClass" Height="450" Width="800">
     <Grid>
         <Label FontSize="24px" Content="Subjects" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="104"/>
-        <ListView ItemsSource="{Binding ClassSubjects}" Margin="10,69,10,80">
+        <ListView ItemsSource="{Binding ClassSubjects}" SelectedItem="{Binding SelectedClassSubject}"  Margin="10,69,10,80">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Height" Value="35"/>
@@ -21,14 +21,15 @@
             </ListView.Resources>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Subject Name" DisplayMemberBinding="{Binding ClassSubjects.Subject.SubjectName}" Width="100"/>
+                    <GridViewColumn Header="Subject Name" DisplayMemberBinding="{Binding Subject.SubjectName}" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="12,359,0,10" >
-            <Button Command="{Binding }" CommandParameter="0" Content="Add Subject" Width="100" Margin="5"/>
-            <Button Command="{Binding }" CommandParameter="1" Content="Edit Class" Width="100" Margin="5"/>
-            <Button Command="{Binding }" Content="Delete Subject" Width="100" Margin="5"/>
+            <ComboBox FontSize="20px" ItemsSource="{Binding Subjects}" Margin="5"
+            DisplayMemberPath="SubjectName" SelectedItem="{Binding SelectedSubject}" Width="208" HorizontalAlignment="Center"/>
+            <Button Command="{Binding AddSubjectCommand}" CommandParameter="0" Content="Add Subject" Width="100" Margin="5"/>
+            <Button Command="{Binding RemoveSubjectCommand}" Content="Delete Subject" Width="100" Margin="5"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -26,5 +26,11 @@ namespace SchoolPlatform.DAL
             _dbContext.ClassSubjects.Add(classSubject);
             _dbContext.SaveChanges();
         }
+
+        public void DeleteClassSubject(ClassSubject classSubject)
+        {
+            _dbContext.ClassSubjects.Remove(classSubject);
+            _dbContext.SaveChanges();
+        }
     }
 }

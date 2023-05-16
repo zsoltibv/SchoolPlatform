@@ -4,6 +4,7 @@ using SchoolPlatform.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -98,13 +99,14 @@ namespace SchoolPlatform.DAL
                 ClassSubject classSubject = new ClassSubject
                 {
                     ClassId = 1,
-                    SubjectId = 1
+                    Class = context.Classes.FirstOrDefault(u => u.ClassId == 1),
+                    SubjectId = 1,
+                    Subject = context.Subjects.FirstOrDefault(u => u.SubjectId == 1)
                 };
 
                 context.ClassSubjects.Add(classSubject);
                 context.SaveChanges();
             }
-
         }
     }
 }

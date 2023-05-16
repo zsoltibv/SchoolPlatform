@@ -34,7 +34,16 @@ namespace SchoolPlatform.Models
         }
 
         [ForeignKey("ClassId")]
-        public Class Class { get; set; }
+        private Class _class;
+        public Class Class
+        {
+            get { return _class; }
+            set
+            {
+                _class = value;
+                NotifyPropertyChanged("Class");
+            }
+        }
 
         private int _subjectId;
         public int SubjectId
@@ -48,6 +57,15 @@ namespace SchoolPlatform.Models
         }
 
         [ForeignKey("SubjectId")]
-        public Subject Subject { get; set; }
+        private Subject _subject;
+        public Subject Subject
+        {
+            get { return _subject; }
+            set
+            {
+                _subject = value;
+                NotifyPropertyChanged("Subject");
+            }
+        }
     }
 }

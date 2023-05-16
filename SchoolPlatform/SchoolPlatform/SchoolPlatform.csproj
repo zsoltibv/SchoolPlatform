@@ -178,6 +178,7 @@
     <Compile Include="DAL\DbSeeder.cs" />
     <Compile Include="DAL\SpecializationDataAccess.cs" />
     <Compile Include="DAL\StudentDataAccess.cs" />
+    <Compile Include="DAL\SubjectDataAccess.cs" />
     <Compile Include="DAL\UserDataAccess.cs" />
     <Compile Include="DAL\YearDataAccess.cs" />
     <Compile Include="Data\DataContextSingleton.cs" />
