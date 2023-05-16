@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using SchoolPlatform.Views.Class;
+using SchoolPlatform.Views.Subject;
+using SchoolPlatform.ViewModels;
 
 namespace SchoolPlatform.ViewModels
 {
@@ -93,8 +95,15 @@ namespace SchoolPlatform.ViewModels
             window.ShowDialog();
         }
 
+        public void OpenSubjectsClassWindow(object param)
+        {
+            ManageSubjectsClass window = new ManageSubjectsClass(SelectedClass);
+            window.ShowDialog();
+        }
+
         public ICommand OpenAddOrEditWindowCommand => new RelayCommand<object>(OpenAddOrEditWindow);
         public ICommand AddOrEditClassCommand => new RelayCommand<object>(AddClass);
         public ICommand DeleteClassCommand => new RelayCommand<object>(DeleteClass);
+        public ICommand OpenSubjectsWindowCommand => new RelayCommand<object>(OpenSubjectsClassWindow);
     }
 }

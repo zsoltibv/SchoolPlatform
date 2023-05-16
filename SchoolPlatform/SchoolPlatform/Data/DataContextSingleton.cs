@@ -32,6 +32,7 @@ namespace SchoolPlatform.Data
             DbSeeder.SeedYearOfStudy(_instance);
             DbSeeder.SeedSpecialization(_instance);
             DbSeeder.SeedSubjects(_instance);
+            DbSeeder.SeedClassSubject(_instance);
         }
     }
 }

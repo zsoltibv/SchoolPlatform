@@ -1,0 +1,34 @@
+﻿<Window x:Class="SchoolPlatform.Views.Subject.ManageSubjectsClass"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SchoolPlatform.Views.Subject"
+        mc:Ignorable="d"
+        Title="ManageSubjectsClass" Height="450" Width="800">
+    <Grid>
+        <Label FontSize="24px" Content="Subjects" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="104"/>
+        <ListView ItemsSource="{Binding ClassSubjects}" Margin="10,69,10,80">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="35"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                </Style>
+            </ListView.Resources>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Subject Name" DisplayMemberBinding="{Binding ClassSubjects.Subject.SubjectName}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="12,359,0,10" >
+            <Button Command="{Binding }" CommandParameter="0" Content="Add Subject" Width="100" Margin="5"/>
+            <Button Command="{Binding }" CommandParameter="1" Content="Edit Class" Width="100" Margin="5"/>
+            <Button Command="{Binding }" Content="Delete Subject" Width="100" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>

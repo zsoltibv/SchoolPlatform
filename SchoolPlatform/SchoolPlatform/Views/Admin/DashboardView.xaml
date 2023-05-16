@@ -65,6 +65,7 @@
                         <Button Command="{Binding OpenAddOrEditWindowCommand}" CommandParameter="0" Content="Add Class" Width="100" Margin="5"/>
                         <Button Command="{Binding DeleteClassCommand}" CommandParameter="{Binding }" Content="Delete Class" Width="100" Margin="5"/>
                         <Button Command="{Binding OpenAddOrEditWindowCommand}" CommandParameter="1" Content="Edit Class" Width="100" Margin="5"/>
+                        <Button Command="{Binding OpenSubjectsWindowCommand}" Content="View Subjects" Width="100" Margin="5"/>
                     </StackPanel>
                 </Grid>
             </TabItem>

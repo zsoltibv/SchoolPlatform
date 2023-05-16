@@ -16,7 +16,8 @@ namespace SchoolPlatform.DAL
         {
             if (!context.Users.Any(u => u.UserName == "admin"))
             {
-                var adminUser = new User {
+                var adminUser = new User
+                {
                     UserName = "admin",
                     Password = "pass",
                     UserType = UserType.Admin,
@@ -49,8 +50,8 @@ namespace SchoolPlatform.DAL
                 "Mate-Info",
                 "Științe ale naturii",
                 "Uman",
-            }; 
-            foreach(var item in list)
+            };
+            foreach (var item in list)
             {
                 if (!context.Specializations.Any(u => u.SpecializationName == item))
                 {
@@ -88,6 +89,22 @@ namespace SchoolPlatform.DAL
                     context.SaveChanges();
                 }
             }
+        }
+
+        public static void SeedClassSubject(DataContext context)
+        {
+            if (!context.ClassSubjects.Any(u => u.ClassId == 1))
+            {
+                ClassSubject classSubject = new ClassSubject
+                {
+                    ClassId = 1,
+                    SubjectId = 1
+                };
+
+                context.ClassSubjects.Add(classSubject);
+                context.SaveChanges();
+            }
+
         }
     }
 }
