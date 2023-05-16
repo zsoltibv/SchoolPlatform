@@ -65,7 +65,7 @@
                         <Button Command="{Binding OpenAddOrEditWindowCommand}" CommandParameter="0" Content="Add Class" Width="100" Margin="5"/>
                         <Button Command="{Binding DeleteClassCommand}" CommandParameter="{Binding }" Content="Delete Class" Width="100" Margin="5"/>
                         <Button Command="{Binding OpenAddOrEditWindowCommand}" CommandParameter="1" Content="Edit Class" Width="100" Margin="5"/>
-                        <Button Command="{Binding OpenSubjectsWindowCommand}" Content="View Subjects" Width="100" Margin="5"/>
+                        <Button Command="{Binding OpenSubjectsWindowCommand}" Content="View Assigned Subjects" Width="145" Margin="5"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -95,7 +95,8 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,476,0,15">
                         <Button Command="{Binding OpenAddOrEditProfessorCommand}" CommandParameter="0" Content="Add Professor" Width="100" Margin="5"/>
                         <Button Command="{Binding DeleteProfessorCommand}" Content="Delete Professor" Width="100" Margin="5"/>
-                        <Button Command="{Binding OpenAddOrEditProfessorCommand}" CommandParameter="1" Content="Update Professor" Width="100" Margin="5"/>
+                        <Button Command="{Binding OpenAddOrEditProfessorCommand}" CommandParameter="1" Content="Edit Professor" Width="100" Margin="5"/>
+                        <Button Command="{Binding OpenProfessorClassSubjectCommand}" Content="View Assigned Subjects" Width="141" Margin="5"/>
                     </StackPanel>
                 </Grid>
             </TabItem>

@@ -176,6 +176,7 @@
     <Compile Include="DAL\ClassDataAccess.cs" />
     <Compile Include="DAL\ClassSubjectDataAccess.cs" />
     <Compile Include="DAL\DbSeeder.cs" />
+    <Compile Include="DAL\ProfessorClassSubjectDataAccess.cs" />
     <Compile Include="DAL\ProfessorDataAccess.cs" />
     <Compile Include="DAL\SpecializationDataAccess.cs" />
     <Compile Include="DAL\StudentDataAccess.cs" />
@@ -184,17 +185,14 @@
     <Compile Include="DAL\YearDataAccess.cs" />
     <Compile Include="Data\DataContextSingleton.cs" />
     <Compile Include="BaseNotification.cs" />
-    <Compile Include="Migrations\20230516071507_InitialCreate.cs" />
-    <Compile Include="Migrations\20230516071507_InitialCreate.designer.cs">
-      <DependentUpon>20230516071507_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20230516184322_IntitialCreate.cs" />
-    <Compile Include="Migrations\20230516184322_IntitialCreate.designer.cs">
-      <DependentUpon>20230516184322_IntitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\20230516223350_InitialCreate.cs" />
+    <Compile Include="Migrations\20230516223350_InitialCreate.designer.cs">
+      <DependentUpon>20230516223350_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataContextModelSnapshot.cs" />
     <Compile Include="Models\ClassSubject.cs" />
     <Compile Include="Models\Professor.cs" />
+    <Compile Include="Models\ProfessorClassSubject.cs" />
     <Compile Include="Models\Specialization.cs" />
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\Student.cs" />
@@ -204,9 +202,10 @@
     <Compile Include="ViewModels\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModels\ClassViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\ProfessorClassSubjectViewModel.cs" />
     <Compile Include="ViewModels\ProfessorViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
-    <Compile Include="ViewModels\SubjectsClassViewModel.cs" />
+    <Compile Include="ViewModels\ClassSubjectViewModel.cs" />
     <Compile Include="Views\Admin\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
@@ -218,6 +217,9 @@
     </Compile>
     <Compile Include="Views\Professor\AddOrEditProfessor.xaml.cs">
       <DependentUpon>AddOrEditProfessor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Professor\ProfessorClassSubjectView.xaml.cs">
+      <DependentUpon>ProfessorClassSubjectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Student\AddOrEditStudent.xaml.cs">
       <DependentUpon>AddOrEditStudent.xaml</DependentUpon>
@@ -243,6 +245,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Professor\AddOrEditProfessor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Professor\ProfessorClassSubjectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

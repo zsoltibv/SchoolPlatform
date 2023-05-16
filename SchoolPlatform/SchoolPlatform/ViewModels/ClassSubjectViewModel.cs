@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace SchoolPlatform.ViewModels
 {
-    public class SubjectsClassViewModel
+    public class ClassSubjectViewModel
     {
         ClassSubjectDataAccess _classSubjectDataAccess;
         SubjectDataAccess _subjectDataAccess;
@@ -22,7 +22,7 @@ namespace SchoolPlatform.ViewModels
         public ObservableCollection<Subject> Subjects { get; set; }
         public Subject SelectedSubject { get; set; }
 
-        public SubjectsClassViewModel(Models.Class selectedClass) { 
+        public ClassSubjectViewModel(Models.Class selectedClass) { 
             SelectedClass = selectedClass;
             _classSubjectDataAccess = new ClassSubjectDataAccess();
             _subjectDataAccess = new SubjectDataAccess();

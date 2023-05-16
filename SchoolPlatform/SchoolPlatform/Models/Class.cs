@@ -54,6 +54,7 @@ namespace SchoolPlatform.Models
                 NotifyPropertyChanged("YearOfStudyId");
             }
         }
+
         [ForeignKey("YearOfStudyId")]
         private YearOfStudy _yearOfStudy;
         public YearOfStudy YearOfStudy

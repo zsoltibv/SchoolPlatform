@@ -82,6 +82,28 @@ namespace SchoolPlatform.Migrations
                     b.ToTable("Professors");
                 });
 
+            modelBuilder.Entity("SchoolPlatform.Models.ProfessorClassSubject", b =>
+                {
+                    b.Property<int>("ProfessorClassSubjectId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ClassSubjectId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProfessorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProfessorClassSubjectId");
+
+                    b.HasIndex("ClassSubjectId");
+
+                    b.HasIndex("ProfessorId");
+
+                    b.ToTable("ProfessorClassSubjects");
+                });
+
             modelBuilder.Entity("SchoolPlatform.Models.Specialization", b =>
                 {
                     b.Property<int>("SpecializationId")
@@ -208,6 +230,21 @@ namespace SchoolPlatform.Migrations
                     b.HasOne("SchoolPlatform.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SchoolPlatform.Models.ProfessorClassSubject", b =>
+                {
+                    b.HasOne("SchoolPlatform.Models.ClassSubject", "ClassSubject")
+                        .WithMany()
+                        .HasForeignKey("ClassSubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolPlatform.Models.Professor", "Professor")
+                        .WithMany()
+                        .HasForeignKey("ProfessorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

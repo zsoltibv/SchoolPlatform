@@ -47,6 +47,12 @@ namespace SchoolPlatform.ViewModels
             window.ShowDialog();
         }
 
+        public void OpenProfessorClassSubjectWindow(object param)
+        {
+            ProfessorClassSubjectView window = new ProfessorClassSubjectView(SelectedProfessor);
+            window.ShowDialog();
+        }
+
         public void AddOrEditProfessor(object param)
         {
             if (!EditMode)
@@ -88,6 +94,6 @@ namespace SchoolPlatform.ViewModels
         public ICommand OpenAddOrEditProfessorCommand => new RelayCommand<object>(OpenAddOrEditProfessorWindow);
         public ICommand AddOrEditProfessorCommand => new RelayCommand<object>(AddOrEditProfessor);
         public ICommand DeleteProfessorCommand => new RelayCommand<object>(DeleteProfessor);
-
+        public ICommand OpenProfessorClassSubjectCommand => new RelayCommand<object>(OpenProfessorClassSubjectWindow);
     }
 }

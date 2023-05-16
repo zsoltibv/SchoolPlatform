@@ -11,23 +11,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using SchoolPlatform.Models;
 using SchoolPlatform.ViewModels;
-using SchoolPlatform.Views.Class;
 
-namespace SchoolPlatform.Views.Subject
+namespace SchoolPlatform.Views.Professor
 {
     /// <summary>
-    /// Interaction logic for ManageSubjectsClass.xaml
+    /// Interaction logic for ProfessorClassSubjectView.xaml
     /// </summary>
-    public partial class ManageSubjectsClass : Window
+    public partial class ProfessorClassSubjectView : Window
     {
-        public ManageSubjectsClass(Models.Class selectedClass)
+        ProfessorClassSubjectViewModel _professorClassSubjectViewModel;
+        public ProfessorClassSubjectView(Models.Professor selectedProfessor)
         {
             InitializeComponent();
-
-            ClassSubjectViewModel subjectsClassViewModel = new ClassSubjectViewModel(selectedClass);
-            DataContext = subjectsClassViewModel;
+            _professorClassSubjectViewModel = new ProfessorClassSubjectViewModel(selectedProfessor);
+            DataContext = _professorClassSubjectViewModel;
         }
     }
 }
