@@ -67,5 +67,28 @@ namespace SchoolPlatform.Models
                 NotifyPropertyChanged("Subject");
             }
         }
+
+        private int _professorId;
+        public int ProfessorId
+        {
+            get { return _professorId; }
+            set
+            {
+                _professorId = value;
+                NotifyPropertyChanged("ProfessorId");
+            }
+        }
+
+        [ForeignKey("ProfessorId")]
+        private Professor _professor;
+        public Professor Professor
+        {
+            get { return _professor; }
+            set
+            {
+                _professor = value;
+                NotifyPropertyChanged("Professor");
+            }
+        }
     }
 }

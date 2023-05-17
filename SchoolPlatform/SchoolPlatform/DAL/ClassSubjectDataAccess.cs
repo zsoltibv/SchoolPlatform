@@ -16,6 +16,11 @@ namespace SchoolPlatform.DAL
             _dbContext = DataContextSingleton.Instance;
         }
 
+        public ClassSubject GetClassSubjectById(int id)
+        {
+            return _dbContext.ClassSubjects.FirstOrDefault(u => u.ClassSubjectId == id);
+        }
+
         public List<ClassSubject> GetClassSubjects(int id)
         {
             return _dbContext.ClassSubjects.Where(p => p.ClassId == id).ToList();
@@ -31,6 +36,22 @@ namespace SchoolPlatform.DAL
         {
             _dbContext.ClassSubjects.Remove(classSubject);
             _dbContext.SaveChanges();
+        }
+
+        public void UpdateClassSubject(ClassSubject classSubject, int id)
+        {
+            var dbEntity = GetClassSubjectById(id);
+
+            if (dbEntity != null)
+            {
+                dbEntity.ClassId = classSubject.ClassId;
+                dbEntity.Class = classSubject.Class;
+                dbEntity.SubjectId = classSubject.SubjectId;
+                dbEntity.Subject = classSubject.Subject;
+                dbEntity.ProfessorId = classSubject.ProfessorId;
+                dbEntity.Professor = classSubject.Professor;
+                _dbContext.SaveChanges();
+            }
         }
     }
 }

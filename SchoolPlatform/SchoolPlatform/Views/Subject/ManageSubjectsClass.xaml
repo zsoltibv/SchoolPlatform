@@ -23,14 +23,18 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Subject Name" DisplayMemberBinding="{Binding Subject.SubjectName}" Width="100"/>
+                    <GridViewColumn Header="Professor Name" DisplayMemberBinding="{Binding Professor.ProfessorName}" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="12,359,0,10" >
             <ComboBox FontSize="20px" ItemsSource="{Binding Subjects}" Margin="5"
             DisplayMemberPath="SubjectName" SelectedItem="{Binding SelectedSubject}" Width="208" HorizontalAlignment="Center"/>
+            <ComboBox FontSize="20px" ItemsSource="{Binding Professors}" Margin="5"
+                DisplayMemberPath="ProfessorName" SelectedItem="{Binding SelectedProfessor}" Width="208"/>
             <Button Command="{Binding AddSubjectCommand}" CommandParameter="0" Content="Add Subject" Width="100" Margin="5"/>
             <Button Command="{Binding RemoveSubjectCommand}" Content="Delete Subject" Width="100" Margin="5"/>
+            <Button Command="{Binding UpdateSubjectCommand}" Content="Edit Subject" Width="100" Margin="5"/>
         </StackPanel>
     </Grid>
 </Window>

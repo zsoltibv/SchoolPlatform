@@ -47,12 +47,6 @@ namespace SchoolPlatform.ViewModels
             window.ShowDialog();
         }
 
-        public void OpenProfessorClassSubjectWindow(object param)
-        {
-            ProfessorClassSubjectView window = new ProfessorClassSubjectView(SelectedProfessor);
-            window.ShowDialog();
-        }
-
         public void AddOrEditProfessor(object param)
         {
             if (!EditMode)
@@ -65,8 +59,8 @@ namespace SchoolPlatform.ViewModels
             }
             else
             {
-                _userDataAccess.UpdateUser(NewProfessor.User, NewProfessor.User.UserId);
-                _professorDataAccess.UpdateProfessor(NewProfessor, NewProfessor.ProfessorId);
+                _userDataAccess.UpdateUser(NewProfessor.User, SelectedProfessor.User.UserId);
+                _professorDataAccess.UpdateProfessor(NewProfessor, SelectedProfessor.ProfessorId);
             }
             NewProfessor = new Professor
             {
@@ -94,6 +88,5 @@ namespace SchoolPlatform.ViewModels
         public ICommand OpenAddOrEditProfessorCommand => new RelayCommand<object>(OpenAddOrEditProfessorWindow);
         public ICommand AddOrEditProfessorCommand => new RelayCommand<object>(AddOrEditProfessor);
         public ICommand DeleteProfessorCommand => new RelayCommand<object>(DeleteProfessor);
-        public ICommand OpenProfessorClassSubjectCommand => new RelayCommand<object>(OpenProfessorClassSubjectWindow);
     }
 }

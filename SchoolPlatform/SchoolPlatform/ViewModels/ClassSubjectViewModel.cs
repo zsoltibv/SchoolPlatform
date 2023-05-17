@@ -15,19 +15,24 @@ namespace SchoolPlatform.ViewModels
     {
         ClassSubjectDataAccess _classSubjectDataAccess;
         SubjectDataAccess _subjectDataAccess;
+        ProfessorDataAccess _professorDataAccess;
 
         public Models.Class SelectedClass { get; set;}
         public ClassSubject SelectedClassSubject { get; set; }
         public ObservableCollection<ClassSubject> ClassSubjects { get; set; }
         public ObservableCollection<Subject> Subjects { get; set; }
+        public ObservableCollection<Professor> Professors { get; set; }
         public Subject SelectedSubject { get; set; }
+        public Professor SelectedProfessor { get; set; }
 
         public ClassSubjectViewModel(Models.Class selectedClass) { 
             SelectedClass = selectedClass;
             _classSubjectDataAccess = new ClassSubjectDataAccess();
             _subjectDataAccess = new SubjectDataAccess();
+            _professorDataAccess = new ProfessorDataAccess();   
             ClassSubjects = new ObservableCollection<ClassSubject>(_classSubjectDataAccess.GetClassSubjects(selectedClass.ClassId));
             Subjects = new ObservableCollection<Subject>(_subjectDataAccess.GetAllSubjects());
+            Professors = new ObservableCollection<Professor>(_professorDataAccess.GetAllProfessors());
         }
 
         public void AddSubject(object param)
@@ -38,6 +43,8 @@ namespace SchoolPlatform.ViewModels
                 Class = SelectedClass,
                 SubjectId = SelectedSubject.SubjectId,
                 Subject = SelectedSubject,
+                ProfessorId = SelectedProfessor.ProfessorId,
+                Professor = SelectedProfessor
             };
             _classSubjectDataAccess.AddClassSubject(classSubject);
 
@@ -52,7 +59,23 @@ namespace SchoolPlatform.ViewModels
             ClassSubjects.Remove(objectToRemove);
         }
 
+        public void UpdateSubject(object param)
+        {
+            ClassSubject classSubject = new ClassSubject
+            {
+                ClassId = SelectedClass.ClassId,
+                Class = SelectedClass,
+                SubjectId = SelectedSubject.SubjectId,
+                Subject = SelectedSubject,
+                ProfessorId = SelectedProfessor.ProfessorId,
+                Professor = SelectedProfessor
+            };
+            _classSubjectDataAccess.UpdateClassSubject(classSubject, SelectedClassSubject.ClassSubjectId);
+        }
+
         public ICommand AddSubjectCommand => new RelayCommand<object>(AddSubject);
         public ICommand RemoveSubjectCommand => new RelayCommand<object>(RemoveSubject);
+        public ICommand UpdateSubjectCommand => new RelayCommand<object>(UpdateSubject);
+
     }
 }

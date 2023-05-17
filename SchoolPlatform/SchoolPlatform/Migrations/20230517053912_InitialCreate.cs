@@ -113,7 +113,8 @@ namespace SchoolPlatform.Migrations
                     ClassSubjectId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ClassId = table.Column<int>(nullable: false),
-                    SubjectId = table.Column<int>(nullable: false)
+                    SubjectId = table.Column<int>(nullable: false),
+                    ProfessorId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -123,6 +124,12 @@ namespace SchoolPlatform.Migrations
                         column: x => x.ClassId,
                         principalTable: "Classes",
                         principalColumn: "ClassId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ClassSubjects_Professors_ProfessorId",
+                        column: x => x.ProfessorId,
+                        principalTable: "Professors",
+                        principalColumn: "ProfessorId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ClassSubjects_Subjects_SubjectId",
@@ -159,32 +166,6 @@ namespace SchoolPlatform.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "ProfessorClassSubjects",
-                columns: table => new
-                {
-                    ProfessorClassSubjectId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProfessorId = table.Column<int>(nullable: false),
-                    ClassSubjectId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProfessorClassSubjects", x => x.ProfessorClassSubjectId);
-                    table.ForeignKey(
-                        name: "FK_ProfessorClassSubjects_ClassSubjects_ClassSubjectId",
-                        column: x => x.ClassSubjectId,
-                        principalTable: "ClassSubjects",
-                        principalColumn: "ClassSubjectId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProfessorClassSubjects_Professors_ProfessorId",
-                        column: x => x.ProfessorId,
-                        principalTable: "Professors",
-                        principalColumn: "ProfessorId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_Classes_SpecializationId",
                 table: "Classes",
@@ -201,19 +182,14 @@ namespace SchoolPlatform.Migrations
                 column: "ClassId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ClassSubjects_ProfessorId",
+                table: "ClassSubjects",
+                column: "ProfessorId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ClassSubjects_SubjectId",
                 table: "ClassSubjects",
                 column: "SubjectId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProfessorClassSubjects_ClassSubjectId",
-                table: "ProfessorClassSubjects",
-                column: "ClassSubjectId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProfessorClassSubjects_ProfessorId",
-                table: "ProfessorClassSubjects",
-                column: "ProfessorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Professors_UserId",
@@ -234,22 +210,19 @@ namespace SchoolPlatform.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ProfessorClassSubjects");
+                name: "ClassSubjects");
 
             migrationBuilder.DropTable(
                 name: "Students");
 
             migrationBuilder.DropTable(
-                name: "ClassSubjects");
-
-            migrationBuilder.DropTable(
                 name: "Professors");
 
             migrationBuilder.DropTable(
-                name: "Classes");
+                name: "Subjects");
 
             migrationBuilder.DropTable(
-                name: "Subjects");
+                name: "Classes");
 
             migrationBuilder.DropTable(
                 name: "Users");

@@ -50,12 +50,17 @@ namespace SchoolPlatform.Migrations
                     b.Property<int>("ClassId")
                         .HasColumnType("int");
 
+                    b.Property<int>("ProfessorId")
+                        .HasColumnType("int");
+
                     b.Property<int>("SubjectId")
                         .HasColumnType("int");
 
                     b.HasKey("ClassSubjectId");
 
                     b.HasIndex("ClassId");
+
+                    b.HasIndex("ProfessorId");
 
                     b.HasIndex("SubjectId");
 
@@ -80,28 +85,6 @@ namespace SchoolPlatform.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Professors");
-                });
-
-            modelBuilder.Entity("SchoolPlatform.Models.ProfessorClassSubject", b =>
-                {
-                    b.Property<int>("ProfessorClassSubjectId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ClassSubjectId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProfessorId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProfessorClassSubjectId");
-
-                    b.HasIndex("ClassSubjectId");
-
-                    b.HasIndex("ProfessorId");
-
-                    b.ToTable("ProfessorClassSubjects");
                 });
 
             modelBuilder.Entity("SchoolPlatform.Models.Specialization", b =>
@@ -218,6 +201,12 @@ namespace SchoolPlatform.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SchoolPlatform.Models.Professor", "Professor")
+                        .WithMany()
+                        .HasForeignKey("ProfessorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SchoolPlatform.Models.Subject", "Subject")
                         .WithMany()
                         .HasForeignKey("SubjectId")
@@ -230,21 +219,6 @@ namespace SchoolPlatform.Migrations
                     b.HasOne("SchoolPlatform.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SchoolPlatform.Models.ProfessorClassSubject", b =>
-                {
-                    b.HasOne("SchoolPlatform.Models.ClassSubject", "ClassSubject")
-                        .WithMany()
-                        .HasForeignKey("ClassSubjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SchoolPlatform.Models.Professor", "Professor")
-                        .WithMany()
-                        .HasForeignKey("ProfessorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
