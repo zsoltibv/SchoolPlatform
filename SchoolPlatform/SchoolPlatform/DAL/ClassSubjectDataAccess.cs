@@ -26,6 +26,11 @@ namespace SchoolPlatform.DAL
             return _dbContext.ClassSubjects.Where(p => p.ClassId == id).ToList();
         }
 
+        public List<ClassSubject> GetProfessorSubjects(int id)
+        {
+            return _dbContext.ClassSubjects.Where(p => p.ProfessorId == id).ToList();
+        }
+
         public void AddClassSubject(ClassSubject classSubject)
         {
             _dbContext.ClassSubjects.Add(classSubject);

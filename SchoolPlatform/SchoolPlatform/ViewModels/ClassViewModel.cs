@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using SchoolPlatform.Views.Class;
 using SchoolPlatform.Views.Admin;
-using SchoolPlatform.ViewModels;
 
 namespace SchoolPlatform.ViewModels
 {

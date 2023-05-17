@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolPlatform.Views.Professor"
         mc:Ignorable="d"
-        Title="DashboardView" Height="600" Width="1000">
+        Title="Professor Dashboard" Height="600" Width="1000">
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Overview" DataContext="{Binding ProfessorClassSubjectViewModel}" Height="22" Margin="-2,-2,-2,0" VerticalAlignment="Top">
+                <Grid>
+                    <Label FontSize="24px" Content="Classes" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="90"/>
+                    <ListView ItemsSource="{Binding ClassSubjects}" Margin="10,69,10,80">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Height" Value="35"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.Resources>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Subject Name" DisplayMemberBinding="{Binding Subject.SubjectName}" Width="120"/>
+                                <GridViewColumn Header="Specialization" DisplayMemberBinding="{Binding }" Width="100"/>
+                             
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,476,0,15">
+                        <Button Content="Add Student" Width="100" Margin="5"/>
+                        <Button Command="{Binding }" CommandParameter="{Binding }" Name="DeleteStudent" Content="Delete Student" Width="100" Margin="5"/>
+                        <Button Content="Edit Student" Width="100" Margin="5"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

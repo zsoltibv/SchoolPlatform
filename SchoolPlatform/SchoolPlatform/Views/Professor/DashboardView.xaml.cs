@@ -11,17 +11,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SchoolPlatform.ViewModels;
 
 namespace SchoolPlatform.Views.Professor
 {
     /// <summary>
     /// Interaction logic for DashboardView.xaml
     /// </summary>
-    public partial class DashboardView : Window
-    {
+    public partial class DashboardView : Window {
+        private ProfessorDashboardViewModel _professorDashboardViewModel;
+
         public DashboardView()
         {
             InitializeComponent();
+            _professorDashboardViewModel = new ProfessorDashboardViewModel();
+            DataContext = _professorDashboardViewModel;
         }
     }
 }

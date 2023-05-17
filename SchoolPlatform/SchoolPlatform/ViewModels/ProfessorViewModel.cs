@@ -8,7 +8,6 @@ using System.Windows.Input;
 using SchoolPlatform.DAL;
 using SchoolPlatform.Models;
 using SchoolPlatform.Views;
-using SchoolPlatform.Views.Admin;
 using System.Windows;
 
 namespace SchoolPlatform.ViewModels

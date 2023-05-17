@@ -8,17 +8,19 @@ namespace SchoolPlatform.ViewModels
 {
     public class ProfessorDashboardViewModel : BaseNotification
     {
-        private StudentViewModel _studentViewModel;
-        public StudentViewModel StudentViewModel
+        private ProfessorClassSubjectViewModel _professorClassSubjectViewModel;
+        public ProfessorClassSubjectViewModel ProfessorClassSubjectViewModel
         {
-            get { return _studentViewModel; }
+            get { return _professorClassSubjectViewModel; }
             set
             {
-                _studentViewModel = value;
-                NotifyPropertyChanged(nameof(StudentViewModel));
+                _professorClassSubjectViewModel = value;
+                NotifyPropertyChanged(nameof(ProfessorClassSubjectViewModel));
             }
         }
 
-        public ProfessorDashboardViewModel() { }
+        public ProfessorDashboardViewModel() {
+            _professorClassSubjectViewModel = new ProfessorClassSubjectViewModel(); 
+        }
     }
 }
