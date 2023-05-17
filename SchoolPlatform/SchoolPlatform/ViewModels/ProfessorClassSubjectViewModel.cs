@@ -20,7 +20,7 @@ namespace SchoolPlatform.ViewModels
         public ProfessorClassSubjectViewModel()
         {
             _classSubjectDataAccess = new ClassSubjectDataAccess();
-            ClassSubjects = new ObservableCollection<ClassSubject>(_classSubjectDataAccess.GetClassSubjects(1));
+            ClassSubjects = new ObservableCollection<ClassSubject>(_classSubjectDataAccess.GetProfessorSubjects(LoggedIn.Professor.ProfessorId));
         }
     }
 }

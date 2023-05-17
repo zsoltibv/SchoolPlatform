@@ -1,4 +1,5 @@
-﻿using SchoolPlatform.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SchoolPlatform.Data;
 using SchoolPlatform.Models;
 using System;
 using System.Collections.Generic;
@@ -23,12 +24,21 @@ namespace SchoolPlatform.DAL
 
         public List<ClassSubject> GetClassSubjects(int id)
         {
-            return _dbContext.ClassSubjects.Where(p => p.ClassId == id).ToList();
+            return _dbContext.ClassSubjects
+                .Where(p => p.ClassId == id)
+                .ToList();
         }
 
         public List<ClassSubject> GetProfessorSubjects(int id)
         {
-            return _dbContext.ClassSubjects.Where(p => p.ProfessorId == id).ToList();
+            return _dbContext.ClassSubjects
+                .Where(cs => cs.ProfessorId == id)
+                .Include(cs => cs.Class)
+                    .ThenInclude(c => c.YearOfStudy)
+                .Include(cs => cs.Class)
+                    .ThenInclude(c => c.Specialization)
+                .Include(cs => cs.Subject)
+                .ToList();
         }
 
         public void AddClassSubject(ClassSubject classSubject)

@@ -40,11 +40,11 @@ namespace SchoolPlatform.ViewModels
             ClassSubject classSubject = new ClassSubject
             {
                 ClassId = SelectedClass.ClassId,
-                Class = SelectedClass,
                 SubjectId = SelectedSubject.SubjectId,
-                Subject = SelectedSubject,
                 ProfessorId = SelectedProfessor.ProfessorId,
-                Professor = SelectedProfessor
+                Professor = SelectedProfessor,
+                Class = SelectedClass,
+                Subject = SelectedSubject
             };
             _classSubjectDataAccess.AddClassSubject(classSubject);
 

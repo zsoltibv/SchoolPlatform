@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SchoolPlatform.DAL;
+using SchoolPlatform.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +22,7 @@ namespace SchoolPlatform.ViewModels
         }
 
         public ProfessorDashboardViewModel() {
-            _professorClassSubjectViewModel = new ProfessorClassSubjectViewModel(); 
+            _professorClassSubjectViewModel = new ProfessorClassSubjectViewModel();
         }
     }
 }
