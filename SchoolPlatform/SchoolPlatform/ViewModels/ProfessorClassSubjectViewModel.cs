@@ -47,9 +47,6 @@ namespace SchoolPlatform.ViewModels
                 .ToList();
 
             Students = new ObservableCollection<Student>(matchingEntries);
-            if(Students.Count == 0) {
-                MessageBox.Show("No Students in this class");
-            }
         }
 
         //public ICommand SelectionChangedCommand => new RelayCommand<object>(RetrieveStudentList);

@@ -33,8 +33,11 @@ namespace SchoolPlatform.Views.Admin
 
         public void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _classSubjectViewModel.SelectedSubject = _classSubjectViewModel.SelectedClassSubject.Subject;
-            _classSubjectViewModel.SelectedProfessor = _classSubjectViewModel.SelectedClassSubject.Professor; ;
+            if (_classSubjectViewModel.SelectedClassSubject != null && _classSubjectViewModel.SelectedClassSubject != null)
+            {
+                _classSubjectViewModel.SelectedSubject = _classSubjectViewModel.SelectedClassSubject.Subject;
+                _classSubjectViewModel.SelectedProfessor = _classSubjectViewModel.SelectedClassSubject.Professor;
+            }
         }
     }
 }
