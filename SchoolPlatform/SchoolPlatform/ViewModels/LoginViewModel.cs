@@ -17,7 +17,8 @@ namespace SchoolPlatform.ViewModels
     public class LoginViewModel
     {
         private UserDataAccess _userDataAccess;
-        public LoginViewModel() {
+        public LoginViewModel()
+        {
             _userDataAccess = new UserDataAccess();
             DataContextSingleton.SeedData();
         }
@@ -25,10 +26,17 @@ namespace SchoolPlatform.ViewModels
         public void Authenticate(LoginView login, string username, string password)
         {
             User user = _userDataAccess.GetUserByUsernameAndPassword(username, password);
-            if(user != null) {
+            if (user != null)
+            {
                 if (user.UserType == UserType.Admin)
                 {
-                    DashboardView dashboardView = new DashboardView();
+                    Views.Admin.DashboardView dashboardView = new Views.Admin.DashboardView();
+                    dashboardView.Show();
+                    login.Close();
+                }
+                else if (user.UserType == UserType.Professor)
+                {
+                    Views.Professor.DashboardView dashboardView = new Views.Professor.DashboardView();
                     dashboardView.Show();
                     login.Close();
                 }
