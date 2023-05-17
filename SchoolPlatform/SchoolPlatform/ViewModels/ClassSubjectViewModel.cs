@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace SchoolPlatform.ViewModels
 {
-    public class ClassSubjectViewModel
+    public class ClassSubjectViewModel : BaseNotification
     {
         ClassSubjectDataAccess _classSubjectDataAccess;
         SubjectDataAccess _subjectDataAccess;
@@ -22,8 +22,26 @@ namespace SchoolPlatform.ViewModels
         public ObservableCollection<ClassSubject> ClassSubjects { get; set; }
         public ObservableCollection<Subject> Subjects { get; set; }
         public ObservableCollection<Professor> Professors { get; set; }
-        public Subject SelectedSubject { get; set; }
-        public Professor SelectedProfessor { get; set; }
+        private Subject _selectedSubject;
+        public Subject SelectedSubject
+        {
+            get { return _selectedSubject; }
+            set
+            {
+                _selectedSubject = value;
+                NotifyPropertyChanged(nameof(SelectedSubject));
+            }
+        }
+        private Professor _selectedProfessor;
+        public Professor SelectedProfessor
+        {
+            get { return _selectedProfessor; }
+            set
+            {
+                _selectedProfessor = value;
+                NotifyPropertyChanged(nameof(SelectedProfessor));
+            }
+        }
 
         public ClassSubjectViewModel(Models.Class selectedClass) { 
             SelectedClass = selectedClass;

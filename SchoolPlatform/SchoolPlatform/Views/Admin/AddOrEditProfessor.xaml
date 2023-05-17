@@ -15,7 +15,7 @@
         <Label Content="UserName:" HorizontalAlignment="Left" Margin="186,83,0,0" VerticalAlignment="Top"/>
         <Label FontSize="24px" Content="Add or Edit Professor" HorizontalAlignment="Left" Margin="189,34,0,0" VerticalAlignment="Top" Height="44" Width="280"/>
         <Button Command="{Binding AddOrEditProfessorCommand}" Content="Add Professor" Click="Button_Click" HorizontalAlignment="Left" Margin="192,332,0,0" VerticalAlignment="Top" Height="38" Width="370"/>
-        <ComboBox ItemsSource="{Binding ProfessorRoles}" SelectedItem="{Binding NewProfessor.User.UserType}" Margin="420,114,195,254">
+        <ComboBox FontSize="18px" ItemsSource="{Binding ProfessorRoles}" SelectedItem="{Binding NewProfessor.User.UserType}" Margin="420,114,195,254">
         </ComboBox>
         <Label Content="Role:" HorizontalAlignment="Left" Margin="420,83,0,0" VerticalAlignment="Top"/>
     </Grid>

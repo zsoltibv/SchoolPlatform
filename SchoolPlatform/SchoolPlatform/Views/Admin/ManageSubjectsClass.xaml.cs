@@ -22,12 +22,19 @@ namespace SchoolPlatform.Views.Admin
     /// </summary>
     public partial class ManageSubjectsClass : Window
     {
+        ClassSubjectViewModel _classSubjectViewModel;
         public ManageSubjectsClass(Models.Class selectedClass)
         {
             InitializeComponent();
 
-            ClassSubjectViewModel subjectsClassViewModel = new ClassSubjectViewModel(selectedClass);
-            DataContext = subjectsClassViewModel;
+            _classSubjectViewModel = new ClassSubjectViewModel(selectedClass);
+            DataContext = _classSubjectViewModel;
+        }
+
+        public void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _classSubjectViewModel.SelectedSubject = _classSubjectViewModel.SelectedClassSubject.Subject;
+            _classSubjectViewModel.SelectedProfessor = _classSubjectViewModel.SelectedClassSubject.Professor; ;
         }
     }
 }

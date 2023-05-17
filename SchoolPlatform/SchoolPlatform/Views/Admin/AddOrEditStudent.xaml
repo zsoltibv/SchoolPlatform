@@ -18,7 +18,7 @@
         <ComboBox ItemsSource="{Binding Classes}" SelectedItem="{Binding NewStudent.Class}" Margin="420,114,195,254">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock FontSize="24px">
+                    <TextBlock FontSize="18px">
                         <TextBlock.Text>
                             <MultiBinding StringFormat="{}{0} {1}">
                                 <Binding Path="YearOfStudy.Year" />
