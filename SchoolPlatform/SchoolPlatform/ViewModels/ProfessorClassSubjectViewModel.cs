@@ -7,20 +7,47 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
+using System.Windows.Input;
 
 namespace SchoolPlatform.ViewModels
 {
-    public class ProfessorClassSubjectViewModel
+    public class ProfessorClassSubjectViewModel : BaseNotification
     {
-        ClassSubjectDataAccess _classSubjectDataAccess;
+        private ClassSubjectDataAccess _classSubjectDataAccess;
+        private StudentDataAccess _studentDataAccess;
 
         public ClassSubject SelectedClassSubject { get; set; }
         public ObservableCollection<ClassSubject> ClassSubjects { get; set; }
 
+        private ObservableCollection<Student> _students;
+        public ObservableCollection<Student> Students
+        {
+            get { return _students; }
+            set
+            {
+                _students = value;
+                NotifyPropertyChanged(nameof(Students));
+            }
+        }
+
         public ProfessorClassSubjectViewModel()
         {
             _classSubjectDataAccess = new ClassSubjectDataAccess();
+            _studentDataAccess = new StudentDataAccess();
             ClassSubjects = new ObservableCollection<ClassSubject>(_classSubjectDataAccess.GetProfessorSubjects(LoggedIn.Professor.ProfessorId));
         }
+
+        public void RetrieveStudentList()
+        {
+            List<Student> matchingEntries = _studentDataAccess
+                .GetAllStudents()
+                .Where(st => st.ClassId == SelectedClassSubject.ClassId)
+                .ToList();
+
+            Students = new ObservableCollection<Student>(matchingEntries);
+        }
+
+        //public ICommand SelectionChangedCommand => new RelayCommand<object>(RetrieveStudentList);
     }
 }

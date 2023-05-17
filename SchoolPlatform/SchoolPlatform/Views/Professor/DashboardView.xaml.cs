@@ -27,5 +27,10 @@ namespace SchoolPlatform.Views.Professor
             _professorDashboardViewModel = new ProfessorDashboardViewModel();
             DataContext = _professorDashboardViewModel;
         }
+
+        public void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _professorDashboardViewModel.ProfessorClassSubjectViewModel.RetrieveStudentList();
+        }
     }
 }
