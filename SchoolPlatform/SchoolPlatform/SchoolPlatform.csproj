@@ -201,6 +201,7 @@
     <Compile Include="ViewModels\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModels\ClassViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\ProfessorDashboardViewModel.cs" />
     <Compile Include="ViewModels\ProfessorViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="ViewModels\ClassSubjectViewModel.cs" />
@@ -210,20 +211,20 @@
     <Compile Include="Views\Auth\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Class\AddOrEditClass.xaml.cs">
+    <Compile Include="Views\Admin\AddOrEditClass.xaml.cs">
       <DependentUpon>AddOrEditClass.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Professor\AddOrEditProfessor.xaml.cs">
+    <Compile Include="Views\Admin\AddOrEditProfessor.xaml.cs">
       <DependentUpon>AddOrEditProfessor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Student\AddOrEditStudent.xaml.cs">
+    <Compile Include="Views\Admin\AddOrEditStudent.xaml.cs">
       <DependentUpon>AddOrEditStudent.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\Subject\ManageSubjectsClass.xaml.cs">
+    <Compile Include="Views\Admin\ManageSubjectsClass.xaml.cs">
       <DependentUpon>ManageSubjectsClass.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Admin\DashboardView.xaml">
@@ -234,19 +235,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Class\AddOrEditClass.xaml">
+    <Page Include="Views\Admin\AddOrEditClass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Professor\AddOrEditProfessor.xaml">
+    <Page Include="Views\Admin\AddOrEditProfessor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Student\AddOrEditStudent.xaml">
+    <Page Include="Views\Admin\AddOrEditStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Subject\ManageSubjectsClass.xaml">
+    <Page Include="Views\Admin\ManageSubjectsClass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -280,7 +281,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Class\" />
+    <Folder Include="Views\Professor\" />
+    <Folder Include="Views\Student\" />
+    <Folder Include="Views\Subject\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

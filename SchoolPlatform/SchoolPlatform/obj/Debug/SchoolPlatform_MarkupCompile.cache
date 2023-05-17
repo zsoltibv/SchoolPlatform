@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\App.xaml
-6-21163012
+61427744194
 
-41889328249
+422004653637
 551946320329
-Views\Admin\DashboardView.xaml;Views\Auth\LoginView.xaml;Views\Class\AddOrEditClass.xaml;Views\Professor\AddOrEditProfessor.xaml;Views\Student\AddOrEditStudent.xaml;Views\Subject\ManageSubjectsClass.xaml;
+Views\Admin\DashboardView.xaml;Views\Auth\LoginView.xaml;Views\Admin\AddOrEditClass.xaml;Views\Admin\AddOrEditProfessor.xaml;Views\Admin\AddOrEditStudent.xaml;Views\Admin\ManageSubjectsClass.xaml;
 
 False
 

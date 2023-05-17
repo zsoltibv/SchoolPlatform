@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using SchoolPlatform.DAL;
 using SchoolPlatform.Models;
-using SchoolPlatform.Views.Student;
-using SchoolPlatform.Views.Professor;
+using SchoolPlatform.Views;
+using SchoolPlatform.Views.Admin;
 using System.Windows;
 
 namespace SchoolPlatform.ViewModels
@@ -43,7 +43,7 @@ namespace SchoolPlatform.ViewModels
         public void OpenAddOrEditProfessorWindow(object param)
         {
             EditMode = param.ToString() == "1";
-            AddOrEditProfessor window = new AddOrEditProfessor(this, EditMode);
+            Views.Admin.AddOrEditProfessor window = new Views.Admin.AddOrEditProfessor(this, EditMode);
             window.ShowDialog();
         }
 

@@ -1,6 +1,5 @@
 ﻿using SchoolPlatform.DAL;
 using SchoolPlatform.Models;
-using SchoolPlatform.Views.Student;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using SchoolPlatform.Views.Class;
-using SchoolPlatform.Views.Subject;
+using SchoolPlatform.Views.Admin;
 using SchoolPlatform.ViewModels;
 
 namespace SchoolPlatform.ViewModels

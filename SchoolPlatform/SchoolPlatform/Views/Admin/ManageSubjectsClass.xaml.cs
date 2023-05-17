@@ -15,7 +15,7 @@ using SchoolPlatform.Models;
 using SchoolPlatform.ViewModels;
 using SchoolPlatform.Views.Class;
 
-namespace SchoolPlatform.Views.Subject
+namespace SchoolPlatform.Views.Admin
 {
     /// <summary>
     /// Interaction logic for ManageSubjectsClass.xaml

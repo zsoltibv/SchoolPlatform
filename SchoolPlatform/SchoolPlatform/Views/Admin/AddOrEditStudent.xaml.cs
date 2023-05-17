@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using SchoolPlatform.Models;
 using SchoolPlatform.ViewModels;
 
-namespace SchoolPlatform.Views.Student
+namespace SchoolPlatform.Views.Admin
 {
     /// <summary>
     /// Interaction logic for AddOrEditStudent.xaml

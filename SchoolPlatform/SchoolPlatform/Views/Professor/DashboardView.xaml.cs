@@ -11,28 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using SchoolPlatform.ViewModels;
 
 namespace SchoolPlatform.Views.Professor
 {
     /// <summary>
-    /// Interaction logic for AddOrEditProfessor.xaml
+    /// Interaction logic for DashboardView.xaml
     /// </summary>
-    public partial class AddOrEditProfessor : Window
+    public partial class DashboardView : Window
     {
-        public AddOrEditProfessor(ProfessorViewModel professorViewModel, bool editMode)
+        public DashboardView()
         {
             InitializeComponent();
-            DataContext = professorViewModel;
-            if(editMode)
-            {
-                professorViewModel.FillInData();
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

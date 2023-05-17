@@ -1,5 +1,5 @@
 ﻿using SchoolPlatform.Data;
-using SchoolPlatform.Views.Student;
+using SchoolPlatform.Views.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
