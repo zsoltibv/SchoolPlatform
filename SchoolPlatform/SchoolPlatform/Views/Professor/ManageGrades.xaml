@@ -22,7 +22,7 @@
             </ListView.Resources>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Subject Grade" DisplayMemberBinding="{Binding Subject.SubjectName}" Width="100"/>
+                    <GridViewColumn Header="Subject Grade" DisplayMemberBinding="{Binding GradeValue}" Width="100"/>
                     <GridViewColumn Header="Is Final Exam Grade" DisplayMemberBinding="{Binding IsFinalExam}" Width="120"/>
                 </GridView>
             </ListView.View>
@@ -31,8 +31,8 @@
             <TextBox FontSize="18px" TextWrapping="Wrap" Text="{Binding InputGrade}" Width="113" VerticalAlignment="Center" Height="34" />
             <CheckBox IsChecked="{Binding IsFinalExam}" Margin="5" Content="Is Final Exam Grade" VerticalAlignment="Center"/>
             <Button Command="{Binding AddGradeCommand}" CommandParameter="0" Content="Add Grade" Width="100" Margin="5"/>
-            <Button Command="{Binding ''}" Content="Delete Grade" Width="100" Margin="5"/>
-            <Button Command="{Binding ''}" Content="Update Grade" Width="100" Margin="5"/>
+            <Button Command="{Binding DeleteGradeCommand}" Content="Delete Grade" Width="100" Margin="5"/>
+            <Button Command="{Binding UpdateGradeCommand}" Content="Update Grade" Width="100" Margin="5"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -58,12 +58,23 @@ namespace SchoolPlatform.ViewModels
 
         public void DeleteGrade(object param)
         {
-
+            _gradeDataAccess.DeleteGrade(SelectedGrade);
+            var objectToRemove = Grades.FirstOrDefault(obj => obj == SelectedGrade);
+            Grades.Remove(objectToRemove);
         }
 
         public void UpdateGrade(object param)
         {
+            SelectedGrade.GradeValue = float.Parse(InputGrade);
+            SelectedGrade.IsFinalExam = IsFinalExam;
+            _gradeDataAccess.UpdateGrade(SelectedGrade, SelectedGrade.GradeId);
 
+        }
+
+        public void FillInData()
+        {
+            InputGrade = SelectedGrade.GradeValue.ToString();
+            IsFinalExam = SelectedGrade.IsFinalExam;
         }
 
         public ICommand AddGradeCommand => new RelayCommand<object>(AddGrade);
