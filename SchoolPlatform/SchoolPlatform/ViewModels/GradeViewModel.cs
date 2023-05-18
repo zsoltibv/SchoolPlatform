@@ -43,7 +43,17 @@ namespace SchoolPlatform.ViewModels
 
         public void AddGrade(object param)
         {
+            Grade grade = new Grade {
+                GradeValue = float.Parse(InputGrade),
+                IsFinalExam = IsFinalExam,
+                SubjectId = CurrentClassSubject.Subject.SubjectId,
+                Subject = CurrentClassSubject.Subject,
+                StudentId = CurrentStudent.StudentId,
+                Student = CurrentStudent
+            };
 
+            _gradeDataAccess.AddGrade(grade);
+            Grades.Add(grade);
         }
 
         public void DeleteGrade(object param)

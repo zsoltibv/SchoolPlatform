@@ -30,7 +30,7 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="12,359,0,10" >
             <TextBox FontSize="18px" TextWrapping="Wrap" Text="{Binding InputGrade}" Width="113" VerticalAlignment="Center" Height="34" />
             <CheckBox IsChecked="{Binding IsFinalExam}" Margin="5" Content="Is Final Exam Grade" VerticalAlignment="Center"/>
-            <Button Command="{Binding ''}" CommandParameter="0" Content="Add Grade" Width="100" Margin="5"/>
+            <Button Command="{Binding AddGradeCommand}" CommandParameter="0" Content="Add Grade" Width="100" Margin="5"/>
             <Button Command="{Binding ''}" Content="Delete Grade" Width="100" Margin="5"/>
             <Button Command="{Binding ''}" Content="Update Grade" Width="100" Margin="5"/>
         </StackPanel>
