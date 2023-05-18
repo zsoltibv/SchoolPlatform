@@ -27,8 +27,26 @@ namespace SchoolPlatform.ViewModels
         }
         public Grade SelectedGrade { get; set; }
 
-        public string InputGrade { get; set; }
-        public bool IsFinalExam { get; set; }
+        private string _inputGrade;
+        public string InputGrade
+        {
+            get { return _inputGrade; }
+            set
+            {
+                _inputGrade = value;
+                NotifyPropertyChanged("InputGrade");
+            }
+        }
+        private bool _isFinalExam;
+        public bool IsFinalExam
+        {
+            get { return _isFinalExam; }
+            set
+            {
+                _isFinalExam = value;
+                NotifyPropertyChanged("IsFinalExam");
+            }
+        }
 
         public ClassSubject CurrentClassSubject { get; set; }
         public Student CurrentStudent { get;set; }
@@ -68,7 +86,6 @@ namespace SchoolPlatform.ViewModels
             SelectedGrade.GradeValue = float.Parse(InputGrade);
             SelectedGrade.IsFinalExam = IsFinalExam;
             _gradeDataAccess.UpdateGrade(SelectedGrade, SelectedGrade.GradeId);
-
         }
 
         public void FillInData()

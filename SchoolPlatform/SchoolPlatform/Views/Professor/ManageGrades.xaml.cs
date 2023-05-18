@@ -28,5 +28,11 @@ namespace SchoolPlatform.Views.Professor
             _gradeViewModel = new GradeViewModel(currentClassSubject, currentStudent);
             DataContext = _gradeViewModel;
         }
+
+        public void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _gradeViewModel.InputGrade = _gradeViewModel.SelectedGrade.GradeValue.ToString();
+            _gradeViewModel.IsFinalExam = _gradeViewModel.SelectedGrade.IsFinalExam;
+        }
     }
 }
