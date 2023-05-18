@@ -26,7 +26,7 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                    <ListView ItemsSource="{Binding Students}" Margin="10,69,10,80">
+                    <ListView ItemsSource="{Binding Students}" SelectedItem="{Binding SelectedStudent}" Margin="10,69,10,80">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="Height" Value="35"/>

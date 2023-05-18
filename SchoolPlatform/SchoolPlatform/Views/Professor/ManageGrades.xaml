@@ -22,7 +22,6 @@
             </ListView.Resources>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Subject Name" DisplayMemberBinding="{Binding GradeValue}" Width="100"/>
                     <GridViewColumn Header="Subject Grade" DisplayMemberBinding="{Binding Subject.SubjectName}" Width="100"/>
                     <GridViewColumn Header="Is Final Exam Grade" DisplayMemberBinding="{Binding IsFinalExam}" Width="120"/>
                 </GridView>
@@ -30,9 +29,7 @@
         </ListView>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="12,359,0,10" >
             <TextBox FontSize="18px" TextWrapping="Wrap" Text="{Binding InputGrade}" Width="113" VerticalAlignment="Center" Height="34" />
-            <ComboBox FontSize="18px" ItemsSource="{Binding Subjects}" Margin="5"
-                DisplayMemberPath="ProfessorName" SelectedItem="{Binding SelectedSubject}" Width="160"/>
-            <CheckBox Content="Is Final Exam Grade" VerticalAlignment="Center"/>
+            <CheckBox IsChecked="{Binding IsFinalExam}" Margin="5" Content="Is Final Exam Grade" VerticalAlignment="Center"/>
             <Button Command="{Binding ''}" CommandParameter="0" Content="Add Grade" Width="100" Margin="5"/>
             <Button Command="{Binding ''}" Content="Delete Grade" Width="100" Margin="5"/>
             <Button Command="{Binding ''}" Content="Update Grade" Width="100" Margin="5"/>

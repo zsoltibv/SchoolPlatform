@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SchoolPlatform.Models;
 
 namespace SchoolPlatform.Views.Professor
 {
@@ -21,10 +22,10 @@ namespace SchoolPlatform.Views.Professor
     public partial class ManageGrades : Window
     {
         GradeViewModel _gradeViewModel;
-        public ManageGrades()
+        public ManageGrades(ClassSubject currentClassSubject, Student currentStudent)
         {
             InitializeComponent();
-            _gradeViewModel = new GradeViewModel();
+            _gradeViewModel = new GradeViewModel(currentClassSubject, currentStudent);
             DataContext = _gradeViewModel;
         }
     }

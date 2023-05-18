@@ -176,6 +176,7 @@
     <Compile Include="DAL\ClassDataAccess.cs" />
     <Compile Include="DAL\ClassSubjectDataAccess.cs" />
     <Compile Include="DAL\DbSeeder.cs" />
+    <Compile Include="DAL\GradeDataAccess.cs" />
     <Compile Include="DAL\ProfessorDataAccess.cs" />
     <Compile Include="DAL\SpecializationDataAccess.cs" />
     <Compile Include="DAL\StudentDataAccess.cs" />

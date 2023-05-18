@@ -22,6 +22,8 @@ namespace SchoolPlatform.ViewModels
         public ClassSubject SelectedClassSubject { get; set; }
         public ObservableCollection<ClassSubject> ClassSubjects { get; set; }
 
+        public Student SelectedStudent { get; set; }
+
         private ObservableCollection<Student> _students;
         public ObservableCollection<Student> Students
         {
@@ -52,7 +54,7 @@ namespace SchoolPlatform.ViewModels
 
         public void OpenGradesWindow(object param)
         {
-            Views.Professor.ManageGrades window = new Views.Professor.ManageGrades();
+            ManageGrades window = new ManageGrades(SelectedClassSubject, SelectedStudent);
             window.ShowDialog();
         }
 
