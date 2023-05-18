@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
+using SchoolPlatform.Views.Professor;
 
 namespace SchoolPlatform.ViewModels
 {
@@ -49,6 +50,12 @@ namespace SchoolPlatform.ViewModels
             Students = new ObservableCollection<Student>(matchingEntries);
         }
 
-        //public ICommand SelectionChangedCommand => new RelayCommand<object>(RetrieveStudentList);
+        public void OpenGradesWindow(object param)
+        {
+            Views.Professor.ManageGrades window = new Views.Professor.ManageGrades();
+            window.ShowDialog();
+        }
+
+        public ICommand OpenManageGradesWindowCommnad => new RelayCommand<object>(OpenGradesWindow);
     }
 }

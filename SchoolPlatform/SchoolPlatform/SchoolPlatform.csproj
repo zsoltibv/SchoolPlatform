@@ -185,12 +185,14 @@
     <Compile Include="BaseNotification.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\DataContextSingleton.cs" />
-    <Compile Include="Migrations\20230517154417_InitialCreate.cs" />
-    <Compile Include="Migrations\20230517154417_InitialCreate.designer.cs">
-      <DependentUpon>20230517154417_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\20230518084404_InitialCreate.cs" />
+    <Compile Include="Migrations\20230518084404_InitialCreate.designer.cs">
+      <DependentUpon>20230518084404_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataContextModelSnapshot.cs" />
+    <Compile Include="Models\Absence.cs" />
     <Compile Include="Models\ClassSubject.cs" />
+    <Compile Include="Models\Grade.cs" />
     <Compile Include="Models\Professor.cs" />
     <Compile Include="Models\Specialization.cs" />
     <Compile Include="Models\Class.cs" />
@@ -201,6 +203,7 @@
     <Compile Include="Service\LoggedIn.cs" />
     <Compile Include="ViewModels\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModels\ClassViewModel.cs" />
+    <Compile Include="ViewModels\GradeViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ProfessorClassSubjectViewModel.cs" />
     <Compile Include="ViewModels\ProfessorDashboardViewModel.cs" />
@@ -232,6 +235,9 @@
     <Compile Include="Views\Professor\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Professor\ManageGrades.xaml.cs">
+      <DependentUpon>ManageGrades.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\Admin\DashboardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -257,6 +263,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Professor\DashboardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Professor\ManageGrades.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
