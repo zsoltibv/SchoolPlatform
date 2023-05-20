@@ -58,6 +58,13 @@ namespace SchoolPlatform.ViewModels
             window.ShowDialog();
         }
 
+        public void OpenAbsencesWindow(object param)
+        {
+            ManageAbsences window = new ManageAbsences(SelectedClassSubject, SelectedStudent);
+            window.ShowDialog();
+        }
+
         public ICommand OpenManageGradesWindowCommnad => new RelayCommand<object>(OpenGradesWindow);
+        public ICommand OpenManageAbsencesWindowCommand => new RelayCommand<object>(OpenAbsencesWindow);
     }
 }

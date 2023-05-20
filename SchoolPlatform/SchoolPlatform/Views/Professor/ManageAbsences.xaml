@@ -1,0 +1,39 @@
+﻿<Window x:Class="SchoolPlatform.Views.Professor.ManageAbsences"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SchoolPlatform.Views.Professor"
+        mc:Ignorable="d"
+        Title="ManageAbsences" Height="450" Width="800">
+    <Grid>
+        <Label FontSize="24px" Content="Absences" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="113"/>
+
+        <ListView ItemsSource="{Binding Absences}" SelectedItem="{Binding SelectedAbsence}" SelectionChanged="ListView_SelectionChanged" Margin="10,69,10,80">
+            <ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Height" Value="35"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Absence Date" DisplayMemberBinding="{Binding AbsenceValue}" Width="100"/>
+                    <GridViewColumn Header="Is Justified" DisplayMemberBinding="{Binding IsJustified}" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="12,359,0,10" >
+            <DatePicker SelectedDate="{Binding SelectedDate}" Margin="5" FontSize="18px" VerticalAlignment="Center"/>
+            <CheckBox IsChecked="{Binding IsJustified}" Margin="5" Content="Is Justified" VerticalAlignment="Center"/>
+            <Button Command="{Binding AddAbsenceCommand}" CommandParameter="0" Content="Add Absence" Width="100" Margin="5"/>
+            <Button Command="{Binding DeleteAbsenceCommand}" Content="Delete Absence" Width="100" Margin="5"/>
+            <Button Command="{Binding UpdateAbsenceCommand}" Content="Update Absence" Width="100" Margin="5"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

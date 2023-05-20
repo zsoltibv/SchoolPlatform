@@ -45,7 +45,7 @@
                     </ListView>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,476,0,15">
                         <Button Command="{Binding OpenManageGradesWindowCommnad}" Content="View Grades" Width="100" Margin="5"/>
-                        <Button Command="{Binding }" Name="DeleteStudent" Content="View Absences" Width="100" Margin="5"/>
+                        <Button Command="{Binding OpenManageAbsencesWindowCommand}" Name="DeleteStudent" Content="View Absences" Width="100" Margin="5"/>
                         <Button Content="View Materials" Width="111" Margin="5"/>
                     </StackPanel>
                 </Grid>

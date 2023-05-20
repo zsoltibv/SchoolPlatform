@@ -173,6 +173,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DAL\AbsenceDataAccess.cs" />
     <Compile Include="DAL\ClassDataAccess.cs" />
     <Compile Include="DAL\ClassSubjectDataAccess.cs" />
     <Compile Include="DAL\DbSeeder.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Models\YearOfStudy.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Service\LoggedIn.cs" />
+    <Compile Include="ViewModels\AbsenceViewModel.cs" />
     <Compile Include="ViewModels\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModels\ClassViewModel.cs" />
     <Compile Include="ViewModels\GradeViewModel.cs" />
@@ -236,6 +238,9 @@
     <Compile Include="Views\Professor\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Professor\ManageAbsences.xaml.cs">
+      <DependentUpon>ManageAbsences.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Professor\ManageGrades.xaml.cs">
       <DependentUpon>ManageGrades.xaml</DependentUpon>
     </Compile>
@@ -264,6 +269,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Professor\DashboardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Professor\ManageAbsences.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
