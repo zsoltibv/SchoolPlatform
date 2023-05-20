@@ -27,7 +27,7 @@ namespace SchoolPlatform.ViewModels
         }
         public Grade SelectedGrade { get; set; }
 
-        private string _inputGrade;
+        private string _inputGrade = string.Empty;
         public string InputGrade
         {
             get { return _inputGrade; }

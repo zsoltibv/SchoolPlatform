@@ -31,8 +31,11 @@ namespace SchoolPlatform.Views.Professor
 
         public void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _gradeViewModel.InputGrade = _gradeViewModel.SelectedGrade.GradeValue.ToString();
-            _gradeViewModel.IsFinalExam = _gradeViewModel.SelectedGrade.IsFinalExam;
+            if (_gradeViewModel.SelectedGrade != null)
+            {
+                _gradeViewModel.InputGrade = _gradeViewModel.SelectedGrade.GradeValue.ToString();
+                _gradeViewModel.IsFinalExam = _gradeViewModel.SelectedGrade.IsFinalExam;
+            }
         }
     }
 }
