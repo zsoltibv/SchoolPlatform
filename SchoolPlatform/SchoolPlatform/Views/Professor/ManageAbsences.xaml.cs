@@ -33,7 +33,7 @@ namespace SchoolPlatform.Views.Professor
         {
             if (_absenceViewModel.SelectedAbsence != null)
             {
-                
+                _absenceViewModel.FillInData();
             }
         }
     }

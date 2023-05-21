@@ -56,7 +56,7 @@ namespace SchoolPlatform.ViewModels
             _subjectDataAccess = new SubjectDataAccess();
             CurrentClassSubject = currentClassSubject;
             CurrentStudent = currentStudent;
-            Grades = new ObservableCollection<Grade>(_gradeDataAccess.GetAllGrades(CurrentStudent.StudentId));
+            Grades = new ObservableCollection<Grade>(_gradeDataAccess.GetAllGrades(CurrentStudent.StudentId, CurrentClassSubject.Subject.SubjectId));
         }
 
         public void AddGrade(object param)

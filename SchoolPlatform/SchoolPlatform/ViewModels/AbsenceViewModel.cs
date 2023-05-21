@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using SchoolPlatform.DAL;
 using SchoolPlatform.Models;
@@ -27,7 +28,7 @@ namespace SchoolPlatform.ViewModels
 
         public Absence SelectedAbsence {  get; set; }
 
-        private DateTime? _selectedDate;
+        private DateTime? _selectedDate = DateTime.Today;
         public DateTime? SelectedDate
         {
             get { return _selectedDate; }
@@ -56,26 +57,41 @@ namespace SchoolPlatform.ViewModels
             CurrentClassSubject = currentClassSubject;
             CurrentStudent = currentStudent;    
             _absenceDataAccess = new AbsenceDataAccess();
+            Absences = new ObservableCollection<Absence>(_absenceDataAccess.GetAllAbsences(CurrentStudent.StudentId, CurrentClassSubject.Subject.SubjectId));
         }
 
         public void AddAbsence(object param)
         {
-            Console.WriteLine(SelectedDate);
+            Absence absence = new Absence {
+                AbsenceDate = SelectedDate.Value.Date,
+                IsJustified = IsJustified,
+                StudentId = CurrentStudent.StudentId,
+                Student = CurrentStudent,
+                SubjectId = CurrentClassSubject.Subject.SubjectId,
+                Subject = CurrentClassSubject.Subject,
+            };
+            _absenceDataAccess.AddAbsence(absence);
+            Absences.Add(absence);
         }
 
         public void DeleteAbsence(object param)
         {
-
+            _absenceDataAccess.DeleteAbsence(SelectedAbsence);
+            var objectToRemove = Absences.FirstOrDefault(obj => obj == SelectedAbsence);
+            Absences.Remove(objectToRemove);
         }
 
         public void UpdateAbsence(object param)
         {
-
+            SelectedAbsence.AbsenceDate = SelectedDate.Value;
+            SelectedAbsence.IsJustified = IsJustified;
+            _absenceDataAccess.UpdateAbsence(SelectedAbsence, SelectedAbsence.AbsenceId);
         }
 
         public void FillInData()
         {
-
+            SelectedDate = SelectedAbsence.AbsenceDate;
+            IsJustified = (bool)SelectedAbsence.IsJustified;
         }
 
         public ICommand AddAbsenceCommand => new RelayCommand<object>(AddAbsence);

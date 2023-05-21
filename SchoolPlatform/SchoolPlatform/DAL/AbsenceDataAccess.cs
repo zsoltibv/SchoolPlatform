@@ -16,9 +16,12 @@ namespace SchoolPlatform.DAL
             _dbContext = DataContextSingleton.Instance;
         }
 
-        public List<Absence> GetAllAbsences(int id)
+        public List<Absence> GetAllAbsences(int studentId, int subjectId)
         {
-            return _dbContext.Absences.Where(g => g.Student.StudentId == id).ToList();
+            return _dbContext.Absences
+                .Where(g => g.Student.StudentId == studentId)
+                .Where(g => g.Subject.SubjectId == subjectId)
+                .ToList();
         }
 
         public Absence GetAbsenceById(int id)

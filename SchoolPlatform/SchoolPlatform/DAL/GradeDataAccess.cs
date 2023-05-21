@@ -16,9 +16,12 @@ namespace SchoolPlatform.DAL
             _dbContext = DataContextSingleton.Instance;
         }
 
-        public List<Grade> GetAllGrades(int id)
+        public List<Grade> GetAllGrades(int studentId, int subjectId)
         {
-            return _dbContext.Grades.Where(g => g.Student.StudentId == id).ToList();
+            return _dbContext.Grades
+                .Where(g => g.Student.StudentId == studentId)
+                .Where(g => g.Subject.SubjectId == subjectId)
+                .ToList();
         }
 
         public Grade GetGradeById(int id)

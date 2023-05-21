@@ -22,13 +22,13 @@
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Absence Date" DisplayMemberBinding="{Binding AbsenceValue}" Width="100"/>
+                    <GridViewColumn Header="Absence Date" DisplayMemberBinding="{Binding AbsenceDate, StringFormat='dd/MM/yyyy'}" Width="100"/>
                     <GridViewColumn Header="Is Justified" DisplayMemberBinding="{Binding IsJustified}" Width="120"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="12,359,0,10" >
-            <DatePicker SelectedDate="{Binding SelectedDate}" Margin="5" FontSize="18px" VerticalAlignment="Center"/>
+            <DatePicker SelectedDate="{Binding SelectedDate}" DisplayDate="{Binding SelectedDate, StringFormat='dd/MM/yyyy'}" Margin="5" FontSize="18px" VerticalAlignment="Center"/>
             <CheckBox IsChecked="{Binding IsJustified}" Margin="5" Content="Is Justified" VerticalAlignment="Center"/>
             <Button Command="{Binding AddAbsenceCommand}" CommandParameter="0" Content="Add Absence" Width="100" Margin="5"/>
             <Button Command="{Binding DeleteAbsenceCommand}" Content="Delete Absence" Width="100" Margin="5"/>
