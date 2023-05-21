@@ -11,7 +11,7 @@
             <Label.Content>
                 <TextBlock Width="770">
                     <Run Text="Grades of " />
-                    <Run Text="{Binding SelectedClass.StudentName}" />
+                    <Run Text="{Binding CurrentStudent.StudentName}" />
                 </TextBlock>
             </Label.Content>
         </Label>

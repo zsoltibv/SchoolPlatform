@@ -187,9 +187,9 @@
     <Compile Include="BaseNotification.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\DataContextSingleton.cs" />
-    <Compile Include="Migrations\20230518084404_InitialCreate.cs" />
-    <Compile Include="Migrations\20230518084404_InitialCreate.designer.cs">
-      <DependentUpon>20230518084404_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\20230521142643_InitialCreate.cs" />
+    <Compile Include="Migrations\20230521142643_InitialCreate.designer.cs">
+      <DependentUpon>20230521142643_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataContextModelSnapshot.cs" />
     <Compile Include="Models\Absence.cs" />
