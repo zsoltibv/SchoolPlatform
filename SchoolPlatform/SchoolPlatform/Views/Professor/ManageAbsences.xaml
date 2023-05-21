@@ -7,8 +7,14 @@
         mc:Ignorable="d"
         Title="ManageAbsences" Height="450" Width="800">
     <Grid>
-        <Label FontSize="24px" Content="Absences" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="113"/>
-
+        <Label FontSize="24px" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="780">
+            <Label.Content>
+                <TextBlock Width="770">
+                    <Run Text="Absences of " />
+                    <Run Text="{Binding CurrentStudent.StudentName}" />
+                </TextBlock>
+            </Label.Content>
+        </Label>
         <ListView ItemsSource="{Binding Absences}" SelectedItem="{Binding SelectedAbsence}" SelectionChanged="ListView_SelectionChanged" Margin="10,69,10,80">
             <ListView.Resources>
                 <Style TargetType="{x:Type GridViewColumnHeader}">

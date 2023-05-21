@@ -7,8 +7,14 @@
         mc:Ignorable="d"
         Title="ManageGrades" Height="450" Width="800">
     <Grid>
-        <Label FontSize="24px" Content="Grades" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="104"/>
-
+        <Label FontSize="24px" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="780">
+            <Label.Content>
+                <TextBlock Width="770">
+                    <Run Text="Grades of " />
+                    <Run Text="{Binding SelectedClass.StudentName}" />
+                </TextBlock>
+            </Label.Content>
+        </Label>
         <ListView ItemsSource="{Binding Grades}" SelectedItem="{Binding SelectedGrade}" SelectionChanged="ListView_SelectionChanged" Margin="10,69,10,80">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
