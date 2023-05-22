@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SchoolPlatform.DAL;
+using SchoolPlatform.Models;
 using SchoolPlatform.StoredProcedures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,9 +15,7 @@ namespace SchoolPlatform.Data
     {
         private static DataContext _instance;
 
-        public DataContextSingleton() {
-            SeedData();
-            CreateStoredProcedures();
+        public DataContextSingleton() { 
         }
 
         public static DataContext Instance
@@ -32,23 +32,14 @@ namespace SchoolPlatform.Data
 
         public static void SeedData()
         {
-            //seed dummy data
-            DbSeeder.SeedAdminUser(Instance);
-            DbSeeder.SeedYearOfStudy(Instance);
-            DbSeeder.SeedSpecialization(Instance);
-            DbSeeder.SeedSubjects(Instance);
-        }
-
-        public static void CreateStoredProcedures() {
-            //seed stores procedures
-            var averageTableSP = new AverageTableSP(Instance);
-
-            // Call the methods to create stored procedures
-            averageTableSP.CreateAddAverageStoredProcedure();
-            averageTableSP.CreateDeleteAverageStoredProcedure();
-            averageTableSP.CreateUpdateAverageStoredProcedure();
-            averageTableSP.CreateGetAveragesStoredProcedure();
-            averageTableSP.CreateGetAverageByIdStoredProcedure();
+            if (!Instance.Users.Any(u => u.UserType == UserType.Admin))
+            {
+                DbSeeder.SeedAdminUser(Instance);
+                DbSeeder.SeedYearOfStudy(Instance);
+                DbSeeder.SeedSpecialization(Instance);
+                DbSeeder.SeedSubjects(Instance);
+                DbSeeder.SeedStoredProcedures(Instance);
+            }
         }
     }
 }
