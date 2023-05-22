@@ -15,7 +15,7 @@
                 </TextBlock>
             </Label.Content>
         </Label>
-        <Label FontSize="24px" HorizontalAlignment="Left" Margin="392,10,0,0" VerticalAlignment="Top" Height="44" Width="398">
+        <Label FontSize="24px" HorizontalAlignment="Right" Margin="392,10,0,0" VerticalAlignment="Top" Height="44" Width="398">
             <Label.Content>
                 <TextBlock Width="390">
                     <Run Text="(Average:" />

@@ -19,17 +19,15 @@ namespace SchoolPlatform.DAL
             _dbContext = DataContextSingleton.Instance;
         }
 
-        public List<Average> GetAverage(int studentId, int subjectId)
+        public Average GetAverage(int studentId, int subjectId)
         {
-            var parameters = new SqlParameter[]
-            {
-                new SqlParameter("@StudentId", studentId),
-                new SqlParameter("@SubjectId", subjectId)
-            };
+            var studentIdParam = new SqlParameter("@StudentId", studentId);
+            var subjectIdParam = new SqlParameter("@SubjectId", subjectId);
 
             string query = "EXEC GetAverages @StudentId, @SubjectId";
 
-            return _dbContext.Averages.FromSqlRaw(query, parameters).ToList();
+            var averages = _dbContext.Averages.FromSqlRaw(query, studentIdParam, subjectIdParam).AsEnumerable();
+            return averages.FirstOrDefault();
         }
 
         public Average GetAverageById(int id)

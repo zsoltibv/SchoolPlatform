@@ -14,6 +14,7 @@ namespace SchoolPlatform.ViewModels
     {
         private GradeDataAccess _gradeDataAccess;
         private SubjectDataAccess _subjectDataAccess;
+        private AverageDataAccess _averageDataAccess;
 
         private ObservableCollection<Grade> _grades;
         public ObservableCollection<Grade> Grades
@@ -64,12 +65,11 @@ namespace SchoolPlatform.ViewModels
         public GradeViewModel(ClassSubject currentClassSubject, Student currentStudent) { 
             _gradeDataAccess = new GradeDataAccess();
             _subjectDataAccess = new SubjectDataAccess();
+            _averageDataAccess = new AverageDataAccess();
             CurrentClassSubject = currentClassSubject;
             CurrentStudent = currentStudent;
             Grades = new ObservableCollection<Grade>(_gradeDataAccess.GetAllGrades(CurrentStudent.StudentId, CurrentClassSubject.Subject.SubjectId));
-            Average = new Average {
-                AverageGrade = 0,
-            };
+            Average = _averageDataAccess.GetAverage(CurrentStudent.StudentId, currentClassSubject.Subject.SubjectId);
         }
 
         public void AddGrade(object param)
@@ -101,6 +101,11 @@ namespace SchoolPlatform.ViewModels
             _gradeDataAccess.UpdateGrade(SelectedGrade, SelectedGrade.GradeId);
         }
 
+        public void CalculateAverage(object param)
+        {
+            
+        }
+
         public void FillInData()
         {
             InputGrade = SelectedGrade.GradeValue.ToString();
@@ -110,5 +115,6 @@ namespace SchoolPlatform.ViewModels
         public ICommand AddGradeCommand => new RelayCommand<object>(AddGrade);
         public ICommand DeleteGradeCommand => new RelayCommand<object>(DeleteGrade);
         public ICommand UpdateGradeCommand => new RelayCommand<object>(UpdateGrade);
+        public ICommand CalculateAverageCommand => new RelayCommand<object>(CalculateAverage);
     }
 }
