@@ -7,7 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SchoolPlatform.DAL;
+using SchoolPlatform.Data;
 using SchoolPlatform.Models;
+using SchoolPlatform.StoredProcedures;
 
 namespace SchoolPlatform
 {

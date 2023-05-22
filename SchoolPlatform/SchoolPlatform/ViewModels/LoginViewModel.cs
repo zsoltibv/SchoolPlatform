@@ -24,6 +24,7 @@ namespace SchoolPlatform.ViewModels
             _userDataAccess = new UserDataAccess();
             _professorDataAccess = new ProfessorDataAccess();
             DataContextSingleton.SeedData();
+            //DataContextSingleton.CreateStoredProcedures();
         }
 
         public void Authenticate(LoginView login, string username, string password)

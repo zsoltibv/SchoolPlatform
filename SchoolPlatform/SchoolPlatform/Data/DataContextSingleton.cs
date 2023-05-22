@@ -1,4 +1,6 @@
-﻿using SchoolPlatform.DAL;
+﻿using Microsoft.EntityFrameworkCore;
+using SchoolPlatform.DAL;
+using SchoolPlatform.StoredProcedures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,9 @@ namespace SchoolPlatform.Data
     {
         private static DataContext _instance;
 
-        private DataContextSingleton() {
+        public DataContextSingleton() {
+            SeedData();
+            CreateStoredProcedures();
         }
 
         public static DataContext Instance
@@ -28,10 +32,23 @@ namespace SchoolPlatform.Data
 
         public static void SeedData()
         {
-            DbSeeder.SeedAdminUser(_instance);
-            DbSeeder.SeedYearOfStudy(_instance);
-            DbSeeder.SeedSpecialization(_instance);
-            DbSeeder.SeedSubjects(_instance);
+            //seed dummy data
+            DbSeeder.SeedAdminUser(Instance);
+            DbSeeder.SeedYearOfStudy(Instance);
+            DbSeeder.SeedSpecialization(Instance);
+            DbSeeder.SeedSubjects(Instance);
+        }
+
+        public static void CreateStoredProcedures() {
+            //seed stores procedures
+            var averageTableSP = new AverageTableSP(Instance);
+
+            // Call the methods to create stored procedures
+            averageTableSP.CreateAddAverageStoredProcedure();
+            averageTableSP.CreateDeleteAverageStoredProcedure();
+            averageTableSP.CreateUpdateAverageStoredProcedure();
+            averageTableSP.CreateGetAveragesStoredProcedure();
+            averageTableSP.CreateGetAverageByIdStoredProcedure();
         }
     }
 }
