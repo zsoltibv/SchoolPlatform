@@ -23,6 +23,7 @@ namespace SchoolPlatform
         public DbSet<Professor> Professors { get; set; }
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Absence> Absences { get; set; }
+        public DbSet<Average> Averages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

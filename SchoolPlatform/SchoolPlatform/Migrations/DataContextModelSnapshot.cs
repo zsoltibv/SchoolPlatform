@@ -47,6 +47,34 @@ namespace SchoolPlatform.Migrations
                     b.ToTable("Absences");
                 });
 
+            modelBuilder.Entity("SchoolPlatform.Models.Average", b =>
+                {
+                    b.Property<int>("AverageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<float>("AverageGrade")
+                        .HasColumnType("real");
+
+                    b.Property<bool>("IsFinal")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AverageId");
+
+                    b.HasIndex("StudentId");
+
+                    b.HasIndex("SubjectId");
+
+                    b.ToTable("Averages");
+                });
+
             modelBuilder.Entity("SchoolPlatform.Models.Class", b =>
                 {
                     b.Property<int>("ClassId")
@@ -236,6 +264,21 @@ namespace SchoolPlatform.Migrations
                 });
 
             modelBuilder.Entity("SchoolPlatform.Models.Absence", b =>
+                {
+                    b.HasOne("SchoolPlatform.Models.Student", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolPlatform.Models.Subject", "Subject")
+                        .WithMany()
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SchoolPlatform.Models.Average", b =>
                 {
                     b.HasOne("SchoolPlatform.Models.Student", "Student")
                         .WithMany()

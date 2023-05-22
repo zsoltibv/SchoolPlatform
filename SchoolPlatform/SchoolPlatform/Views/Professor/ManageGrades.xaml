@@ -7,11 +7,30 @@
         mc:Ignorable="d"
         Title="ManageGrades" Height="450" Width="800">
     <Grid>
-        <Label FontSize="24px" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="780">
+        <Label FontSize="24px" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Height="44" Width="398">
             <Label.Content>
-                <TextBlock Width="770">
+                <TextBlock Width="390">
                     <Run Text="Grades of " />
                     <Run Text="{Binding CurrentStudent.StudentName}" />
+                </TextBlock>
+            </Label.Content>
+        </Label>
+        <Label FontSize="24px" HorizontalAlignment="Left" Margin="392,10,0,0" VerticalAlignment="Top" Height="44" Width="398">
+            <Label.Content>
+                <TextBlock Width="390">
+                    <Run Text="(Average:" />
+                    <Run Text="{Binding Average.AverageGrade}" />
+                    <Run Text=")" />
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Average.AverageGrade}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
                 </TextBlock>
             </Label.Content>
         </Label>

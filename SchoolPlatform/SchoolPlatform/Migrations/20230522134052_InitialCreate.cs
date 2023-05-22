@@ -196,6 +196,34 @@ namespace SchoolPlatform.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Averages",
+                columns: table => new
+                {
+                    AverageId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AverageGrade = table.Column<float>(nullable: false),
+                    IsFinal = table.Column<bool>(nullable: false),
+                    StudentId = table.Column<int>(nullable: false),
+                    SubjectId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Averages", x => x.AverageId);
+                    table.ForeignKey(
+                        name: "FK_Averages_Students_StudentId",
+                        column: x => x.StudentId,
+                        principalTable: "Students",
+                        principalColumn: "StudentId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Averages_Subjects_SubjectId",
+                        column: x => x.SubjectId,
+                        principalTable: "Subjects",
+                        principalColumn: "SubjectId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Grades",
                 columns: table => new
                 {
@@ -231,6 +259,16 @@ namespace SchoolPlatform.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Absences_SubjectId",
                 table: "Absences",
+                column: "SubjectId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Averages_StudentId",
+                table: "Averages",
+                column: "StudentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Averages_SubjectId",
+                table: "Averages",
                 column: "SubjectId");
 
             migrationBuilder.CreateIndex(
@@ -288,6 +326,9 @@ namespace SchoolPlatform.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Absences");
+
+            migrationBuilder.DropTable(
+                name: "Averages");
 
             migrationBuilder.DropTable(
                 name: "ClassSubjects");

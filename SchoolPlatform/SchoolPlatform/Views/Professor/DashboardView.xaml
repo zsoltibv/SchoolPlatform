@@ -11,7 +11,7 @@
             <TabItem Header="Students" DataContext="{Binding ProfessorClassSubjectViewModel}" Height="22" Margin="-2,-2,-2,0" VerticalAlignment="Top">
                 <Grid>
                     <Label FontSize="24px" Content="Students" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="105"/>
-                    <ComboBox SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding ClassSubjects}" SelectedItem="{Binding SelectedClassSubject}" Margin="664,10,10,485">
+                    <ComboBox SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding ClassSubjects}" SelectedItem="{Binding SelectedClassSubject}" Margin="625,10,10,485">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock FontSize="16px" VerticalAlignment="Center">

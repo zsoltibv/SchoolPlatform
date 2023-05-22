@@ -47,6 +47,16 @@ namespace SchoolPlatform.ViewModels
                 NotifyPropertyChanged("IsFinalExam");
             }
         }
+        private Average _average;
+        public Average Average
+        {
+            get { return _average; }
+            set
+            {
+                _average = value;
+                NotifyPropertyChanged("Average");
+            }
+        }
 
         public ClassSubject CurrentClassSubject { get; set; }
         public Student CurrentStudent { get;set; }
@@ -57,6 +67,9 @@ namespace SchoolPlatform.ViewModels
             CurrentClassSubject = currentClassSubject;
             CurrentStudent = currentStudent;
             Grades = new ObservableCollection<Grade>(_gradeDataAccess.GetAllGrades(CurrentStudent.StudentId, CurrentClassSubject.Subject.SubjectId));
+            Average = new Average {
+                AverageGrade = 0,
+            };
         }
 
         public void AddGrade(object param)
