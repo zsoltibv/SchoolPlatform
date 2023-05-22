@@ -149,6 +149,12 @@ namespace SchoolPlatform.ViewModels
             }
         }
 
+        public void DeleteAverage(object param)
+        {
+            _averageDataAccess.DeleteAverage(Average);
+            Average = _averageDataAccess.GetAverage(CurrentStudent.StudentId, CurrentClassSubject.Subject.SubjectId);
+        }
+
         public void FillInData()
         {
             InputGrade = SelectedGrade.GradeValue.ToString();
@@ -159,5 +165,6 @@ namespace SchoolPlatform.ViewModels
         public ICommand DeleteGradeCommand => new RelayCommand<object>(DeleteGrade);
         public ICommand UpdateGradeCommand => new RelayCommand<object>(UpdateGrade);
         public ICommand CalculateAverageCommand => new RelayCommand<object>(CalculateAverage);
+        public ICommand DeleteAverageCommand => new RelayCommand<object>(DeleteAverage);
     }
 }

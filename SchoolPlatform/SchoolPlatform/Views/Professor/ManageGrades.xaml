@@ -53,12 +53,15 @@
             </ListView.View>
         </ListView>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="12,359,0,10" >
+            <StackPanel>
             <TextBox FontSize="18px" TextWrapping="Wrap" Text="{Binding InputGrade}" Width="113" VerticalAlignment="Center" Height="34" />
             <CheckBox IsChecked="{Binding IsFinalExam}" Margin="5" Content="Is Final Exam Grade" VerticalAlignment="Center"/>
+            </StackPanel>
             <Button Command="{Binding AddGradeCommand}" CommandParameter="0" Content="Add Grade" Width="100" Margin="5"/>
             <Button Command="{Binding DeleteGradeCommand}" Content="Delete Grade" Width="100" Margin="5"/>
             <Button Command="{Binding UpdateGradeCommand}" Content="Update Grade" Width="100" Margin="5"/>
             <Button Command="{Binding CalculateAverageCommand}" Content="Calculate Average" Width="114" Margin="5"/>
+            <Button Command="{Binding DeleteAverageCommand}" Content="Delete Average" Width="114" Margin="5"/>
         </StackPanel>
     </Grid>
 </Window>
