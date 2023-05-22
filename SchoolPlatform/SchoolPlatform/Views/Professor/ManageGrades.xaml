@@ -58,6 +58,7 @@
             <Button Command="{Binding AddGradeCommand}" CommandParameter="0" Content="Add Grade" Width="100" Margin="5"/>
             <Button Command="{Binding DeleteGradeCommand}" Content="Delete Grade" Width="100" Margin="5"/>
             <Button Command="{Binding UpdateGradeCommand}" Content="Update Grade" Width="100" Margin="5"/>
+            <Button Command="{Binding CalculateAverageCommand}" Content="Calculate Average" Width="114" Margin="5"/>
         </StackPanel>
     </Grid>
 </Window>

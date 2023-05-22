@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using SchoolPlatform.DAL;
 using SchoolPlatform.Models;
@@ -60,9 +61,10 @@ namespace SchoolPlatform.ViewModels
         }
 
         public ClassSubject CurrentClassSubject { get; set; }
-        public Student CurrentStudent { get;set; }
+        public Student CurrentStudent { get; set; }
 
-        public GradeViewModel(ClassSubject currentClassSubject, Student currentStudent) { 
+        public GradeViewModel(ClassSubject currentClassSubject, Student currentStudent)
+        {
             _gradeDataAccess = new GradeDataAccess();
             _subjectDataAccess = new SubjectDataAccess();
             _averageDataAccess = new AverageDataAccess();
@@ -74,7 +76,8 @@ namespace SchoolPlatform.ViewModels
 
         public void AddGrade(object param)
         {
-            Grade grade = new Grade {
+            Grade grade = new Grade
+            {
                 GradeValue = float.Parse(InputGrade),
                 IsFinalExam = IsFinalExam,
                 SubjectId = CurrentClassSubject.Subject.SubjectId,
@@ -103,7 +106,47 @@ namespace SchoolPlatform.ViewModels
 
         public void CalculateAverage(object param)
         {
-            
+            float averageGrade = 0;
+            float finalGrade = 0;
+            int numOfGrades = Grades.Count - 1;
+            if (numOfGrades < 3)
+            {
+                MessageBox.Show("You need at least 4 grades to calculate average.");
+                return;
+            }
+            foreach (Grade grade in Grades)
+            {
+                if (grade.IsFinalExam is false)
+                {
+                    averageGrade += grade.GradeValue;
+                }
+                else
+                {
+                    finalGrade = grade.GradeValue;
+                }
+            }
+            averageGrade /= numOfGrades;
+            if (finalGrade != 0)
+            {
+                if (Average == null)
+                {
+                    Average = new Average
+                    {
+                        AverageGrade = (25 * finalGrade + 75 * averageGrade) / 100,
+                        IsFinal = false,
+                        StudentId = CurrentStudent.StudentId,
+                        Student = CurrentStudent,
+                        SubjectId = CurrentClassSubject.Subject.SubjectId,
+                        Subject = CurrentClassSubject.Subject,
+                    };
+                    _averageDataAccess.AddAverage(Average);
+                }
+                else
+                {
+                    Average.AverageGrade = (25 * finalGrade + 75 * averageGrade) / 100;
+                    _averageDataAccess.UpdateAverage(Average, Average.AverageId);
+                }
+            }
         }
 
         public void FillInData()
