@@ -9,6 +9,7 @@ using SchoolPlatform.DAL;
 using SchoolPlatform.Models;
 using SchoolPlatform.Service;
 using SchoolPlatform.Views.Professor;
+using SchoolPlatform.Views.ClassMaster;
 
 namespace SchoolPlatform.ViewModels
 {
@@ -48,7 +49,8 @@ namespace SchoolPlatform.ViewModels
 
         public void OpenAbsencesWindow(object param)
         {
-            
+            MotivateAbsences window = new MotivateAbsences(SelectedStudent);
+            window.ShowDialog();
         }
 
         public void OpenAveragesWindow(object param)
@@ -57,6 +59,6 @@ namespace SchoolPlatform.ViewModels
         }
 
         public ICommand OpenManageAveragesWindowCommnad => new RelayCommand<object>(OpenAveragesWindow);
-        public ICommand OpenManageAbsencesWindowCommand => new RelayCommand<object>(OpenAbsencesWindow);
+        public ICommand OpenMotivateAbsencesWindowCommand => new RelayCommand<object>(OpenAbsencesWindow);
     }
 }

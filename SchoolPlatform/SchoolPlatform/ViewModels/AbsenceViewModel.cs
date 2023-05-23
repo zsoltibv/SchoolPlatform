@@ -60,6 +60,13 @@ namespace SchoolPlatform.ViewModels
             Absences = new ObservableCollection<Absence>(_absenceDataAccess.GetAllAbsences(CurrentStudent.StudentId, CurrentClassSubject.Subject.SubjectId));
         }
 
+        public AbsenceViewModel(Student currentStudent)
+        {
+            CurrentStudent = currentStudent;
+            _absenceDataAccess = new AbsenceDataAccess();
+            Absences = new ObservableCollection<Absence>(_absenceDataAccess.GetAllAbsencesOverall(CurrentStudent.StudentId));
+        }
+
         public void AddAbsence(object param)
         {
             Absence absence = new Absence {
@@ -88,6 +95,12 @@ namespace SchoolPlatform.ViewModels
             _absenceDataAccess.UpdateAbsence(SelectedAbsence, SelectedAbsence.AbsenceId);
         }
 
+        public void JustifyAbsence(object param)
+        {
+            SelectedAbsence.IsJustified = IsJustified;
+            _absenceDataAccess.UpdateAbsenceOnly(SelectedAbsence, SelectedAbsence.AbsenceId);
+        }
+
         public void FillInData()
         {
             SelectedDate = SelectedAbsence.AbsenceDate;
@@ -97,5 +110,6 @@ namespace SchoolPlatform.ViewModels
         public ICommand AddAbsenceCommand => new RelayCommand<object>(AddAbsence);
         public ICommand DeleteAbsenceCommand => new RelayCommand<object>(DeleteAbsence);
         public ICommand UpdateAbsenceCommand => new RelayCommand<object>(UpdateAbsence);
+        public ICommand JustifyAbsenceCommand => new RelayCommand<object>(JustifyAbsence);
     }
 }

@@ -1,4 +1,5 @@
-﻿using SchoolPlatform.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SchoolPlatform.Data;
 using SchoolPlatform.Models;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,14 @@ namespace SchoolPlatform.DAL
             return _dbContext.Absences
                 .Where(g => g.Student.StudentId == studentId)
                 .Where(g => g.Subject.SubjectId == subjectId)
+                .ToList();
+        }
+
+        public List<Absence> GetAllAbsencesOverall(int studentId)
+        {
+            return _dbContext.Absences
+                .Where(g => g.Student.StudentId == studentId)
+                .Include(c => c.Subject)
                 .ToList();
         }
 
@@ -48,6 +57,17 @@ namespace SchoolPlatform.DAL
             if (dbEntity != null)
             {
                 dbEntity.AbsenceDate = absence.AbsenceDate;
+                dbEntity.IsJustified = absence.IsJustified;
+                _dbContext.SaveChanges();
+            }
+        }
+
+        public void UpdateAbsenceOnly(Absence absence, int id)
+        {
+            var dbEntity = GetAbsenceById(id);
+
+            if (dbEntity != null)
+            {
                 dbEntity.IsJustified = absence.IsJustified;
                 _dbContext.SaveChanges();
             }

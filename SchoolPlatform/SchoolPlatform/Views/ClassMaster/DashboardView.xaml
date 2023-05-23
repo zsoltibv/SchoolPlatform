@@ -35,7 +35,7 @@
                 </ListView.View>
             </ListView>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,509,0,10">
-                <Button Command="{Binding OpenManageAbsencesWindowCommand}" Content="View Absences" Width="100" Margin="5"/>
+                <Button Command="{Binding OpenMotivateAbsencesWindowCommand}" Content="View Absences" Width="100" Margin="5"/>
             <Button Command="{Binding OpenManageAveragesWindowCommnad}" Content="View Averages" Width="100" Margin="5"/>
         </StackPanel>
         </Grid>
