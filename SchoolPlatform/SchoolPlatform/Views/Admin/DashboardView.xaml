@@ -88,6 +88,7 @@
                             <GridView>
                                 <GridViewColumn Header="Specialization" DisplayMemberBinding="{Binding Specialization.SpecializationName}" Width="100"/>
                                 <GridViewColumn Header="Year of study" DisplayMemberBinding="{Binding YearOfStudy.Year}" Width="100"/>
+                                <GridViewColumn Header="Class Master" DisplayMemberBinding="{Binding ClassMaster.ProfessorName}" Width="100"/>
                             </GridView>
                         </ListView.View>
                     </ListView>

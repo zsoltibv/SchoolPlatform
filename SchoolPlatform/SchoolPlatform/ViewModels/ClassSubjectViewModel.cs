@@ -42,6 +42,16 @@ namespace SchoolPlatform.ViewModels
                 NotifyPropertyChanged(nameof(SelectedProfessor));
             }
         }
+        private Professor _selectedClassMaster;
+        public Professor SelectedClassMaster
+        {
+            get { return _selectedClassMaster; }
+            set
+            {
+                _selectedClassMaster = value;
+                NotifyPropertyChanged(nameof(SelectedClassMaster));
+            }
+        }
 
         public ClassSubjectViewModel(Models.Class selectedClass) { 
             SelectedClass = selectedClass;
@@ -63,6 +73,7 @@ namespace SchoolPlatform.ViewModels
                 Professor = SelectedProfessor,
                 Class = SelectedClass,
                 Subject = SelectedSubject
+
             };
             _classSubjectDataAccess.AddClassSubject(classSubject);
 

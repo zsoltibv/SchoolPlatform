@@ -32,5 +32,32 @@ namespace SchoolPlatform
             optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=SchoolPlatform;Trusted_Connection=True;");
             base.OnConfiguring(optionsBuilder);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ClassSubject>()
+        .HasOne(cs => cs.Class)
+        .WithMany()
+        .HasForeignKey(cs => cs.ClassId)
+        .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ClassSubject>()
+                .HasOne(cs => cs.Subject)
+                .WithMany()
+                .HasForeignKey(cs => cs.SubjectId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ClassSubject>()
+                .HasOne(cs => cs.Professor)
+                .WithMany()
+                .HasForeignKey(cs => cs.ProfessorId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Class>()
+                .HasOne(c => c.ClassMaster)
+                .WithMany()
+                .HasForeignKey(c => c.ClassMasterId)
+                .OnDelete(DeleteBehavior.NoAction);
+        }
     }
 }

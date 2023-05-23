@@ -88,11 +88,17 @@ namespace SchoolPlatform.Migrations
                     ClassId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SpecializationId = table.Column<int>(nullable: false),
-                    YearOfStudyId = table.Column<int>(nullable: false)
+                    YearOfStudyId = table.Column<int>(nullable: false),
+                    ClassMasterId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Classes", x => x.ClassId);
+                    table.ForeignKey(
+                        name: "FK_Classes_Professors_ClassMasterId",
+                        column: x => x.ClassMasterId,
+                        principalTable: "Professors",
+                        principalColumn: "ProfessorId");
                     table.ForeignKey(
                         name: "FK_Classes_Specializations_SpecializationId",
                         column: x => x.SpecializationId,
@@ -115,7 +121,8 @@ namespace SchoolPlatform.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ClassId = table.Column<int>(nullable: false),
                     SubjectId = table.Column<int>(nullable: false),
-                    ProfessorId = table.Column<int>(nullable: false)
+                    ProfessorId = table.Column<int>(nullable: false),
+                    ClassMasterId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -125,19 +132,24 @@ namespace SchoolPlatform.Migrations
                         column: x => x.ClassId,
                         principalTable: "Classes",
                         principalColumn: "ClassId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ClassSubjects_Professors_ClassMasterId",
+                        column: x => x.ClassMasterId,
+                        principalTable: "Professors",
+                        principalColumn: "ProfessorId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ClassSubjects_Professors_ProfessorId",
                         column: x => x.ProfessorId,
                         principalTable: "Professors",
-                        principalColumn: "ProfessorId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProfessorId");
                     table.ForeignKey(
                         name: "FK_ClassSubjects_Subjects_SubjectId",
                         column: x => x.SubjectId,
                         principalTable: "Subjects",
                         principalColumn: "SubjectId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -272,6 +284,11 @@ namespace SchoolPlatform.Migrations
                 column: "SubjectId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Classes_ClassMasterId",
+                table: "Classes",
+                column: "ClassMasterId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Classes_SpecializationId",
                 table: "Classes",
                 column: "SpecializationId");
@@ -285,6 +302,11 @@ namespace SchoolPlatform.Migrations
                 name: "IX_ClassSubjects_ClassId",
                 table: "ClassSubjects",
                 column: "ClassId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ClassSubjects_ClassMasterId",
+                table: "ClassSubjects",
+                column: "ClassMasterId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ClassSubjects_ProfessorId",
@@ -337,9 +359,6 @@ namespace SchoolPlatform.Migrations
                 name: "Grades");
 
             migrationBuilder.DropTable(
-                name: "Professors");
-
-            migrationBuilder.DropTable(
                 name: "Students");
 
             migrationBuilder.DropTable(
@@ -349,13 +368,16 @@ namespace SchoolPlatform.Migrations
                 name: "Classes");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Professors");
 
             migrationBuilder.DropTable(
                 name: "Specializations");
 
             migrationBuilder.DropTable(
                 name: "YearOfStudies");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

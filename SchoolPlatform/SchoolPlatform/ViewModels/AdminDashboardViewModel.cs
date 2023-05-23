@@ -53,6 +53,7 @@ namespace SchoolPlatform.ViewModels
         public void Refresh()
         {
             _studentViewModel.RefreshClassList();
+            _classViewModel.RefreshClassMasterList();
         }
     }
 }

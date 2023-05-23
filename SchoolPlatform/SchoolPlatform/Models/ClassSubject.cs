@@ -90,5 +90,28 @@ namespace SchoolPlatform.Models
                 NotifyPropertyChanged("Professor");
             }
         }
+
+        private int _classMasterId;
+        public int ClassMasterId
+        {
+            get { return _classMasterId; }
+            set
+            {
+                _classMasterId = value;
+                NotifyPropertyChanged("ClassMasterId");
+            }
+        }
+
+        [ForeignKey("ClassMasterId")]
+        private Professor _classMaster;
+        public Professor ClassMaster
+        {
+            get { return _classMaster; }
+            set
+            {
+                _classMaster = value;
+                NotifyPropertyChanged("ClassMaster");
+            }
+        }
     }
 }

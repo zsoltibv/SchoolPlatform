@@ -48,6 +48,8 @@ namespace SchoolPlatform.DAL
                 dbEntity.SpecializationId = c.SpecializationId;
                 dbEntity.YearOfStudy = c.YearOfStudy;
                 dbEntity.YearOfStudyId = c.YearOfStudyId;
+                dbEntity.ClassMaster = c.ClassMaster;
+                dbEntity.ClassMasterId = c.ClassMasterId;
                 _dbContext.SaveChanges();
             }
         }

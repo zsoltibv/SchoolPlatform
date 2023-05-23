@@ -23,6 +23,13 @@ namespace SchoolPlatform.DAL
             return _dbContext.Professors.ToList();
         }
 
+        public List<Professor> GetAllClassMasters()
+        {
+            return _dbContext.Professors
+                .Where(p => p.User.UserType == UserType.ClassMaster)
+                .ToList();
+        }
+
         public Professor GetProfessorById(int id)
         {
             return _dbContext.Professors.FirstOrDefault(u => u.ProfessorId == id);

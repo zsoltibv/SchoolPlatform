@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using SchoolPlatform.Views.Class;
 using SchoolPlatform.Views.Admin;
+using System.Security.RightsManagement;
 
 namespace SchoolPlatform.ViewModels
 {
@@ -17,6 +18,7 @@ namespace SchoolPlatform.ViewModels
         private SpecializationDataAccess _specializationDataAccess;
         private YearDataAccess _yearDataAccess;
         public ClassDataAccess _classDataAccess;
+        public ProfessorDataAccess _professorDataAccess;
 
         private ObservableCollection<Class> _classes;
         public ObservableCollection<Class> Classes
@@ -30,6 +32,17 @@ namespace SchoolPlatform.ViewModels
         }
         public ObservableCollection<YearOfStudy> YearOfStudies { get; set; }
         public ObservableCollection<Specialization> Specializations { get; set; }
+        private ObservableCollection<Professor> _classMasters;
+        public ObservableCollection<Professor> ClassMasters
+        {
+            get { return _classMasters; }
+            set
+            {
+                _classMasters = value;
+                NotifyPropertyChanged("ClassMasters");
+            }
+        }
+
         public bool EditMode { get; set; }
         public Class NewClass { get; set; }
         public Class SelectedClass { get; set; }
@@ -40,9 +53,11 @@ namespace SchoolPlatform.ViewModels
             _yearDataAccess = new YearDataAccess();
             _specializationDataAccess = new SpecializationDataAccess();
             _classDataAccess = new ClassDataAccess();
+            _professorDataAccess = new ProfessorDataAccess();
             Classes = new ObservableCollection<Class>(_classDataAccess.GetAllClasses());   
             YearOfStudies = new ObservableCollection<YearOfStudy>(_yearDataAccess.GetAllYearsOfStudy());
             Specializations = new ObservableCollection<Specialization>(_specializationDataAccess.GetAllSpecializations());
+            ClassMasters = new ObservableCollection<Professor>(_professorDataAccess.GetAllClassMasters());
         }
 
         public void AddClass(object param)
@@ -73,7 +88,14 @@ namespace SchoolPlatform.ViewModels
             NewClass.Specialization = SelectedClass.Specialization;
             NewClass.SpecializationId = SelectedClass.SpecializationId;
             NewClass.YearOfStudy = SelectedClass.YearOfStudy;
-            NewClass.YearOfStudyId = SelectedClass.YearOfStudyId;   
+            NewClass.YearOfStudyId = SelectedClass.YearOfStudyId;
+            NewClass.ClassMaster = SelectedClass.ClassMaster;
+            NewClass.ClassMasterId = SelectedClass.ClassMasterId;
+        }
+
+        public void RefreshClassMasterList()
+        {
+            ClassMasters = new ObservableCollection<Professor>(_professorDataAccess.GetAllClassMasters());
         }
 
         public void OpenAddOrEditWindow(object param)

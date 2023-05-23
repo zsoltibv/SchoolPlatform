@@ -8,13 +8,15 @@
         Title="AddOrEditClass" Height="450" Width="800">
     <Grid>
         <ComboBox FontSize="18px" ItemsSource="{Binding YearOfStudies}"
-            DisplayMemberPath="Year" SelectedItem="{Binding NewClass.YearOfStudy}" HorizontalAlignment="Left" Margin="315,164,0,0" VerticalAlignment="Top" Width="162" Height="38"/>
+            DisplayMemberPath="Year" SelectedItem="{Binding NewClass.YearOfStudy}" HorizontalAlignment="Center" Margin="0,133,0,0" VerticalAlignment="Top" Width="280" Height="38"/>
         <ComboBox FontSize="18px" ItemsSource="{Binding Specializations}"
-            DisplayMemberPath="SpecializationName" SelectedItem="{Binding NewClass.Specialization}" HorizontalAlignment="Left" Margin="315,248,0,0" VerticalAlignment="Top" Width="162" Height="38"/>
-        <Label Content="Year of study:" HorizontalAlignment="Left" Margin="315,133,0,0" VerticalAlignment="Top"/>
-        <Label Content="Specialization:" HorizontalAlignment="Left" Margin="315,217,0,0" VerticalAlignment="Top"/>
-        <Button Command="{Binding AddOrEditClassCommand}" Click="Button_Click" Content="Add or edit class" HorizontalAlignment="Left" Margin="315,311,0,0" VerticalAlignment="Top" Height="39" Width="161"/>
-        <Label FontSize="24px" Content="Add or edit class&#xA;" HorizontalAlignment="Left" Margin="315,62,0,0" VerticalAlignment="Top" Height="44" Width="280"/>
+            DisplayMemberPath="SpecializationName" SelectedItem="{Binding NewClass.Specialization}" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Width="280" Height="38"/>
+        <Label Content="Year of study:" HorizontalAlignment="Left" Margin="260,102,0,0" VerticalAlignment="Top"/>
+        <Label Content="Specialization:" HorizontalAlignment="Left" Margin="260,186,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding AddOrEditClassCommand}" Click="Button_Click" Content="Add or edit class" HorizontalAlignment="Center" Margin="0,344,0,0" VerticalAlignment="Top" Height="39" Width="280"/>
+        <Label FontSize="24px" Content="Add or edit class&#xA;" HorizontalAlignment="Center" Margin="0,31,0,0" VerticalAlignment="Top" Height="44" Width="280"/>
+        <ComboBox ItemsSource="{Binding ClassMasters}" DisplayMemberPath="ProfessorName" SelectedItem="{Binding NewClass.ClassMaster}" FontSize="18px" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" Width="280" Height="35"/>
+        <Label Content="Class Master" HorizontalAlignment="Left" Margin="260,260,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
