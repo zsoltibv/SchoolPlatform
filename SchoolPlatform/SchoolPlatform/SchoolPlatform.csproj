@@ -238,6 +238,9 @@
     <Compile Include="Views\Admin\ManageSubjectsClass.xaml.cs">
       <DependentUpon>ManageSubjectsClass.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ClassMaster\DashboardView.xaml.cs">
+      <DependentUpon>DashboardView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Professor\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
@@ -268,6 +271,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\ManageSubjectsClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClassMaster\DashboardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -45,6 +45,13 @@ namespace SchoolPlatform.ViewModels
                     Views.Professor.DashboardView dashboardView = new Views.Professor.DashboardView();
                     dashboardView.Show();
                     login.Close();
+                }else if (user.UserType == UserType.ClassMaster)
+                {
+                    LoggedIn.Professor = _professorDataAccess
+                       .GetAllProfessors()
+                       .FirstOrDefault(p => p.User.UserId == user.UserId);
+                    Views.ClassMaster.DashboardView dashboardView = new Views.ClassMaster.DashboardView();
+                    dashboardView.Show();
                 }
                 else
                 {

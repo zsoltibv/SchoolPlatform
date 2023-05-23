@@ -325,3 +325,5 @@ C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolP
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\SchoolPlatform.csproj.CopyComplete
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\SchoolPlatform.exe
 C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\SchoolPlatform.pdb
+C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\ClassMaster\DashboardView.g.cs
+C:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\obj\Debug\Views\ClassMaster\DashboardView.baml
