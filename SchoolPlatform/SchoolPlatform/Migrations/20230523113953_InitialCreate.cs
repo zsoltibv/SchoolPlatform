@@ -121,8 +121,7 @@ namespace SchoolPlatform.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ClassId = table.Column<int>(nullable: false),
                     SubjectId = table.Column<int>(nullable: false),
-                    ProfessorId = table.Column<int>(nullable: false),
-                    ClassMasterId = table.Column<int>(nullable: false)
+                    ProfessorId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -132,24 +131,19 @@ namespace SchoolPlatform.Migrations
                         column: x => x.ClassId,
                         principalTable: "Classes",
                         principalColumn: "ClassId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ClassSubjects_Professors_ClassMasterId",
-                        column: x => x.ClassMasterId,
-                        principalTable: "Professors",
-                        principalColumn: "ProfessorId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ClassSubjects_Professors_ProfessorId",
                         column: x => x.ProfessorId,
                         principalTable: "Professors",
-                        principalColumn: "ProfessorId");
+                        principalColumn: "ProfessorId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ClassSubjects_Subjects_SubjectId",
                         column: x => x.SubjectId,
                         principalTable: "Subjects",
                         principalColumn: "SubjectId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -302,11 +296,6 @@ namespace SchoolPlatform.Migrations
                 name: "IX_ClassSubjects_ClassId",
                 table: "ClassSubjects",
                 column: "ClassId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ClassSubjects_ClassMasterId",
-                table: "ClassSubjects",
-                column: "ClassMasterId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ClassSubjects_ProfessorId",

@@ -188,9 +188,9 @@
     <Compile Include="BaseNotification.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\DataContextSingleton.cs" />
-    <Compile Include="Migrations\20230523103032_InitialCreate.cs" />
-    <Compile Include="Migrations\20230523103032_InitialCreate.designer.cs">
-      <DependentUpon>20230523103032_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\20230523113953_InitialCreate.cs" />
+    <Compile Include="Migrations\20230523113953_InitialCreate.designer.cs">
+      <DependentUpon>20230523113953_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataContextModelSnapshot.cs" />
     <Compile Include="Models\Absence.cs" />
@@ -208,6 +208,7 @@
     <Compile Include="StoredProcedures\AverageTableSP.cs" />
     <Compile Include="ViewModels\AbsenceViewModel.cs" />
     <Compile Include="ViewModels\AdminDashboardViewModel.cs" />
+    <Compile Include="ViewModels\ClassMasterDashboardViewModel.cs" />
     <Compile Include="ViewModels\ClassViewModel.cs" />
     <Compile Include="ViewModels\GradeViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

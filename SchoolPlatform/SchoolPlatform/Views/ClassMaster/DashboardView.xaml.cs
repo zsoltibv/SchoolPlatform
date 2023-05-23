@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolPlatform.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,12 @@ namespace SchoolPlatform.Views.ClassMaster
     /// </summary>
     public partial class DashboardView : Window
     {
+        ClassMasterDashboardViewModel _classMasterDashboardViewModel;
         public DashboardView()
         {
             InitializeComponent();
+            _classMasterDashboardViewModel = new ClassMasterDashboardViewModel();
+            DataContext = _classMasterDashboardViewModel;
         }
     }
 }

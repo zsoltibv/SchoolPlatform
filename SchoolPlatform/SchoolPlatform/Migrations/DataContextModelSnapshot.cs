@@ -112,9 +112,6 @@ namespace SchoolPlatform.Migrations
                     b.Property<int>("ClassId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ClassMasterId")
-                        .HasColumnType("int");
-
                     b.Property<int>("ProfessorId")
                         .HasColumnType("int");
 
@@ -124,8 +121,6 @@ namespace SchoolPlatform.Migrations
                     b.HasKey("ClassSubjectId");
 
                     b.HasIndex("ClassId");
-
-                    b.HasIndex("ClassMasterId");
 
                     b.HasIndex("ProfessorId");
 
@@ -329,25 +324,19 @@ namespace SchoolPlatform.Migrations
                     b.HasOne("SchoolPlatform.Models.Class", "Class")
                         .WithMany()
                         .HasForeignKey("ClassId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SchoolPlatform.Models.Professor", "ClassMaster")
-                        .WithMany()
-                        .HasForeignKey("ClassMasterId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SchoolPlatform.Models.Professor", "Professor")
                         .WithMany()
                         .HasForeignKey("ProfessorId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SchoolPlatform.Models.Subject", "Subject")
                         .WithMany()
                         .HasForeignKey("SubjectId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 

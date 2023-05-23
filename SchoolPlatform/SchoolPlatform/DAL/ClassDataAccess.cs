@@ -1,5 +1,7 @@
-﻿using SchoolPlatform.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SchoolPlatform.Data;
 using SchoolPlatform.Models;
+using SchoolPlatform.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +21,14 @@ namespace SchoolPlatform.DAL
         public List<Class> GetAllClasses()
         {
             return _dbContext.Classes.ToList();
+        }
+
+        public Class GetProfessorClass(int id)
+        {
+            return _dbContext.Classes
+               .Include(c => c.Specialization)
+               .Include(c => c.YearOfStudy)
+               .FirstOrDefault(c => c.ClassMasterId == id);
         }
 
         public Class GetClassById(int id)
