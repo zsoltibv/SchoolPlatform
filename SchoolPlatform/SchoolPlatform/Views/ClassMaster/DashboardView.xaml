@@ -7,6 +7,30 @@
         mc:Ignorable="d"
         Title="DashboardView" Height="600" Width="1000">
     <Grid>
-        
-    </Grid>
+        <Label FontSize="24px" Content="Classes" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="104"/>
+            <ListView ItemsSource="{Binding Classes}" SelectedItem="{Binding SelectedClass}" Margin="10,69,10,80">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Height" Value="35"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.Resources>
+                    <Style TargetType="GridViewColumnHeader">
+                        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                    </Style>
+                </ListView.Resources>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Specialization" DisplayMemberBinding="{Binding Specialization.SpecializationName}" Width="100"/>
+                        <GridViewColumn Header="Year of study" DisplayMemberBinding="{Binding YearOfStudy.Year}" Width="100"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,509,0,15">
+                <Button Command="{Binding OpenAddOrEditWindowCommand}" CommandParameter="0" Content="Add Class" Width="100" Margin="5"/>
+                <Button Command="{Binding DeleteClassCommand}" CommandParameter="{Binding }" Content="Delete Class" Width="100" Margin="5"/>
+                <Button Command="{Binding OpenAddOrEditWindowCommand}" CommandParameter="1" Content="Edit Class" Width="100" Margin="5"/>
+                <Button Command="{Binding OpenSubjectsWindowCommand}" Content="View Assigned Subjects" Width="145" Margin="5"/>
+            </StackPanel>
+        </Grid>
 </Window>
