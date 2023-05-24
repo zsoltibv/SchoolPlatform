@@ -94,16 +94,25 @@ namespace SchoolPlatform.DAL
 
         public static void SeedStoredProcedures(DataContext context)
         {
-            //seed stores procedures
+            //Seed stores procedures
             var averageTableSP = new AverageTableSP(context);
+            var professorTableSP = new ProfessorTableSP(context);
 
-            // Call the methods to create stored procedures
+            // Call average table stored procedures
             averageTableSP.CreateAddAverageStoredProcedure();
             averageTableSP.CreateDeleteAverageStoredProcedure();
             averageTableSP.CreateUpdateAverageStoredProcedure();
             averageTableSP.CreateGetAveragesStoredProcedure();
             averageTableSP.CreateGetAverageByIdStoredProcedure();
             averageTableSP.CreateGetAllAveragesStoredProcedure();
+
+            // Call professor table stored procedures
+            professorTableSP.CreateGetAllClassMastersStoredProcedure();
+            professorTableSP.CreateGetAllProfessorsStoredProcedure();
+            professorTableSP.CreateGetProfessorByIdStoredProcedure();
+            professorTableSP.CreateDeleteProfessorStoredProcedure();
+            professorTableSP.CreateUpdateProfessorStoredProcedure();
+            professorTableSP.CreateAddProfessorStoredProcedure();
         }
     }
 }

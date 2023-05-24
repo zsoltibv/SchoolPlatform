@@ -1,4 +1,6 @@
-﻿using SchoolPlatform.Data;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using SchoolPlatform.Data;
 using SchoolPlatform.Models;
 using System;
 using System.Collections.Generic;
@@ -10,52 +12,52 @@ namespace SchoolPlatform.DAL
 {
     public class ProfessorDataAccess
     {
-        UserDataAccess _userDataAccess;
         private readonly DataContext _dbContext;
         public ProfessorDataAccess()
         {
             _dbContext = DataContextSingleton.Instance;
-            _userDataAccess = new UserDataAccess();
         }
 
         public List<Professor> GetAllProfessors()
         {
-            return _dbContext.Professors.ToList();
+            string query = "EXEC GetAllProfessors";
+            return _dbContext.Professors.FromSqlRaw(query).ToList();
         }
 
         public List<Professor> GetAllClassMasters()
         {
-            return _dbContext.Professors
-                .Where(p => p.User.UserType == UserType.ClassMaster)
-                .ToList();
+            string query = "EXEC GetAllClassMasters";
+            return _dbContext.Professors.FromSqlRaw(query).ToList();
         }
 
         public Professor GetProfessorById(int id)
         {
-            return _dbContext.Professors.FirstOrDefault(u => u.ProfessorId == id);
+            string query = "EXEC GetProfessorById @Id";
+            var idParam = new SqlParameter("@Id", id);
+            return _dbContext.Professors.FromSqlRaw(query, idParam).FirstOrDefault();
         }
 
         public void AddProfessor(Professor professor)
         {
-            _dbContext.Professors.Add(professor);
-            _dbContext.SaveChanges();
+            string query = "EXEC AddProfessor @ProfessorName, @UserId";
+            var professorNameParam = new SqlParameter("@ProfessorName", professor.ProfessorName);
+            var userIdParam = new SqlParameter("@UserId", professor.UserId);
+            _dbContext.Database.ExecuteSqlRaw(query, professorNameParam, userIdParam);
         }
 
         public void DeleteProfessor(Professor professor)
         {
-            _dbContext.Professors.Remove(professor);
-            _dbContext.SaveChanges();
+            string query = "EXEC DeleteProfessor @Id";
+            var idParam = new SqlParameter("@Id", professor.ProfessorId);
+            _dbContext.Database.ExecuteSqlRaw(query, idParam);
         }
 
         public void UpdateProfessor(Professor professor, int id)
         {
-            var dbEntity = GetProfessorById(id);
-
-            if (dbEntity != null)
-            {
-                dbEntity.ProfessorName = professor.ProfessorName;
-                _dbContext.SaveChanges();
-            }
+            string query = "EXEC UpdateProfessor @Id, @ProfessorName";
+            var idParam = new SqlParameter("@Id", id);
+            var professorNameParam = new SqlParameter("@ProfessorName", professor.ProfessorName);
+            _dbContext.Database.ExecuteSqlRaw(query, idParam, professorNameParam);
         }
     }
 }
