@@ -78,6 +78,22 @@ namespace SchoolPlatform.StoredProcedures
             _dbContext.Database.ExecuteSqlRaw(getAveragesProcedureSql);
         }
 
+        public void CreateGetAllAveragesStoredProcedure()
+        {
+            string getAveragesProcedureSql = @"
+            CREATE PROCEDURE GetAllAverages
+                @StudentId INT
+            AS
+            BEGIN
+                SELECT Averages.*, Subjects.SubjectName
+                FROM Averages
+                INNER JOIN Subjects ON Averages.SubjectId = Subjects.SubjectId
+                WHERE Averages.StudentId = @StudentId;
+            END";
+
+            _dbContext.Database.ExecuteSqlRaw(getAveragesProcedureSql);
+        }
+
         public void CreateGetAverageByIdStoredProcedure()
         {
             string getAverageByIdProcedureSql = @"

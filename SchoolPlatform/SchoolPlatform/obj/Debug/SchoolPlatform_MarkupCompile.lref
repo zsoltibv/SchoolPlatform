@@ -1,14 +1,15 @@
 ﻿
 
-FC:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Admin\DashboardView.xaml;;
-FC:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Auth\LoginView.xaml;;
-FC:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Admin\AddOrEditClass.xaml;;
-FC:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Admin\AddOrEditProfessor.xaml;;
-FC:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Admin\AddOrEditStudent.xaml;;
-FC:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Admin\ManageSubjectsClass.xaml;;
-FC:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\ClassMaster\DashboardView.xaml;;
-FC:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\ClassMaster\MotivateAbsences.xaml;;
-FC:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Professor\DashboardView.xaml;;
-FC:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Professor\ManageAbsences.xaml;;
-FC:\Users\zsolti\Desktop\Facultate\An2\Semestrul2\MVP\Teme\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Professor\ManageGrades.xaml;;
+FV:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Admin\DashboardView.xaml;;
+FV:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Auth\LoginView.xaml;;
+FV:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Admin\AddOrEditClass.xaml;;
+FV:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Admin\AddOrEditProfessor.xaml;;
+FV:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Admin\AddOrEditStudent.xaml;;
+FV:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Admin\ManageSubjectsClass.xaml;;
+FV:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\ClassMaster\DashboardView.xaml;;
+FV:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\ClassMaster\MotivateAbsences.xaml;;
+FV:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\ClassMaster\ViewAverages.xaml;;
+FV:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Professor\DashboardView.xaml;;
+FV:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Professor\ManageAbsences.xaml;;
+FV:\Facultate\An2\Semestrul2\MVP\SchoolPlatform\SchoolPlatform\SchoolPlatform\Views\Professor\ManageGrades.xaml;;
 

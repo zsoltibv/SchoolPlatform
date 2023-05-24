@@ -103,6 +103,7 @@ namespace SchoolPlatform.DAL
             averageTableSP.CreateUpdateAverageStoredProcedure();
             averageTableSP.CreateGetAveragesStoredProcedure();
             averageTableSP.CreateGetAverageByIdStoredProcedure();
+            averageTableSP.CreateGetAllAveragesStoredProcedure();
         }
     }
 }

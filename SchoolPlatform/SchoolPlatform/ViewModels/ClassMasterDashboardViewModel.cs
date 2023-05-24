@@ -55,10 +55,10 @@ namespace SchoolPlatform.ViewModels
 
         public void OpenAveragesWindow(object param)
         {
-
+            ViewAverages window = new ViewAverages(SelectedStudent); window.ShowDialog();   
         }
 
-        public ICommand OpenManageAveragesWindowCommnad => new RelayCommand<object>(OpenAveragesWindow);
+        public ICommand OpenViewAveragesWindowCommnad => new RelayCommand<object>(OpenAveragesWindow);
         public ICommand OpenMotivateAbsencesWindowCommand => new RelayCommand<object>(OpenAbsencesWindow);
     }
 }

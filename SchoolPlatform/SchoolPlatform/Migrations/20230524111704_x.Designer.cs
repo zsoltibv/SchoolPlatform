@@ -10,8 +10,8 @@ using SchoolPlatform;
 namespace SchoolPlatform.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230523113953_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230524111704_x")]
+    partial class x
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

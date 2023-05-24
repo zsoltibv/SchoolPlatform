@@ -52,6 +52,7 @@ namespace SchoolPlatform.ViewModels
                        .FirstOrDefault(p => p.User.UserId == user.UserId);
                     Views.ClassMaster.DashboardView dashboardView = new Views.ClassMaster.DashboardView();
                     dashboardView.Show();
+                    login.Close();
                 }
                 else
                 {

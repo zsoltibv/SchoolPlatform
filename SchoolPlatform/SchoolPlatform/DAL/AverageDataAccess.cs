@@ -30,6 +30,30 @@ namespace SchoolPlatform.DAL
             return averages.FirstOrDefault();
         }
 
+        public List<Average> GetAverages(int studentId)
+        {
+            var studentIdParam = new SqlParameter("@StudentId", studentId);
+
+            string query = "EXEC GetAllAverages @StudentId";
+
+            var averages = _dbContext.Averages
+                .FromSqlRaw(query, studentIdParam)
+                .ToList();
+
+            var subjectIds = averages.Select(a => a.SubjectId).Distinct().ToList();
+
+            var subjects = _dbContext.Subjects
+                .Where(s => subjectIds.Contains(s.SubjectId))
+                .ToList();
+
+            foreach (var average in averages)
+            {
+                average.Subject = subjects.FirstOrDefault(s => s.SubjectId == average.SubjectId);
+            }
+
+            return averages;
+        }
+
         public Average GetAverageById(int id)
         {
             var parameter = new SqlParameter("@Id", id);
